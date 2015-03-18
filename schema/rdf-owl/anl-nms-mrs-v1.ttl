@@ -1,0 +1,247 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix nml: <http://schemas.ogf.org/nml/2013/03/base#>.
+@prefix mrs: <http://schemas.ogf.org/mrs/2013/12/topology#>.
+
+<http://www.anl.gov/mrs/2013/topology#> a owl:Ontology;
+    rdfs:label "NML-MRS Description of the ANL Research Infrastructure".
+
+
+<urn:ogf:network:rains.anl.gov:2013:topology>
+    a   nml:Topology,
+        owl:NamedIndividual;
+    nml:hasNode
+        <urn:ogf:network:rains.anl.gov:2013:anl-mx960>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-sdn240>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500>.
+
+
+# 1. Magellan Juniper ex4500 L2 Switch
+# Modeling:  Switching Node for L2 networking.
+# 40G LAG Port to SDN240 
+# Services:  SwitchingService
+
+
+<urn:ogf:network:rains.anl.gov:2013:anl-ex4500>
+    a   nml:Node,
+        owl:NamedIndividual;
+    nml:hasBidirectionalPort
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-0/0/33>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-0/0/38>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-1/0/38>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-1/0/39>;
+    nml:hasService 
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:switching-service>.                                
+
+<urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-0/0/33>
+    a   nml:BidirectionalPort,
+        owl:NamedIndividual;
+    nml:hasLabelGroup [
+            a   nml:LabelGroup;
+            nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+            nml:values "25,739,741,742"^^xsd:string];
+    nml:isAlias <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 12/5>.
+
+<urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-0/0/38>
+    a   nml:BidirectionalPort,
+        owl:NamedIndividual;
+    nml:hasLabelGroup [
+            a   nml:LabelGroup;
+            nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+            nml:values "25,739,741,742"^^xsd:string];
+    nml:isAlias <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 12/6>.
+
+<urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-1/0/38>
+    a   nml:BidirectionalPort,
+        owl:NamedIndividual;
+    nml:hasLabelGroup [
+            a   nml:LabelGroup;
+            nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+            nml:values "25,739,741,742"^^xsd:string];
+    nml:isAlias <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 15/1>.
+
+<urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-1/0/39>
+    a   nml:BidirectionalPort,
+        owl:NamedIndividual;
+    nml:hasLabelGroup [
+            a   nml:LabelGroup;
+            nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+            nml:values "25,739,741,742"^^xsd:string];
+    nml:isAlias <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 15/8>.
+
+<urn:ogf:network:rains.anl.gov:2013:anl-ex4500:switching-service>
+    a   nml:SwitchingService,
+        owl:NamedIndividual;
+    nml:encoding <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+    nml:labelSwapping "false"^^xsd:boolean;
+    nml:hasBidirectionalPort
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-0/0/33>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-0/0/38>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-1/0/38>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-1/0/39>.
+   
+        
+# 2. SDN240 Brocade MLXe16 L2/L3 Switch
+# Modeling:  Switching & Routing Node.
+# 40G LAG Port to anl-ex4500; 100G Port to anl-mx960 
+# Services:  SwitchingService, (De)AdaptationService, RoutingService
+
+<urn:ogf:network:rains.anl.gov:2013:anl-sdn240>
+    a   nml:Node,
+        owl:NamedIndividual;
+    nml:hasBidirectionalPort
+        <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 12/5>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 12/6>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 15/1>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 15/8>;
+    nml:hasService 
+        <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:switching-service>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:routing-service>.                                
+
+<urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 12/5>
+    a   nml:BidirectionalPort,
+        owl:NamedIndividual;
+    nml:hasLabelGroup [
+            a   nml:LabelGroup;
+            nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+            nml:values "25,739,741,742"^^xsd:string];
+    nml:isAlias <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 12/5>.
+
+<urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-0/0/38>
+    a   nml:BidirectionalPort,
+        owl:NamedIndividual;
+    nml:hasLabelGroup [
+            a   nml:LabelGroup;
+            nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+            nml:values "25,739,741,742"^^xsd:string];
+    nml:isAlias <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 12/6>.
+
+<urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-1/0/38>
+    a   nml:BidirectionalPort,
+        owl:NamedIndividual;
+    nml:hasLabelGroup [
+            a   nml:LabelGroup;
+            nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+            nml:values "25,739,741,742"^^xsd:string];
+    nml:isAlias <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 15/1>.
+
+<urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-1/0/39>
+    a   nml:BidirectionalPort,
+        owl:NamedIndividual;
+    nml:hasLabelGroup [
+            a   nml:LabelGroup;
+            nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+            nml:values "25,739,741,742"^^xsd:string];
+    nml:isAlias <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 15/8>.
+
+<urn:ogf:network:rains.anl.gov:2013:anl-ex4500:switching-service>
+    a   nml:SwitchingService,
+        owl:NamedIndividual;
+    nml:encoding <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+    nml:labelSwapping "false"^^xsd:boolean;
+    nml:hasBidirectionalPort
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-0/0/33>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-0/0/38>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-1/0/38>,
+        <urn:ogf:network:rains.anl.gov:2013:anl-ex4500:xe-1/0/39>.
+
+<urn:ogf:network:rains.anl.gov:2013:anl-sdn240:routing-service>
+    a   mrs:RoutingService,
+        owl:NamedIndividual;
+    mrs:localAddress "140.221.47.7/32";
+    mrs:providesRoute <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:route-to-wan>.
+
+<urn:ogf:network:rains.anl.gov:2013:anl-sdn240:route-to-wan>
+    a   mrs:Route;
+    mrs:prefix "0.0.0.0/0";
+    mrs:nextHop <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 1/1>.
+
+
+# 3. MX960 Juniper L2/L3 Switch
+# Modeling:  Switching & Routing Node.
+# 100G Port to anl-sdn240; 100G Port to ESnet/WAN
+# Services:  SwitchingService, (De)AdaptationService, RoutingService
+
+<urn:ogf:network:anchor.anl.gov:2013:anl-mx960>
+    a   nml:Node,
+        owl:NamedIndividual;
+    nml:hasBidirectionalPort
+        <urn:ogf:network:anchor.anl.gov:2013:anl-mx960:et-1/0/0>,
+        <urn:ogf:network:anchor.anl.gov:2013:anl-mx960:et-2/0/0>;
+    nml:hasService 
+        <urn:ogf:network:anchor.anl.gov:2013:anl-mx960:switching-service>,
+        <urn:ogf:network:anchor.anl.gov:2013:anl-mx960:routing-service>.                                
+
+<urn:ogf:network:anchor.anl.gov:2013:anl-mx960:et-2/0/0>
+    a   nml:BidirectionalPort,
+        owl:NamedIndividual;
+    nml:hasLabelGroup [
+            a   nml:LabelGroup;
+            nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+            nml:values "686"^^xsd:string];
+    nml:isAlias <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 1/1>.
+
+<urn:ogf:network:anchor.anl.gov:2013:anl-mx960:et-1/0/0>
+    a   nml:BidirectionalPort,
+        owl:NamedIndividual;
+    nml:hasLabelGroup [
+            a   nml:LabelGroup;
+            nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+            nml:values "686"^^xsd:string];
+    nml:isAlias <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 1/1>.
+
+<urn:ogf:network:anchor.anl.gov:2013:anl-mx960:switching-service>
+    a   nml:SwitchingService,
+        owl:NamedIndividual;
+    nml:encoding <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+    nml:labelSwapping "false"^^xsd:boolean;
+    nml:hasBidirectionalPort
+        <urn:ogf:network:anchor.anl.gov:2013:anl-mx960:et-1/0/0>,
+        <urn:ogf:network:anchor.anl.gov:2013:anl-mx960:et-2/0/0>.
+
+<urn:ogf:network:anchor.anl.gov:2013:anl-mx960:routing-service>
+    a   mrs:RoutingService,
+        owl:NamedIndividual;
+    mrs:localAddress "140.221.47.7/32";
+    mrs:providesRoute <urn:ogf:network:anchor.anl.gov:2013:anl-mx960:route-to-wan>.
+
+<urn:ogf:network:anchor.anl.gov:2013:anl-mx960:route-to-wan>
+    a   mrs:Route;
+    mrs:prefix "0.0.0.0/0";
+    mrs:nextHop <urn:ogf:network:anchor.anl.gov:2013:anl-mx960:et-1/0/0>.
+
+
+# 4. ANL IPNet
+# Modeling: Abstract L3 Topology with Ports to Magellan, ESnet and WAN.
+# Services:  RoutingService
+
+<urn:ogf:network:ipnet.anl.gov:2013:topology>
+    a   nml:Topology,
+        owl:NamedIndividual;
+    nml:hasBidirectionalPort
+        <urn:ogf:network:ipnet.anl.gov:2013:anl-mx960:et-2/0/0>;
+    nml:hasService <urn:ogf:network:ipnet.anl.gov:2013:routing-service>.
+
+<urn:ogf:network:ipnet.anl.gov:2013:anl-mx960:et-2/0/0>
+    a   nml:BidirectionalPort,
+        owl:NamedIndividual;
+    nml:hasLabelGroup [
+            a   nml:LabelGroup;
+            nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan>;
+            nml:values "686"^^xsd:string];
+    nml:isAlias <urn:ogf:network:rains.anl.gov:2013:anl-sdn240:eth 1/1>.
+
+<urn:ogf:network:ipnet.anl.gov:2013:routing-service>
+    a   mrs:RoutingService,
+        owl:NamedIndividual;
+    mrs:localAddress "192.5.170.6/32";
+    mrs:providesRoute <urn:ogf:network:ipnet.anl.gov:2013:anl-mx960:route-to-wan>.
+
+<urn:ogf:network:ipnet.anl.gov:2013:anl-mx960:route-to-wan>
+    a   mrs:Route;
+    mrs:prefix "0.0.0.0/0"^^xsd:string;
+    mrs:nextHop [
+            a   mrs:Address;
+            mrs:prefix "0.0.0.0/0"^^xsd:string].
