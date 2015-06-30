@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ File:      nml-mrs-ext.xsd
+ Version:   $Id$
+ Purpose:   The Multi-Resource Service (MRS) extension of NML
+ -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://schemas.ogf.org/mrs/2013/12/topology#"
+    xmlns:nml="http://schemas.ogf.org/nml/2013/05/base#"
+    xmlns:mrs="http://schemas.ogf.org/mrs/2013/12/topology#"
+    elementFormDefault="qualified">
+    
+    <xs:import schemaLocation="http://ogf-nsi-project.googlecode.com/svn-history/r100/trunk/TopologyService/nmlbase.xsd"
+    namespace="http://schemas.ogf.org/nml/2013/05/base#"/>
+    
+    
+<!--
+ Service definitions
+ -->
+    
+    <xs:group name="MRService">
+        <xs:choice>
+            <xs:element  ref="mrs:GenericCapabilityService"/>
+            <xs:element  ref="mrs:VirtualSwitchService"/>
+            <xs:element  ref="mrs:RoutingService"/>
+            <xs:element  ref="mrs:HypervisorService"/>
+            <xs:element  ref="mrs:HypervisorBypassInterfaceService"/>
+            <xs:element  ref="mrs:ClusterNetworkService"/>
+            <xs:element  ref="mrs:StorageService"/>
+            <xs:element  ref="mrs:BlockStorageService"/>
+            <xs:element  ref="mrs:ObjectStorageService"/>
+            <xs:element  ref="mrs:IOPerformanceMeasurementService"/>
+            <xs:group  ref="mrs:AnyExtension"/>
+        </xs:choice>
+    </xs:group>
+    
+    
+    <xs:group name="AnyExtension">
+        <xs:sequence>
+            <xs:element name="extenstion">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    
+    
+    <xs:group name="GenericCapability">
+        <xs:sequence>
+            <xs:element  name="capacity" type="xs:string"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="capability" type="xs:string"  minOccurs="0"  maxOccurs="unbounded"/>
+            <xs:group  ref="mrs:AnyExtension"/>
+        </xs:sequence>
+    </xs:group>
+
+
+    <xs:complexType name="GenericCapabilityServiceType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:group  ref="mrs:GenericCapability"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="GenericCapabilityService"  type="mrs:GenericCapabilityServiceType"/>
+    
+    
+    <xs:group name="NetworkIOMetrics">
+        <xs:sequence>
+            <xs:element  name="line_rate_kbps"  type="xs:long" minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="average_rate_kbps"  type="xs:long" minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="peek_rate_kbps"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="burst_size_byte"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+        </xs:sequence>
+    </xs:group>
+    
+    <xs:group name="VirtualizationCapacityMetrics">
+        <xs:sequence>
+            <xs:element  name="num_core"  type="xs:int" minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="memory_mb"  type="xs:long" minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="disk_gb"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+        </xs:sequence>
+    </xs:group>
+    
+    <xs:group name="DiskIOMetrics">
+        <xs:sequence>
+            <xs:element  name="average_iops_4kb_read"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="average_iops_4kb_write"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="maximum_iops_4kb_read"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="maximum_iops_4kb_write"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="average_iops_8kb_read"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="average_iops_8kb_write"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="maximum_iops_8kb_read"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="maximum_iops_8kb_write"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="minimum_iops_4kb_read"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="minimum_iops_4kb_write"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="minimum_iops_8kb_read"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="minimum_iops_8kb_write"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="average_iops_64kb_read"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="average_iops_64kb_write"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="maximum_iops_64kb_read"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="maximum_iops_64kb_write"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="minimum_iops_64kb_read"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+            <xs:element  name="minimum_iops_64kb_write"  type="xs:long"  minOccurs="0"  maxOccurs="1"/>
+        </xs:sequence>
+    </xs:group>
+    
+    <xs:complexType name="VirtualSwitchServiceType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:group ref="mrs:NetworkIOMetrics"/>
+                    <xs:element  name="Relation"  type="mrs:VirtualSwitchServiceRelationType"  minOccurs="0"  maxOccurs="unbounded"/>
+                </xs:sequence>
+                <xs:attribute  name="type"  use="optional">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/topology#ovs"/>
+                            <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/topology#linux-bridge"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="VirtualSwitchService"  type="mrs:VirtualSwitchServiceType"/>
+    
+
+    <xs:complexType name="RoutingServiceType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:element  name="address" type="mrs:Ipv4PrefixType"  minOccurs="0"  maxOccurs="unbounded"/>
+                    <xs:element  name="Relation"  type="mrs:RoutingServiceRelationType"  minOccurs="0"  maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="RoutingService"  type="mrs:RoutingServiceType"/>
+    
+    
+    <xs:complexType name="HypervisorServiceType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:group ref="mrs:VirtualizationCapacityMetrics"/>
+                    <xs:element  name="Relation"  type="mrs:HypervisorServiceRelationType"  minOccurs="0"  maxOccurs="unbounded"/>
+                </xs:sequence>
+                <xs:attribute  name="type"  use="optional">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/topology#kvm"/>
+                            <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/topology#zen"/>
+                            <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/topology#lxc"/>
+                            <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/topology#openvz"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="HypervisorService"  type="mrs:HypervisorServiceType"/>
+    
+    
+    <xs:complexType name="HypervisorBypassInterfaceServiceType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:group ref="mrs:NetworkIOMetrics"/>
+                    <xs:element  name="Relation"  type="mrs:HypervisorBypassInterfaceServiceRelationType"  minOccurs="0"  maxOccurs="unbounded"/>
+                </xs:sequence>
+                <xs:attribute  name="type"  use="optional">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/topology#vm-fex"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="HypervisorBypassInterfaceService"  type="mrs:HypervisorBypassInterfaceServiceType"/>
+    
+    
+    <xs:complexType name="ClusterNetworkServiceType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:group ref="mrs:NetworkIOMetrics"/>
+                    <xs:element  name="Relation"  type="mrs:ClusterNetworkServiceRelationType"  minOccurs="0"  maxOccurs="unbounded"/>
+                </xs:sequence>
+                <xs:attribute  name="type"  use="optional">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/topology#ethernet"/>
+                            <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/topology#infiniband"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="ClusterNetworkService"  type="mrs:ClusterNetworkServiceType"/>
+    
+    
+    <xs:complexType name="StorageServiceType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:group ref="mrs:VirtualizationCapacityMetrics"/>
+                    <xs:element  name="Relation"  type="mrs:StorageServiceRelationType"  minOccurs="0"  maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="StorageService"  type="mrs:StorageServiceType"/>
+    
+    
+    <xs:complexType name="BlockStorageServiceType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:group ref="mrs:VirtualizationCapacityMetrics"/>
+                    <xs:element  name="Relation"  type="mrs:BlockStorageServiceRelationType"  minOccurs="0"  maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="BlockStorageService"  type="mrs:BlockStorageServiceType"/>
+    
+    
+    <xs:complexType name="ObjectStorageServiceType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:group ref="mrs:VirtualizationCapacityMetrics"/>
+                    <xs:element  name="Relation"  type="mrs:ObjectStorageServiceRelationType"  minOccurs="0"  maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="ObjectStorageService"  type="mrs:ObjectStorageServiceType"/>
+    
+    
+    <xs:complexType name="IOPerformanceMeasurementServiceType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:element  name="Relation"  type="mrs:IOPerformanceMeasurementServiceRelationType"  minOccurs="0"  maxOccurs="unbounded"/>
+                </xs:sequence>
+                <xs:attribute  name="type"  use="optional">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/topology#benchmark_spc1"/>
+                            <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/topology#simulation"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute  name="use_tool"  use="optional" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="IOPerformanceMeasurementService"  type="mrs:IOPerformanceMeasurementServiceType"/>
+    
+
+
+<!--
+ Relation definitions
+ -->
+    
+    <xs:group name="MRServiceRelation">
+        <xs:choice>
+            <xs:element  ref="mrs:GenericRelation"/>
+            <xs:element  ref="mrs:VirtualSwitchServiceRelation"/>
+            <xs:element  ref="mrs:RoutingServiceRelation"/>
+            <xs:element  ref="mrs:HypervisorServiceRelation"/>
+            <xs:element  ref="mrs:HypervisorBypassInterfaceServiceRelation"/>
+            <xs:element  ref="mrs:ClusterNetworkServiceRelation"/>
+            <xs:element  ref="mrs:StorageServiceRelation"/>
+            <xs:element  ref="mrs:BlockStorageServiceRelation"/>
+            <xs:element  ref="mrs:ObjectStorageServiceRelation"/>
+            <xs:element  ref="mrs:IOPerformanceMeasurementServiceRelation"/>
+            <xs:element  ref="mrs:VolumeRelation"/>
+            <xs:element  ref="mrs:BucketRelation"/>
+            <xs:group  ref="mrs:AnyExtension"/>
+        </xs:choice>
+    </xs:group>
+
+
+    <xs:complexType name="GenericRelationType">
+        <xs:choice>
+            <xs:group  ref="nml:Service"  minOccurs="0" maxOccurs="unbounded" />
+            <xs:group  ref="mrs:MRService" minOccurs="0" maxOccurs="unbounded" />
+        </xs:choice>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/nml/2013/05/base#hasService"/>
+                    <xs:enumeration  value="http://schemas.ogf.org/nml/2013/05/base#isAlias"/>
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#providedBy"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:element name="GenericRelation"  type="mrs:GenericRelationType"/>
+    
+    
+    <xs:complexType name="VirtualSwitchServiceRelationType">
+        <xs:sequence>
+            <xs:element  ref="nml:Port"  minOccurs="0"  maxOccurs="unbounded"/>
+            <xs:element  ref="nml:PortGroup"  minOccurs="0"  maxOccurs="unbounded"/>
+            <xs:element  ref="nml:BidirectionalPort"  minOccurs="0"  maxOccurs="unbounded"/>
+            <xs:element  ref="nml:SwitchingService"  minOccurs="0"  maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/nml/2013/05/base#providesPort"/>
+                    <xs:enumeration  value="http://schemas.ogf.org/nml/2013/05/base#hasService"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:element name="VirtualSwitchServiceRelation"  type="mrs:VirtualSwitchServiceRelationType"/>
+    
+    
+    <xs:complexType name="RoutingServiceRelationType">
+        <xs:sequence>
+            <xs:element  ref="nml:Port"  minOccurs="0"  maxOccurs="unbounded"/>
+            <xs:element  ref="nml:PortGroup"  minOccurs="0"  maxOccurs="unbounded"/>
+            <xs:element  ref="nml:BidirectionalPort"  minOccurs="0"  maxOccurs="unbounded"/>
+            <xs:element  ref="mrs:Route"  minOccurs="0"  maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort"/>
+                    <xs:enumeration  value="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort"/>
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#hasBidirectionalPort"/>
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#providesRoute"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:element name="RoutingServiceRelation"  type="mrs:RoutingServiceRelationType"/>
+    
+    
+    <xs:complexType name="HypervisorServiceRelationType">
+        <xs:sequence>
+            <xs:element  ref="nml:Node"  minOccurs="0"  maxOccurs="unbounded"/>
+            <xs:group  ref="mrs:MRService" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#providesVM"/>
+                    <xs:enumeration  value="http://schemas.ogf.org/nml/2013/05/base#hasService"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:element name="HypervisorServiceRelation"  type="mrs:HypervisorServiceRelationType"/>
+    
+    
+    <xs:complexType name="HypervisorBypassInterfaceServiceRelationType">
+        <xs:sequence>
+            <xs:element  ref="nml:Port"  minOccurs="0"  maxOccurs="unbounded"/>
+            <xs:element  ref="nml:BidirectionalPort"  minOccurs="0"  maxOccurs="unbounded"/>
+            <xs:group  ref="mrs:MRService" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#providesVNic"/>
+                    <xs:enumeration  value="http://schemas.ogf.org/nml/2013/05/base#hasService"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:element name="HypervisorBypassInterfaceServiceRelation"  type="mrs:HypervisorBypassInterfaceServiceRelationType"/>
+    
+    
+    <xs:complexType name="ClusterNetworkServiceRelationType">
+        <xs:sequence>
+            <xs:element  ref="nml:Port"  minOccurs="0"  maxOccurs="unbounded"/>
+            <xs:group  ref="mrs:MRService" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/nml/2013/05/base#providesPort"/>
+                    <xs:enumeration  value="http://schemas.ogf.org/nml/2013/05/base#hasService"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:element name="ClusterNetworkServiceRelation"  type="mrs:ClusterNetworkServiceRelationType"/>
+    
+    
+    <xs:complexType name="StorageServiceRelationType">
+        <xs:sequence>
+            <xs:group  ref="mrs:MRService" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/nml/2013/05/base#hasService"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:element name="StorageServiceRelation"  type="mrs:StorageServiceRelationType"/>
+    
+    
+    <xs:complexType name="BlockStorageServiceRelationType">
+        <xs:sequence>
+            <xs:element  ref="mrs:Volume" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element  ref="mrs:POSIX_IOBenchmark" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#providesVolume"/>
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#hasBenchmark"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:element name="BlockStorageServiceRelation"  type="mrs:BlockStorageServiceRelationType"/>
+    
+    
+    <xs:complexType name="ObjectStorageServiceRelationType">
+        <xs:sequence>
+            <xs:element  ref="mrs:Bucket"/>
+            <xs:element  ref="mrs:S3_IOBenchmark" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#providesBucket"/>
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#hasBenchmark"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:element name="ObjectStorageServiceRelation"  type="mrs:ObjectStorageServiceRelationType"/>
+    
+    
+    <xs:complexType name="IOPerformanceMeasurementServiceRelationType">
+        <xs:sequence>
+            <xs:element  ref="mrs:S3_IOBenchmark" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element  ref="mrs:POSIX_IOBenchmark"  minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#providesBenchmark"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:element name="IOPerformanceMeasurementServiceRelation"  type="mrs:IOPerformanceMeasurementServiceRelationType"/>
+    
+    
+    <xs:complexType name="VolumeRelationType">
+        <xs:sequence>
+            <xs:element  ref="mrs:POSIX_IOBenchmark" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#hasBenchmark"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:element name="VolumeRelation"  type="mrs:VolumeRelationType"/>
+    
+    
+    <xs:complexType name="BucketRelationType">
+        <xs:sequence>
+            <xs:element  ref="mrs:S3_IOBenchmark" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute  name="type"  use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration  value="http://schemas.ogf.org/mrs/2013/12/base#hasBenchmark"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:element name="BucketRelation"  type="mrs:BucketRelationType"/>
+    
+    
+    
+<!--
+ Resource Object definitions
+ -->
+    
+    <xs:simpleType name="Ipv4PrefixType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))"/>
+        </xs:restriction>
+    </xs:simpleType>    
+    
+    <xs:complexType name="RouteType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:element  name="prefix" type="mrs:Ipv4PrefixType"  minOccurs="0"  maxOccurs="unbounded" />
+                    <xs:element  name="next">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element  name="address" type="mrs:Ipv4PrefixType"  minOccurs="0"  maxOccurs="unbounded" />
+                                <xs:element  ref="nml:Port"  minOccurs="0"  maxOccurs="unbounded" />
+                                <xs:element  ref="nml:PortGroup"  minOccurs="0"  maxOccurs="unbounded" />
+                                <xs:element  ref="nml:BidirectionalPort"  minOccurs="0"  maxOccurs="unbounded" />
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="Route"  type="mrs:RouteType"/>
+
+
+    <xs:complexType name="VolumeType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:group ref="mrs:VirtualizationCapacityMetrics"/>
+                    <xs:element  name="Relation"  type="mrs:VolumeRelationType"  minOccurs="0"  maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+   
+    <xs:element name="Volume"  type="mrs:VolumeType"/>
+
+   
+   <xs:complexType name="BucketType">
+       <xs:complexContent>
+           <xs:extension  base="nml:NetworkObject">
+               <xs:sequence>
+                   <xs:group ref="mrs:VirtualizationCapacityMetrics"/>
+                   <xs:element name="maximum_object_size_gb" type="xs:long" minOccurs="0" maxOccurs="1"/>
+                   <xs:element  name="Relation"  type="mrs:BucketRelationType"  minOccurs="0"  maxOccurs="unbounded"/>
+               </xs:sequence>
+           </xs:extension>
+       </xs:complexContent>
+   </xs:complexType>
+
+    <xs:element name="Bucket"  type="mrs:BucketType"/>
+
+
+    <xs:complexType name="POSIX_IOBenchmarkType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <xs:group  ref="mrs:DiskIOMetrics"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="POSIX_IOBenchmark"  type="mrs:POSIX_IOBenchmarkType"/>
+    
+    
+    <xs:complexType name="S3_IOBenchmarkType">
+        <xs:complexContent>
+            <xs:extension  base="nml:NetworkObject">
+                <xs:sequence>
+                    <!-- 
+                    Use the same DiskIOMetrics as for POSIX IO.
+                    Need to be changed to more specific metrics such as transfer of large and small files / datasets.
+                     -->
+                    <xs:group  ref="mrs:DiskIOMetrics"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="S3_IOBenchmark"  type="mrs:S3_IOBenchmarkType"/>
+    
+
+</xs:schema>

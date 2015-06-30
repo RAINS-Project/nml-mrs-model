@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://schemas.ogf.org/mrs/2013/12/topology#" uri="nml-mrs-ext.owl"/>
+    <uri id="Imports Wizard Entry" name="http://schemas.ogf.org/nml/2013/03/base#" uri="nml-base-ext.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1396886888749" name="http://schemas.ogf.org/mrs/2013/12/topology" uri="nml-mrs-ext.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1396886888749" name="duplicate:http://schemas.ogf.org/nml/2013/03/base" uri="nml-base-ext.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1396886888749" name="duplicate:http://schemas.ogf.org/nml/2013/03/base" uri="nml-base.owl"/>
+    </group>
+</catalog>

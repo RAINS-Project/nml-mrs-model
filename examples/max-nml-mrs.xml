@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nml:Topology xmlns="http://schemas.ogf.org/nml/2013/05/base#"
+    xmlns:nml="http://schemas.ogf.org/nml/2013/05/base#"
+    xmlns:mrs="http://schemas.ogf.org/mrs/2013/12/topology#"
+    id="urn:ogf:network:rains.maxgigapop.net:2013:topology">
+    
+    <nml:name>rains.maxgigapop.net</nml:name>
+    
+    <!--
+     1. UCS based Multi-Service Exchange (MSX) platform
+     
+     1.1. UCS Blades 1 & 4
+     Modeling:  Each blade is a Node with 2x40G Port.
+     Services:  HypervisorService, VirtualSwitchService, HypervisorBypassInterfaceService, SwitchingService
+     -->
+    <nml:Node id ="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1">
+        <nml:name>msx1.sdnx.maxgigapop.net</nml:name>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g1:in">
+                <!-- management/control interface -->
+                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:eth0:in">
+                    <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2000-2099</nml:LabelGroup>
+                    <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                        <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:public:out" />
+                    </nml:Relation>
+                </nml:PortGroup>
+                <!-- data interface group 0 -->
+                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static0:in" />
+                <!-- data interface group 1 -->
+                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static1:in" />
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:1-4:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g2:in">
+                <!-- data interface group 2 -->
+                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static2:in">
+                </nml:PortGroup>
+                <!-- data interface group 3 -->
+                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static3:in" />
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:5-8:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g1:out">
+                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:eth0:out">
+                    <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2000-2099</nml:LabelGroup>
+                    <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                        <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:public:in" />
+                    </nml:Relation>
+                </nml:PortGroup>
+                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static0:out" />
+                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static1:out" />
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:1-4:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g2:out">
+                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static2:out" />
+                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static3:out" />
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:5-8:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        
+        <mrs:GenericRelation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+            <mrs:VirtualSwitchService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron"/>
+            <mrs:HypervisorService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-nova"/>
+            <mrs:HypervisorBypassInterfaceService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:sriov-vm-fex"/>
+        </mrs:GenericRelation>
+        
+        <mrs:VirtualSwitchService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron">
+            <mrs:Relation type="http://schemas.ogf.org/nml/2013/05/base#providesPort">
+                <nml:BidirectionalPort id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:public">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:public:in">
+                        <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2000-2099</nml:LabelGroup>
+                        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:eth0:out" />
+                        </nml:Relation>
+                    </nml:PortGroup>
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:public:out">
+                        <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2000-2099</nml:LabelGroup>
+                        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:eth0:in" />
+                        </nml:Relation>
+                    </nml:PortGroup>
+                </nml:BidirectionalPort>
+            </mrs:Relation>
+            <mrs:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+                <nml:SwitchingService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:ovs"
+                    encoding="http://schemas.ogf.org/nml/2012/10/ethernet#vlan"
+                    labelSwapping="false">
+                    <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+                        <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:public:in"/>
+                        <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:eth0:in"/>
+                    </nml:Relation>
+                    <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+                        <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:public:out"/>
+                        <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:eth0:out"/>
+                    </nml:Relation>
+                </nml:SwitchingService>
+            </mrs:Relation>
+        </mrs:VirtualSwitchService>
+        
+        <mrs:HypervisorService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-nova">
+            <!-- add VirtualizationCapabilityMetrics -->
+            <mrs:Relation type="http://schemas.ogf.org/mrs/2013/12/base#providesVM">
+                <!-- Nothing instantiated yet. When a VM (vm-1) is created, the following statement is added. -->
+            </mrs:Relation>
+        </mrs:HypervisorService>
+        
+        <mrs:HypervisorBypassInterfaceService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex">
+            <mrs:Relation type="http://schemas.ogf.org/mrs/2013/12/base#providesVNic">
+                <nml:BidirectionalPort id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static0">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static0:in" />
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static0:out" />
+                </nml:BidirectionalPort>
+                <nml:BidirectionalPort id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static1">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static1:in" />
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static1:out" />
+                </nml:BidirectionalPort>
+                <nml:BidirectionalPort id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static2">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static2:in" />
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static2:out" />
+                </nml:BidirectionalPort>
+                <nml:BidirectionalPort id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static3">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static3:in" />
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static3:out" />
+                </nml:BidirectionalPort>
+                <!-- More VNic can be added dynamically. When a VNic is added, it is also included in an above 40G PortGroup. -->
+            </mrs:Relation>
+        </mrs:HypervisorBypassInterfaceService>
+        
+        <!-- No SR-IOV interface instantiated yet. When a VM (vm-1) is created with an SR-IOV interface (eth2),
+         the following statement is added to connect it to a VNic (static0).
+         
+         <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+            <nml:SwitchingService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:sr-iov:1">
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static0:in" />
+                </nml:Relation>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-1:eth2:out" />
+                </nml:Relation>
+            </nml:SwitchingService>
+            <nml:SwitchingService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:sr-iov:2">
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-1:eth2:in" />
+                </nml:Relation>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static0:out" />
+                </nml:Relation>
+            </nml:SwitchingService>
+         </nml:Relation>
+         -->
+    </nml:Node>
+    
+    
+    <nml:Node id ="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-4">
+        <!-- similar to clpk-msx-1 ...skip... -->
+    </nml:Node>
+    
+    
+    <!--
+     1.2. UCS Fabric Interconnect & Nexus 5K Switch
+     Modeling:  Abstract switching Node including UCS FI A & B and Nexus Switch.
+     Hiding internal wiring and active+failover redundancy.
+     4x40G Port to blades + 40G LAG Port to Cisco 6509
+     Services:  SwitchingService
+     -->
+    <nml:Node id ="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <!-- port channel for msx-1:40g1 -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:1-4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g1:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <!-- port channel for msx-1:40g2 -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:5-8:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g2:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <!-- port channel for msx-4:40g1 -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:9-12:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-4:40g1:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <!-- port channel for msx-4:40g2 -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:13-16:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-4:40g2:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <!-- port channel to clpk-6509 -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:17-20:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11,313,314</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:1-4:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:1-4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g1:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:5-8:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g2:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:9-12:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-4:40g1:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:13-16:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-4:40g2:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:17-20:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11,313,314</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:1-4:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        
+        <!-- SwitchingService like the below is to be added to *plumb* Ports and VLANs across the UCS FI and Nexus.
+         
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+            <nml:SwitchingService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:switching-service">
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:1-4:in"/>
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:17-20:in"/>
+                </nml:Relation>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:1-4:out"/>
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:17-20:out"/>
+                </nml:Relation>
+            </nml:SwitchingService>
+        </nml:Relation>
+         
+         -->
+    </nml:Node>
+    
+    <!--
+     2. Cisco 6509 L2/L3 Switch
+     Modeling:  Switching Node for L2 and L3 networking.
+     40G LAG Port to UCS + 20G L3 LAG Port to MAX-IPNet
+     3x10G Port to Ceph Storage + 10G L2 Port to MAX-DRAGON
+     Services:  SwitchingService, (De)AdaptationService
+     -->
+    <nml:Node id ="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <!-- port channel to Nexus switch -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:1-4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11,313,314</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:17-20:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <!-- ports to Ceph storage server interfaces 1, 2 & 3-->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:8:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-1-eth0:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:9:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-2-eth0:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:10:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-3-eth0:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <!-- port to MAX-DRAGON -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:7:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-1-eth0:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <!-- port channel to MAX-IPNet -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:5-6:in">
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:xe-6-0-0:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:1-4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11,313,314</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:17-20:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <!-- ports to Ceph storage server -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:8:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-1-eth0:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:9:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-2-eth0:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:10:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-3-eth0:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <!-- port to MAX-DRAGON -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:7:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-2:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            
+            <!-- port to MAX-IPNet -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:5-6:out">
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:xe-6-0-0:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+
+        </nml:Relation>
+
+        <!-- Add SwitchingService to *plumb* Ports and VLANs across this Cisco 6509. -->
+        <!-- skip -->
+        
+        <!-- Layer3 configs-->
+        <mrs:GenericRelation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+            <mrs:RoutingService id="urn:ogf:network:rains.maxgigapop.net:2013:rains.maxgigapop.net:2013:clpk-6509:routing-service">
+                <mrs:address>206.196.178.66/27</mrs:address>
+                <mrs:Relation type="http://schemas.ogf.org/mrs/2013/12/base#providesRoute">
+                    <!-- route to Intenet through a Port -->
+                   <mrs:Route id="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:route-to-wan">
+                        <mrs:prefix>0.0.0.0/0</mrs:prefix>
+                        <mrs:next>
+                            <nml:BidirectionalPort id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:5-6">
+                                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:5-6:in" />
+                                <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:5-6:out" />
+                            </nml:BidirectionalPort>
+                        </mrs:next>
+                    </mrs:Route>
+                </mrs:Relation>
+            </mrs:RoutingService>
+        </mrs:GenericRelation>
+
+    </nml:Node>
+    
+    
+    <!--
+     3. Ceph Storage System
+     Modeling: Abstract storage Node.
+     3x10G Port + 108TB raw StorageService (all 108TB for BlockStorage)
+     Services:  StorageService, BlockStorageService, IOPerformanceMeasurementService
+     -->
+    <nml:Node id ="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <!-- ports to Cisco 6509 -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-1-eth0:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:8:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-2-eth0:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:9:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-3-eth0:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:10:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <!-- ports to Cisco 6509 -->
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-1-eth0:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:8:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-2-eth0:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:9:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-3-eth0:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">11</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:10:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        
+        <mrs:GenericRelation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+            <mrs:StorageService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:storage-service"/>
+            <mrs:BlockStorageService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:storage-service:block-1"/>
+            <mrs:IOPerformanceMeasurementService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:ioperf-service"/>
+        </mrs:GenericRelation>
+        
+        <mrs:StorageService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:storage-service">
+            <mrs:disk_gb>110592</mrs:disk_gb>
+            <mrs:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+                <mrs:BlockStorageService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:storage-service:block-1"/>
+            </mrs:Relation>
+        </mrs:StorageService>
+        
+        <mrs:BlockStorageService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:storage-service:block-1">
+            <mrs:disk_gb>110592</mrs:disk_gb>
+            <mrs:Relation type="http://schemas.ogf.org/mrs/2013/12/base#hasBenchmark">
+                <mrs:POSIX_IOBenchmark id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:ioperf-service:bench1"/>
+            </mrs:Relation>
+            <!-- Add Volume to below statement when allocated.
+             
+             <mrs:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+                <mrs:Volume> </mrs:Volume>
+             </mrs:Relation>
+             -->
+        </mrs:BlockStorageService>
+        
+        <mrs:IOPerformanceMeasurementService id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:ioperf-service">
+            <mrs:Relation type="http://schemas.ogf.org/mrs/2013/12/base#providesBenchmark">
+                <mrs:POSIX_IOBenchmark id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:ioperf-service:bench1">
+                    <mrs:average_iops_4kb_read>255000</mrs:average_iops_4kb_read>
+                    <mrs:average_iops_4kb_write>239000</mrs:average_iops_4kb_write>
+                    <!-- and more -->
+                </mrs:POSIX_IOBenchmark>
+            </mrs:Relation>
+        </mrs:IOPerformanceMeasurementService>
+        
+        <!-- Add ObjectStorageService and S3_IOBenchmark below when available. -->
+        
+    </nml:Node>
+    
+    <!--
+     4. MAX DRAGON
+     Modeling: L2 Topology with Node/Port at MCLN facing ESnet.
+     Services:  SwitchingService
+     -->
+    <nml:Topology id ="urn:ogf:network:dragon.maxgigapop.net:2013:topology">
+        <nml:Node id="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr">
+            <nml:name>clpk-vlsr.dragon.maxgigapop.net</nml:name>
+            <!-- port to Cisco 6509 -->
+            <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+                <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-2:in">
+                    <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                </nml:PortGroup>
+                <!-- port to I2 ION: urn:ogf:network:domain=ion.internet2.edu:node=rtr.newy:port=xe-0/1/1:link=* -->
+                <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-3:in">
+                    <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">550-569,3020-3030,3100-3109,3200-3219</nml:LabelGroup>
+                </nml:PortGroup>
+            </nml:Relation>
+            <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+                <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-2:out">
+                    <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+                </nml:PortGroup>
+                <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-3:out">
+                    <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">550-569,3020-3030,3100-3109,3200-3219</nml:LabelGroup>
+                </nml:PortGroup>
+            </nml:Relation>
+        </nml:Node>
+        
+        <!-- 
+         The above is for demonstration of Node usage in L2 network modeling.
+         The below uses only more abstract BidirectionalPort and Port/PortGroup modeling 
+         which is simipler when we do not care about control internal of the Node.
+         -->
+        <!-- A nominaml Port to connect to ESnet -->
+        <nml:BidirectionalPort id="urn:ogf:network:dragon.maxgigapop.net:2013:mcln-vlsr:1-2-1">
+            <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:mcln-vlsr:1-2-1:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2600-2799</nml:LabelGroup>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:mcln-vlsr:1-2-1:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2600-2799</nml:LabelGroup>
+            </nml:PortGroup>
+        </nml:BidirectionalPort>
+        
+        <!-- Just another Port -->
+        <nml:BidirectionalPort id="urn:ogf:network:dragon.maxgigapop.net:2013:dcne-vlsr:1-3-3">
+            <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:dcne-vlsr:1-3-3:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">300-319</nml:LabelGroup>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:dcne-vlsr:1-3-3:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">300-319</nml:LabelGroup>
+            </nml:PortGroup>
+        </nml:BidirectionalPort>
+        
+        <!-- Below defines a L2 service domain: All participating ports can connect by matching (or sawpping) labels -->
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+            <nml:SwitchingService id="urn:ogf:network:dragon.maxgigapop.net:2013:switching-service:l2:1"
+                encoding="http://schemas.ogf.org/nml/2012/10/ethernet#vlan"
+                labelSwapping="false">
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+                    <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-2:in"/>
+                    <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-3:in"/>
+                    <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:mcln-vlsr:1-2-1:in"/>
+                    <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:dcne-vlsr:1-3-3:in"/>
+                </nml:Relation>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+                    <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-2:out"/>
+                    <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-3:out"/>
+                    <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:mcln-vlsr:1-2-1:out"/>
+                    <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:dcne-vlsr:1-3-3:out"/>
+                </nml:Relation>
+            </nml:SwitchingService>
+        </nml:Relation>
+    </nml:Topology>
+    
+    
+    <!--
+     5. MAX IPNet
+     Modeling: Abstract L3 Topology with Ports to MAX members, I2 CPS and WAN.
+     Services:  SwitchingService
+     -->
+    <nml:Topology id ="urn:ogf:network:ipnet.maxgigapop.net:2013:topology">
+        <!-- Port to Cisco 6509 -->
+        <nml:BidirectionalPort id="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:xe-6-0-0">
+            <nml:PortGroup id="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:xe-6-0-0:in">
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:5-6:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:xe-6-0-0:out">
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:5-6:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:BidirectionalPort>
+        
+        <mrs:GenericRelation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+            <mrs:RoutingService id="urn:ogf:network:rains.maxgigapop.net:2013:ipnet.maxgigapop.net:2013:routing-service">
+                <mrs:address>206.196.177.248/26</mrs:address>
+                <!-- routing includes this port -->
+                <mrs:Relation type="http://schemas.ogf.org/mrs/2013/12/base#hasBidirectionalPort">
+                    <nml:BidirectionalPort id="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:xe-6-0-0">
+                        <nml:PortGroup id="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:xe-6-0-0:in"/>
+                        <nml:PortGroup id="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:xe-6-0-0:out"/>
+                    </nml:BidirectionalPort>
+                </mrs:Relation>
+                <mrs:Relation type="http://schemas.ogf.org/mrs/2013/12/base#providesRoute">
+                    <!-- 
+                     Consier this as source and sink of all Internet/WAN bound traffic. 
+                     Hide any WAN routes beyond this domain. So next=0.0.0.0/0.
+                     -->
+                    <mrs:Route id="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:route-to-wan">
+                        <mrs:prefix>0.0.0.0/0</mrs:prefix>
+                        <mrs:next>
+                            <mrs:address>0.0.0.0/0</mrs:address>
+                        </mrs:next>
+                    </mrs:Route>
+                    <!-- 
+                     Add  other local bound routes.
+                     -->
+                </mrs:Relation>
+            </mrs:RoutingService>
+        </mrs:GenericRelation>
+        
+    </nml:Topology>
+    
+</nml:Topology>

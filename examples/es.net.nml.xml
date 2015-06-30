@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nml:Topology xmlns:nml="http://schemas.ogf.org/nml/2013/05/base#" id="urn:ogf:network:es.net:2013">
+    <nml:name>es.net</nml:name>
+    <nml:BidirectionalPort id="urn:ogf:network:es.net:2013:ps:sunn:1">
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:ps:sunn:1:in"/>
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:ps:sunn:1:out"/>
+    </nml:BidirectionalPort>
+    <nml:BidirectionalPort id="urn:ogf:network:es.net:2013:anl:anl-mr2:1">
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:anl:anl-mr2:1:in"/>
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:anl:anl-mr2:1:out"/>
+    </nml:BidirectionalPort>
+    <nml:BidirectionalPort id="urn:ogf:network:es.net:2013:max:eqx-ash-rt1:1">
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:ps:max:eqx-ash-rt1:1:in"/>
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:ps:max:eqx-ash-rt1:1:out"/>
+    </nml:BidirectionalPort>
+    <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:ps:sunn:1:in">
+            <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1779-1799</nml:LabelGroup>
+        </nml:PortGroup>
+    </nml:Relation>
+    <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:ps:sunn:1:out">
+            <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1779-1799</nml:LabelGroup>
+        </nml:PortGroup>
+    </nml:Relation>
+    <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:anl:anl-mr2:1:in">
+            <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+        </nml:PortGroup>
+    </nml:Relation>
+    <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:anl:anl-mr2:1:out">
+            <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">2-4094</nml:LabelGroup>
+        </nml:PortGroup>
+    </nml:Relation>
+    <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:max:eqx-ash-rt1:1:in">
+            <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">3100-3299</nml:LabelGroup>
+            <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:mcln-vlsr:1-2-1:out"/>
+            </nml:Relation>
+        </nml:PortGroup>
+    </nml:Relation>
+    <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+        <nml:PortGroup id="urn:ogf:network:es.net:2013:max:eqx-ash-rt1:1:out">
+            <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">3100-3299</nml:LabelGroup>
+            <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                <nml:PortGroup id="urn:ogf:network:dragon.maxgigapop.net:2013:mcln-vlsr:1-2-1:in"/>
+            </nml:Relation>
+        </nml:PortGroup>
+    </nml:Relation>
+</nml:Topology>

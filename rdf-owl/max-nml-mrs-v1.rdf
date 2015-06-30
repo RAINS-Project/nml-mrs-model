@@ -1,0 +1,407 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:nml="http://schemas.ogf.org/nml/2013/03/base#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:mrs="http://schemas.ogf.org/mrs/2013/12/topology#">
+	<owl:Ontology rdf:about="http://www.maxgigapop.net/mrs/2013/topology#">
+		<rdfs:label>NML-MRS Description of the MAX Research Infrastructure</rdfs:label>
+	</owl:Ontology>
+	<nml:Topology rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:topology">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+		<nml:hasNode>
+			<nml:Node rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1">
+				<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+				<nml:hasBidirectionalPort>
+					<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g1">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:hasBidirectionalPort>
+							<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:eth0">
+								<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+								<nml:hasLabelGroup>
+									<nml:LabelGroup>
+										<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+										<nml:values>2000-2099</nml:values>
+									</nml:LabelGroup>
+								</nml:hasLabelGroup>
+								<nml:isAlias rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:public" />
+							</nml:BidirectionalPort>
+						</nml:hasBidirectionalPort>
+						<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static0" />
+						<nml:hasBidirectionalPort>
+							<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static1">
+								<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+								<nml:isAlias>
+									<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:1-4">
+										<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+										<nml:hasLabelGroup>
+											<nml:LabelGroup>
+												<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+												<nml:values>2-4094</nml:values>
+											</nml:LabelGroup>
+										</nml:hasLabelGroup>
+										<nml:isAlias rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g1" />
+									</nml:BidirectionalPort>
+								</nml:isAlias>
+							</nml:BidirectionalPort>
+						</nml:hasBidirectionalPort>
+					</nml:BidirectionalPort>
+				</nml:hasBidirectionalPort>
+				<nml:hasBidirectionalPort>
+					<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g2">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static2" />
+						<nml:hasBidirectionalPort>
+							<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static3">
+								<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+								<nml:isAlias>
+									<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:5-8">
+										<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+										<nml:hasLabelGroup>
+											<nml:LabelGroup>
+												<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+												<nml:values>2-4094</nml:values>
+											</nml:LabelGroup>
+										</nml:hasLabelGroup>
+										<nml:isAlias rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:40g2" />
+									</nml:BidirectionalPort>
+								</nml:isAlias>
+							</nml:BidirectionalPort>
+						</nml:hasBidirectionalPort>
+					</nml:BidirectionalPort>
+				</nml:hasBidirectionalPort>
+				<nml:hasService>
+					<mrs:VirtualSwitchService rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:hasService>
+							<nml:SwitchingService rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:ovs">
+								<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+								<nml:encoding rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+								<nml:labelSwapping>false</nml:labelSwapping>
+								<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:eth0" />
+								<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:public" />
+							</nml:SwitchingService>
+						</nml:hasService>
+						<nml:providesPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-neutron:public" />
+					</mrs:VirtualSwitchService>
+				</nml:hasService>
+				<nml:hasService>
+					<mrs:HypervisorService rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:openstack-nova">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+					</mrs:HypervisorService>
+				</nml:hasService>
+				<nml:hasService>
+					<mrs:HypervisorBypassInterfaceService rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:sriov-vm-fex">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<mrs:providesVNic rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static0" />
+						<mrs:providesVNic rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static1" />
+						<mrs:providesVNic rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static2" />
+						<mrs:providesVNic rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-1:vm-fex:static3" />
+					</mrs:HypervisorBypassInterfaceService>
+				</nml:hasService>
+			</nml:Node>
+		</nml:hasNode>
+		<nml:hasNode>
+			<nml:Node rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-4">
+				<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+			</nml:Node>
+		</nml:hasNode>
+		<nml:hasNode>
+			<nml:Node rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw">
+				<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+				<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:1-4" />
+				<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:5-8" />
+				<nml:hasBidirectionalPort>
+					<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:13-16">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:hasLabelGroup>
+							<nml:LabelGroup>
+								<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+								<nml:values>2-4094</nml:values>
+							</nml:LabelGroup>
+						</nml:hasLabelGroup>
+						<nml:isAlias rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-4:40g2" />
+					</nml:BidirectionalPort>
+				</nml:hasBidirectionalPort>
+				<nml:hasBidirectionalPort>
+					<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:9-12">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:hasLabelGroup>
+							<nml:LabelGroup>
+								<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+								<nml:values>2-4094</nml:values>
+							</nml:LabelGroup>
+						</nml:hasLabelGroup>
+						<nml:isAlias rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-4:40g1" />
+					</nml:BidirectionalPort>
+				</nml:hasBidirectionalPort>
+				<nml:hasBidirectionalPort>
+					<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:17-20">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:hasLabelGroup>
+							<nml:LabelGroup>
+								<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+								<nml:values>11,313,314</nml:values>
+							</nml:LabelGroup>
+						</nml:hasLabelGroup>
+						<nml:isAlias>
+							<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:1-4">
+								<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+								<nml:hasLabelGroup>
+									<nml:LabelGroup>
+										<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+										<nml:values>11</nml:values>
+									</nml:LabelGroup>
+								</nml:hasLabelGroup>
+								<nml:isAlias rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:17-20" />
+							</nml:BidirectionalPort>
+						</nml:isAlias>
+					</nml:BidirectionalPort>
+				</nml:hasBidirectionalPort>
+				<nml:hasService>
+					<nml:SwitchingService rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:switching-service">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:labelSwapping>false</nml:labelSwapping>
+						<nml:encoding rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+						<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:1-4" />
+						<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-msx-sw:17-20" />
+					</nml:SwitchingService>
+				</nml:hasService>
+			</nml:Node>
+		</nml:hasNode>
+		<nml:hasNode>
+			<nml:Node rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509">
+				<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+				<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:1-4" />
+				<nml:hasBidirectionalPort>
+					<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:5-6">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:hasLabelGroup>
+							<nml:LabelGroup>
+								<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+								<nml:values>11,313,314</nml:values>
+							</nml:LabelGroup>
+						</nml:hasLabelGroup>
+						<nml:isAlias>
+							<nml:BidirectionalPort rdf:about="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:xe-6-0-0">
+								<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+								<nml:hasLabelGroup>
+									<nml:LabelGroup>
+										<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+										<nml:values>11,313,314</nml:values>
+									</nml:LabelGroup>
+								</nml:hasLabelGroup>
+								<nml:isAlias rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:5-6" />
+							</nml:BidirectionalPort>
+						</nml:isAlias>
+					</nml:BidirectionalPort>
+				</nml:hasBidirectionalPort>
+				<nml:hasBidirectionalPort>
+					<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:7">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:hasLabelGroup>
+							<nml:LabelGroup>
+								<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+								<nml:values>2-4094</nml:values>
+							</nml:LabelGroup>
+						</nml:hasLabelGroup>
+						<nml:isAlias rdf:resource="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-2" />
+					</nml:BidirectionalPort>
+				</nml:hasBidirectionalPort>
+				<nml:hasBidirectionalPort>
+					<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:8">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:hasLabelGroup>
+							<nml:LabelGroup>
+								<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+								<nml:values>11</nml:values>
+							</nml:LabelGroup>
+						</nml:hasLabelGroup>
+						<nml:isAlias>
+							<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-1-eth0">
+								<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+								<nml:hasLabelGroup>
+									<nml:LabelGroup>
+										<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+										<nml:values>11</nml:values>
+									</nml:LabelGroup>
+								</nml:hasLabelGroup>
+								<nml:isAlias rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:8" />
+							</nml:BidirectionalPort>
+						</nml:isAlias>
+					</nml:BidirectionalPort>
+				</nml:hasBidirectionalPort>
+				<nml:hasBidirectionalPort>
+					<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:9">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:hasLabelGroup>
+							<nml:LabelGroup>
+								<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+								<nml:values>11</nml:values>
+							</nml:LabelGroup>
+						</nml:hasLabelGroup>
+						<nml:isAlias>
+							<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-2-eth0">
+								<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+								<nml:hasLabelGroup>
+									<nml:LabelGroup>
+										<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+										<nml:values>11</nml:values>
+									</nml:LabelGroup>
+								</nml:hasLabelGroup>
+								<nml:isAlias rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:9" />
+							</nml:BidirectionalPort>
+						</nml:isAlias>
+					</nml:BidirectionalPort>
+				</nml:hasBidirectionalPort>
+				<nml:hasBidirectionalPort>
+					<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:10">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:hasLabelGroup>
+							<nml:LabelGroup>
+								<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+								<nml:values>11</nml:values>
+							</nml:LabelGroup>
+						</nml:hasLabelGroup>
+						<nml:isAlias>
+							<nml:BidirectionalPort rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-3-eth0">
+								<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+								<nml:hasLabelGroup>
+									<nml:LabelGroup>
+										<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+										<nml:values>11</nml:values>
+									</nml:LabelGroup>
+								</nml:hasLabelGroup>
+								<nml:isAlias rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:10" />
+							</nml:BidirectionalPort>
+						</nml:isAlias>
+					</nml:BidirectionalPort>
+				</nml:hasBidirectionalPort>
+				<nml:hasService>
+					<nml:SwitchingService rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:switching-service">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<nml:encoding rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+						<nml:labelSwapping>false</nml:labelSwapping>
+						<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:1-4" />
+						<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:5-6" />
+						<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:7" />
+						<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:8" />
+						<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:9" />
+						<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:10" />
+					</nml:SwitchingService>
+				</nml:hasService>
+				<nml:hasService>
+					<mrs:RoutingService rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:routing-service">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<mrs:localAddress>206.196.178.66/27</mrs:localAddress>
+						<mrs:providesRoute>
+							<mrs:Route rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:route-to-wan">
+								<mrs:prefix>0.0.0.0/0</mrs:prefix>
+								<mrs:nextHop rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-6509:5-6" />
+							</mrs:Route>
+						</mrs:providesRoute>
+					</mrs:RoutingService>
+				</nml:hasService>
+			</nml:Node>
+		</nml:hasNode>
+		<nml:hasNode>
+			<nml:Node rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph">
+				<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+				<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-1-eth0" />
+				<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-2-eth0" />
+				<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:osd-3-eth0" />
+				<nml:hasService>
+					<mrs:StorageService rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:storage-service">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<mrs:disk_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#long">110592</mrs:disk_gb>
+						<nml:hasService rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:storage-service:block-1" />
+					</mrs:StorageService>
+				</nml:hasService>
+				<nml:hasService>
+					<mrs:BlockStorageService rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:storage-service:block-1">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<mrs:disk_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#long">110592</mrs:disk_gb>
+						<mrs:hasBenchmark>
+							<mrs:POSIX_IOBenchmark rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:ioperf-service:bench1">
+								<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+								<mrs:average_iops_4kb_read rdf:datatype="http://www.w3.org/2001/XMLSchema#long">255000</mrs:average_iops_4kb_read>
+								<mrs:average_iops_4kb_write rdf:datatype="http://www.w3.org/2001/XMLSchema#long">255000</mrs:average_iops_4kb_write>
+								<mrs:maximum_iops_4kb_read rdf:datatype="http://www.w3.org/2001/XMLSchema#long">289000</mrs:maximum_iops_4kb_read>
+								<mrs:maximum_iops_4kb_write rdf:datatype="http://www.w3.org/2001/XMLSchema#long">289000</mrs:maximum_iops_4kb_write>
+							</mrs:POSIX_IOBenchmark>
+						</mrs:hasBenchmark>
+					</mrs:BlockStorageService>
+				</nml:hasService>
+				<nml:hasService>
+					<mrs:IOPerformanceMeasurementService rdf:about="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:ioperf-service">
+						<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+						<mrs:providesBenchmark rdf:resource="urn:ogf:network:rains.maxgigapop.net:2013:clpk-ceph:ioperf-service:bench1" />
+					</mrs:IOPerformanceMeasurementService>
+				</nml:hasService>
+			</nml:Node>
+		</nml:hasNode>
+	</nml:Topology>
+	<nml:Topology rdf:about="urn:ogf:network:dragon.maxgigapop.net:2013:topology">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+		<nml:hasBidirectionalPort>
+			<nml:BidirectionalPort rdf:about="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-2">
+				<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+				<nml:hasLabelGroup>
+					<nml:LabelGroup>
+						<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+						<nml:values>2-4094</nml:values>
+					</nml:LabelGroup>
+				</nml:hasLabelGroup>
+			</nml:BidirectionalPort>
+		</nml:hasBidirectionalPort>
+		<nml:hasBidirectionalPort>
+			<nml:BidirectionalPort rdf:about="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-3">
+				<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+				<nml:hasLabelGroup>
+					<nml:LabelGroup>
+						<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+						<nml:values>550-569,3020-3030,3100-3109,3200-3219</nml:values>
+					</nml:LabelGroup>
+				</nml:hasLabelGroup>
+			</nml:BidirectionalPort>
+		</nml:hasBidirectionalPort>
+		<nml:hasBidirectionalPort>
+			<nml:BidirectionalPort rdf:about="urn:ogf:network:dragon.maxgigapop.net:2013:mcln-vlsr:1-2-1">
+				<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+				<nml:hasLabelGroup>
+					<nml:LabelGroup>
+						<nml:labeltype rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+						<nml:values>550-569,3020-3030,3100-3109,3200-3219</nml:values>
+					</nml:LabelGroup>
+				</nml:hasLabelGroup>
+			</nml:BidirectionalPort>
+		</nml:hasBidirectionalPort>
+		<nml:hasService>
+			<nml:SwitchingService rdf:about="urn:ogf:network:dragon.maxgigapop.net:2013:switching-service:l2:1">
+				<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+				<nml:encoding rdf:resource="http://schemas.ogf.org/nml/2012/10/ethernet#vlan" />
+				<nml:labelSwapping>false</nml:labelSwapping>
+				<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-2" />
+				<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:dragon.maxgigapop.net:2013:clpk-vlsr:1-2-3" />
+				<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:dragon.maxgigapop.net:2013:mcln-vlsr:1-2-1" />
+			</nml:SwitchingService>
+		</nml:hasService>
+	</nml:Topology>
+	<nml:Topology rdf:about="urn:ogf:network:ipnet.maxgigapop.net:2013:topology">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+		<nml:hasBidirectionalPort rdf:resource="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:xe-6-0-0" />
+		<nml:hasService>
+			<mrs:RoutingService rdf:about="urn:ogf:network:ipnet.maxgigapop.net:2013:routing-service">
+				<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+				<mrs:localAddress>206.196.177.248/26</mrs:localAddress>
+				<mrs:providesRoute>
+					<mrs:Route rdf:about="urn:ogf:network:ipnet.maxgigapop.net:2013:clpk-t640:route-to-wan">
+						<mrs:prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.0.0.0/0</mrs:prefix>
+						<mrs:nextHop>
+							<mrs:Address>
+								<mrs:prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.0.0.0/0</mrs:prefix>
+							</mrs:Address>
+						</mrs:nextHop>
+					</mrs:Route>
+				</mrs:providesRoute>
+			</mrs:RoutingService>
+		</nml:hasService>
+	</nml:Topology>
+</rdf:RDF>
+

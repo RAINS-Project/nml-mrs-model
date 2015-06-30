@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nml:Topology xmlns="http://schemas.ogf.org/nml/2013/05/base#"
+    xmlns:nml="http://schemas.ogf.org/nml/2013/05/base#"
+    xmlns:mrs="http://schemas.ogf.org/mrs/2013/12/topology#"
+    id="urn:ogf:network:rains.anl.gov:2013:topology">
+    
+    <nml:name>rains.anl.gov</nml:name>
+    
+    <!--
+     1.2. Magellen Interconnect 4500 Switch
+     Modeling:  Abstract switching Node.
+     1x10G Port to servers + 40G LAG Port to Brocade MLXe16
+     Services:  SwitchingService
+     -->
+    <nml:Node id ="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <!-- port channel to sdn-240-sw -->
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/39:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">741,748</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw:e15/1:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/39:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">741,748</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw:e15/1:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        
+        <!-- SwitchingService like the below is to be added to *plumb* Ports and VLANs across the 4500 and MLXe.
+         
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+            <nml:SwitchingService id="urn:ogf:network:rains.anlgov:2013:anl-4500-sw:switching-service">
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#providesLink">
+                    <nml:Link id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw-xe-1/0/39-to-sdn-240-sw-e15/1">
+                        <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">741,748</nml:LabelGroup>
+                    </nml:Link>
+                </nml:Relation>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#providesLink">
+                    <nml:Link id="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw-e15/1-to-mag-4500-sw-xe-1/0/39">
+                        <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">741,748</nml:LabelGroup>
+                    </nml:Link" />
+                </nml:Relation>
+            </nml:SwitchingService>
+        </nml:Relation>
+         
+         -->
+    </nml:Node>
+
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt1">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <!-- port channel to mag-4500 -->
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt1:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/0:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt1:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/0:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt2">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt2:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/0:xe-1/0/0:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt2:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/0:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt3">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt3:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/1:xe-0/0/1:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt3:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/1:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt4">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt4:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/1:xe-1/0/1:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt4:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/1:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt5">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt5:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/2:xe-0/0/2:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt5:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/2:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt6">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt6:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/2:xe-1/0/2:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt6:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/2:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt7">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt7:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/3:xe-0/0/3:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt7:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/3:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt8">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt8:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/3:xe-1/0/3:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt8:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/3:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt9">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt9:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/4:xe-0/0/4:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt9:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/4:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt10">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt10:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/4:xe-1/0/4:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt10:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/4:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt11">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt11:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/5:xe-0/0/5:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt11:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/5:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt12">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt12:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/5:xe-1/0/5:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt12:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/5:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt13">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt13:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/6:xe-0/0/6:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt13:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/6:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt14">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt14:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/6:xe-1/0/6:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt14:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/6:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt15">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt15:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/7:xe-0/0/7:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt15:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/7:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt16">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt16:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/7:xe-1/0/7:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt16:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/7:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt17">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt17:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/8:xe-0/0/8:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt17:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/8:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt18">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt18:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/8:xe-1/0/8:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt18:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/8:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt19">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt19:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/9:xe-0/0/9:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt19:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/9:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt20">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt20:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/9:xe-1/0/9:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt20:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/9:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt21">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt21:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/10:xe-0/0/10:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt21:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/10:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt22">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt22:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/10:xe-1/0/10:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt22:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/10:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt23">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt23:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/11:xe-0/0/11:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt23:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/11:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt24">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt24:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/11:xe-1/0/11:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt24:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/11:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt25">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt25:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/12:xe-0/0/12:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt25:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/12:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt26">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt26:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/12:xe-1/0/12:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt26:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/12:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt27">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt27:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/13:xe-0/0/13:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt27:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/13:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt28">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt28:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-1/0/13:xe-1/0/13:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt28:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/13:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+    <nml:Node id="urn:ogf:network:rains.anl.gov:2013:bnt29">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt29:XGE4:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:xe-0/0/14:xe-0/0/14:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:bnt29:XGE4:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1722</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-0/0/14:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:Relation>
+    </nml:Node>
+
+    
+    <!--
+     2. Brocade MLXe16 L2/L3 Switch SDN-240-SW
+     Modeling:  Switching Node for L2 and L3 networking.
+     40G LAG Port to Magellan + 10G L3 Port to ANL-Border
+     Services:  SwitchingService, (De)AdaptationService
+     -->
+    <nml:Node id ="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw">
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+            <!-- port channel to 4500 switch -->
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw:e15/1:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">741,748</nml:LabelGroup>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:mag-4500-sw:xe-1/0/39:out" />
+                </nml:Relation>
+            </nml:PortGroup>
+            <!-- port to ANL-Border -->
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw:e13/1:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">687</nml:LabelGroup>
+            </nml:PortGroup>
+            <!-- port channel to ANL-Border-IPNet -->
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw:e13/1:in">
+            </nml:PortGroup>
+        </nml:Relation>
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw:e13/1:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">687</nml:LabelGroup>
+            </nml:PortGroup>
+            <!-- port to ANL-Border-IPNet -->
+            <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw:e13/1:out">
+            </nml:PortGroup>
+
+        </nml:Relation>
+
+        <!-- Add SwitchingService to *plumb* Ports and VLANs across this Brocade MLXe16. -->
+        
+        <!-- Layer3 configs-->
+        <mrs:GenericRelation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+            <mrs:RoutingService id="urn:ogf:network:rains.anl.gov:2013:rains.anl.gov:2013:sdn-240-sw:routing-service">
+                <mrs:address>130.202.222.81/30</mrs:address>
+                <mrs:Relation type="http://schemas.ogf.org/mrs/2013/12/base#providesRoute">
+                    <!-- route to Internet through a Port -->
+                   <mrs:Route id="urn:ogf:network:ipnet.anl.gov:2013:ugli:route-to-wan">
+                        <mrs:prefix>0.0.0.0/0</mrs:prefix>
+                        <mrs:next>
+                            <nml:BidirectionalPort id="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw:e13/1">
+                                <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw:e13/1:in" />
+                                <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:sdn-240-sw:e13/1:out" />
+                            </nml:BidirectionalPort>
+                        </mrs:next>
+                    </mrs:Route>
+                </mrs:Relation>
+            </mrs:RoutingService>
+        </mrs:GenericRelation>
+
+    </nml:Node>
+    
+    <!--
+     4. ANL Border
+     Modeling: L2 Topology with Node/Port facing ESnet.
+     Services:  SwitchingService
+     -->
+    <nml:Topology id ="urn:ogf:network:anchor.anl.gov:2013:topology">
+        <nml:Node id="urn:ogf:network:anchor.anl.gov:2013:ugli">
+            <nml:name>ugli.anchor.anl.gov</nml:name>
+            <!-- port to MLXe16 -->
+            <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+                <nml:PortGroup id="urn:ogf:network:border.anl.gov:2013:ugli:e4/7:in">
+                    <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">687</nml:LabelGroup>
+                </nml:PortGroup>
+                <!-- port to ESnet SDN: urn:ogf:network:domain=sdn.es.net:node=anl-mr2:port=xe-0/2/0:link=* -->
+                <nml:PortGroup id="urn:ogf:network:ugli.anchor.anl.gov:2013:ugli:e4/7:in">
+                    <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1818</nml:LabelGroup>
+                </nml:PortGroup>
+            </nml:Relation>
+            <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+                <nml:PortGroup id="urn:ogf:network:border.anl.gov:2013:ugli:e4/7:out">
+                    <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1818</nml:LabelGroup>
+                </nml:PortGroup>
+                <nml:PortGroup id="urn:ogf:network:ugli.anchor.anl.gov:2013:ugli:e4/7:out">
+                    <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1818</nml:LabelGroup>
+                </nml:PortGroup>
+            </nml:Relation>
+        </nml:Node>
+        
+        <!-- 
+         The above is for demonstration of Node usage in L2 network modeling.
+         The below uses only more abstract BidirectionalPort and Port/PortGroup modeling 
+         which is simipler when we do not care about control internal of the Node.
+         -->
+        <!-- A nominal Port to connect to ESnet -->
+        <nml:BidirectionalPort id="urn:ogf:network:ugli.anchor.anl.gov:2013:ugli:e4/7">
+            <nml:PortGroup id="urn:ogf:network:ugli.anchor.anl.gov:2013:ugli:e4/7:in">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1818</nml:LabelGroup>
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:ugli.anchor.anl.gov:2013:ugli:e4/7:out">
+                <nml:LabelGroup labeltype="http://schemas.ogf.org/nml/2012/10/ethernet#vlan">1818</nml:LabelGroup>
+            </nml:PortGroup>
+        </nml:BidirectionalPort>
+        
+        
+        <!-- Below defines a L2 service domain: All participating ports can connect by matching (or swapping) labels -->
+        <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+            <nml:SwitchingService id="urn:ogf:network:anchor.anl.gov:2013:switching-service:l2:1"
+                encoding="http://schemas.ogf.org/nml/2012/10/ethernet#vlan"
+                labelSwapping="false">
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+                    <nml:PortGroup id="urn:ogf:network:anchor.anl.gov:2013:ugli:e4/7:in"/>
+                    <nml:PortGroup id="urn:ogf:network:anchor.anl.gov:2013:sdn-240-sw:e13/1:in"/>
+                    <nml:PortGroup id="urn:ogf:network:anchor.anl.gov:2013:mag-4500-sw:xe-1/0/39:in"/>
+                </nml:Relation>
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+                    <nml:PortGroup id="urn:ogf:network:anchor.anl.gov:2013:ugli:e4/7:out"/>
+                    <nml:PortGroup id="urn:ogf:network:anchor.anl.gov:2013:sdn-240-sw:e13/1:out"/>
+                    <nml:PortGroup id="urn:ogf:network:anchor.anl.gov:2013:mag-4500-sw:xe-1/0/39:out"/>
+                </nml:Relation>
+            </nml:SwitchingService>
+        </nml:Relation>
+    </nml:Topology>
+    
+    
+    <!--
+     5. ANL IPNet
+     Modeling: Abstract L3 Topology with Ports to ESnet.
+     Services:  SwitchingService
+     -->
+    <nml:Topology id ="urn:ogf:network:ipnet.anl.gov:2013:topology">
+        <!-- Port to ESnet -->
+        <nml:BidirectionalPort id="urn:ogf:network:ipnet.anl.gov:2013:sdn-240-sw:e13/1">
+            <nml:PortGroup id="urn:ogf:network:ipnet.anl.gov:2013:sdn-240-sw:e13/1:in">
+            </nml:PortGroup>
+            <nml:PortGroup id="urn:ogf:network:ipnet.anl.gov:2013:sdn-240-sw:e13/1:out">
+                <nml:Relation type="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+                    <nml:PortGroup id="urn:ogf:network:rains.anl.gov:2013:ugli:e4/7:in" />
+                </nml:Relation>
+            </nml:PortGroup>
+        </nml:BidirectionalPort>
+        
+        <mrs:GenericRelation type="http://schemas.ogf.org/nml/2013/05/base#hasService">
+            <mrs:RoutingService id="urn:ogf:network:rains.anl.gov:2013:ipnet.anl.gov:2013:routing-service">
+                <mrs:address>10.0.0.4/24</mrs:address>
+                <!-- routing includes this port -->
+                <mrs:Relation type="http://schemas.ogf.org/mrs/2013/12/base#hasBidirectionalPort">
+                  <nml:BidirectionalPort id="urn:ogf:network:ipnet.anl.gov:2013:ugli:e4/7">
+                    <nml:PortGroup id="urn:ogf:network:ipnet.anl.gov:2013:ugli:e4/7:in"/>
+                    <nml:PortGroup id="urn:ogf:network:ipnet.anl.gov:2013:ugli:e4/7:out"/>
+                  </nml:BidirectionalPort>
+                </mrs:Relation>
+                <mrs:Relation type="http://schemas.ogf.org/mrs/2013/12/base#providesRoute">
+                    <!-- 
+                     Consier this as source and sink of all Internet/WAN bound traffic. 
+                     Hide any WAN routes beyond this domain. So next=0.0.0.0/0.
+                     -->
+                    <mrs:Route id="urn:ogf:network:ipnet.anl.gov:2013:ugli:route-to-wan">
+                        <mrs:prefix>0.0.0.0/0</mrs:prefix>
+                        <mrs:next>
+                            <mrs:address>0.0.0.0/0</mrs:address>
+                        </mrs:next>
+                    </mrs:Route>
+                    <!-- 
+                     Add  other local bound routes.
+                     -->
+                </mrs:Relation>
+            </mrs:RoutingService>
+        </mrs:GenericRelation>
+        
+    </nml:Topology>
+    
+</nml:Topology>
