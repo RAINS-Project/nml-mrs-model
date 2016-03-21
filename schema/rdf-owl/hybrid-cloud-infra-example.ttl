@@ -1,0 +1,471 @@
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching>
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesSubnet>
+                <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+3022> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm1:eth0:floatingip>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "floating-ip" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "206.196.180.148" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#SwitchingSubnet> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasNetworkAddress>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0-networkAddress> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm1:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm2>
+        a       <http://schemas.ogf.org/nml/2013/03/base#Node> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm2:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-2073143920>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#RoutingTable> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasRoute>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-2073143920-routeurn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet1local-route> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-2073143920-routeurn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0local-route> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-207314392010.0.0.016> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "main" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0-port0.0.0.000networkAddress>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> , owl:NamedIndividual ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-network-address" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "any" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:routing-service>
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesRoute>
+                <urn:ogf:network:openstack.com:openstack-cloud:routevpc=rainsdemo-subnet00.0.0.00> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0:route0.0.0.00> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesRoutingTable>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-subnet0> .
+
+<http://schemas.ogf.org/mrs/2013/12/topology#hasNetworkAddress>
+        rdfs:subPropertyOf      <http://schemas.ogf.org/mrs/2013/12/topology#hasNetworkAddress> ;
+        owl:equivalentProperty  <http://schemas.ogf.org/mrs/2013/12/topology#hasNetworkAddress> .
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+3022>
+        a       owl:NamedIndividual , <http://schemas.ogf.org/mrs/2013/12/topology#SwitchingSubnet> ;
+        <http://schemas.ogf.org/nml/2013/03/base#belongsTo>
+                <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+3022> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+3022> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-switchingService>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#SwitchingService> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesSubnet>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:routevpc=rainsdemo-subnet00.0.0.00>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Route> , owl:NamedIndividual ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#nextHop>
+                <urn:ogf:network:openstack.com:openstack-cloud:port-vpc=rainsdemo-subnet00.0.0.000networkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeTo>
+                <urn:ogf:network:openstack.com:openstack-cloud:network+public01:subnet+public01_subnet01> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-networkAddress>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-prefix" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "10.0.0.0/16" .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-subnet1>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#SwitchingSubnet> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasNetworkAddress>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-subnet1-networkAddress> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm2:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm1>
+        a       <http://schemas.ogf.org/nml/2013/03/base#Node> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm1:eth0> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-networkAddress>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-prefix" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "10.0.0.0/16" .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm1:eth0>
+        a       <http://schemas.ogf.org/nml/2013/03/base#BidirectionalPort> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasBatch>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm1batch> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm1batch>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Batch> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#batch_rule>
+                "numbered" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "3" .
+
+<http://schemas.ogf.org/mrs/2013/12/topology#batch_rule>
+        rdfs:subPropertyOf      <http://schemas.ogf.org/mrs/2013/12/topology#batch_rule> ;
+        owl:equivalentProperty  <http://schemas.ogf.org/mrs/2013/12/topology#batch_rule> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+msx3>
+        <http://schemas.ogf.org/nml/2013/03/base#hasNode>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm2> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-routeto206.196.0.016>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-prefix-list" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "206.196.0.0/16" .
+
+<http://schemas.ogf.org/mrs/2013/12/topology#value>
+        rdfs:subPropertyOf      <http://schemas.ogf.org/mrs/2013/12/topology#value> ;
+        owl:equivalentProperty  <http://schemas.ogf.org/mrs/2013/12/topology#value> .
+
+<http://schemas.ogf.org/mrs/2013/12/topology#hasBatch>
+        rdfs:subPropertyOf      <http://schemas.ogf.org/mrs/2013/12/topology#hasBatch> ;
+        owl:equivalentProperty  <http://schemas.ogf.org/mrs/2013/12/topology#hasBatch> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-subnet0>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#SwitchingSubnet> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasNetworkAddress>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-subnet0-networkAddress> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm1:eth0> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route0.0.0.00>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Route> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#nextHop>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-vpngw> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeFrom>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-vpngw> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeTo>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-routeto0.0.0.00> .
+
+<urn:ogf:network:aws.amazon.cloud:vif+dxvif-fheb3mlg>
+        a       owl:NamedIndividual , <http://schemas.ogf.org/nml/2013/03/base#BidirectionalPort> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "direct-connect-vif" ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasLabel>
+                <urn:ogf:network:aws.amazon.cloud:vif+dxvif-fheb3mlg:label> ;
+        <http://schemas.ogf.org/nml/2013/03/base#isAlias>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-vpngw> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-vpngw>
+        a       <http://schemas.ogf.org/nml/2013/03/base#BidirectionalPort> , owl:NamedIndividual ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "vpn-gateway" ;
+        <http://schemas.ogf.org/nml/2013/03/base#isAlias>
+                <urn:ogf:network:aws.amazon.cloud:vif+dxvif-fheb3mlg> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route72.24.24.024>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Route> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#nextHop>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-vpngw> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeFrom>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-subnet0> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeTo>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-routeto72.24.24.024> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm2:eth0>
+        a       <http://schemas.ogf.org/nml/2013/03/base#BidirectionalPort> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-subnet0>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#RoutingTable> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasRoute>
+                <urn:ogf:network:openstack.com:openstack-cloud:routevpc=rainsdemo-subnet00.0.0.00> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0:route0.0.0.00> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm2>
+        a       <http://schemas.ogf.org/nml/2013/03/base#Node> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm2:eth0> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb--559104978-routeto0.0.0.00>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-prefix-list" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "0.0.0.0/0" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+3022:label>
+        a       owl:NamedIndividual , <http://schemas.ogf.org/nml/2013/03/base#Label> ;
+        <http://schemas.ogf.org/nml/2013/03/base#labeltype>
+                <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        <http://schemas.ogf.org/nml/2013/03/base#value>
+                "3022" .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb--559104978-route0.0.0.00>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Route> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#nextHop>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-igw> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeTo>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb--559104978-routeto0.0.0.00> .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+3022:label>
+        a       owl:NamedIndividual , <http://schemas.ogf.org/nml/2013/03/base#Label> ;
+        <http://schemas.ogf.org/nml/2013/03/base#labeltype>
+                <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        <http://schemas.ogf.org/nml/2013/03/base#value>
+                "3022" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+3022>
+        a       owl:NamedIndividual , <http://schemas.ogf.org/nml/2013/03/base#BidirectionalPort> ;
+        <http://schemas.ogf.org/nml/2013/03/base#belongsTo>
+                <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+3022> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasLabel>
+                <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+3022:label> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-routeto72.24.24.024>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-prefix-list" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "72.24.24.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud>
+        <http://schemas.ogf.org/nml/2013/03/base#hasTopology>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo> .
+
+<http://schemas.ogf.org/mrs/2013/12/topology#type>
+        rdfs:subPropertyOf      <http://schemas.ogf.org/mrs/2013/12/topology#type> ;
+        owl:equivalentProperty  <http://schemas.ogf.org/mrs/2013/12/topology#type> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm1>
+        a       <http://schemas.ogf.org/nml/2013/03/base#Node> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasBatch>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm1batch> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm1:eth0> .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+3022>
+        a       owl:NamedIndividual , <http://schemas.ogf.org/nml/2013/03/base#BidirectionalPort> ;
+        <http://schemas.ogf.org/nml/2013/03/base#belongsTo>
+                <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+3022> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasLabel>
+                <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+3022:label> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud>
+        <http://schemas.ogf.org/nml/2013/03/base#hasTopology>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-routingService>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#RoutingService> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesRoute>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-2073143920-routeurn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet1local-route> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-2073143920-routeurn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0local-route> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-207314392010.0.0.016> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesRoutingTable>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-2073143920> .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*>
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+3022> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0:route0.0.0.00>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Route> , owl:NamedIndividual ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#nextHop>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0-port0.0.0.000networkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeTo>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm1:eth0>
+        a       <http://schemas.ogf.org/nml/2013/03/base#BidirectionalPort> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasNetworkAddress>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm1:eth0:floatingip> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-subnet0-networkAddress>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-prefix" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "10.0.0.0/24" .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-routeto10.0.0.016>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-prefix-list" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "10.0.0.0/16" .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-subnet1-networkAddress>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-prefix" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "10.0.1.0/24" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*>
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+3022> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#RoutingTable> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasRoute>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route72.24.24.024> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route0.0.0.00> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route206.196.0.016> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route10.0.0.016> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "local" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-207314392010.0.0.016>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Route> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#nextHop>
+                "local" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeTo>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-networkAddress> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-routingService>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#RoutingService> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesRoute>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route72.24.24.024> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route0.0.0.00> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route206.196.0.016> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route10.0.0.016> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb--559104978-route0.0.0.00> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb--55910497810.0.0.016> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesRoutingTable>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb--559104978> .
+
+<urn:ogf:network:aws.amazon.cloud:vpcservice+us-east-1>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#VirtualCloudService> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesVPC>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-2073143920-routeurn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0local-route>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Route> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#nextHop>
+                "local" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeFrom>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeTo>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0-networkAddress> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-routeto0.0.0.00>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-prefix-list" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "0.0.0.0/0" .
+
+<urn:ogf:network:aws.amazon.cloud:ec2service+us-east-1>
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesVM>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm2> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm1> .
+
+<urn:ogf:network:aws.amazon.cloud:vif+dxvif-fheb3mlg:label>
+        a       owl:NamedIndividual , <http://schemas.ogf.org/nml/2013/03/base#Label> ;
+        <http://schemas.ogf.org/nml/2013/03/base#labeltype>
+                <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        <http://schemas.ogf.org/nml/2013/03/base#value>
+                "3022" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:hypervisor+msx3.sdnx.maxgigapop.net>
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesVM>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:network-service>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#VirtualCloudService> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesVPC>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route10.0.0.016>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Route> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#nextHop>
+                "local" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeFrom>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-subnet0> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeTo>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-routeto10.0.0.016> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-rtb-2073143920-routeurn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet1local-route>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Route> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#nextHop>
+                "local" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeFrom>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet1> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeTo>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet1-networkAddress> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1>
+        a       <http://schemas.ogf.org/nml/2013/03/base#Topology> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasNetworkAddress>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-networkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "tenant" ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-vpngw> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-igw> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasNode>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm2> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1:vm1> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasService>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-routingService> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-switchingService> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port-vpc=rainsdemo-subnet00.0.0.000networkAddress>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> , owl:NamedIndividual ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-network-address" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "any" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet1>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#SwitchingSubnet> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasNetworkAddress>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet1-networkAddress> ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm2:eth0> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb--559104978>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#RoutingTable> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasRoute>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb--559104978-route0.0.0.00> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb--55910497810.0.0.016> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "main" .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-switchingService>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#SwitchingService> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#providesSubnet>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-subnet1> , <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-subnet0> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-route206.196.0.016>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Route> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#nextHop>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-igw> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeFrom>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-subnet0> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeTo>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb-subnet0-routeto206.196.0.016> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo>
+        a       <http://schemas.ogf.org/nml/2013/03/base#Topology> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#hasNetworkAddress>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-networkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "tenant" ;
+        <http://schemas.ogf.org/nml/2013/03/base#hasService>
+                <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-switchingService> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-routingService> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo:vm2:eth0>
+        a       <http://schemas.ogf.org/nml/2013/03/base#BidirectionalPort> .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-rtb--55910497810.0.0.016>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#Route> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#nextHop>
+                "local" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#routeTo>
+                <urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-networkAddress> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet0-networkAddress>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-prefix" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "10.0.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=rainsdemo-subnet1-networkAddress>
+        a       <http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress> ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "ipv4-prefix" ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#value>
+                "10.0.1.0/24" .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud:vpc=mce_vpc1-igw>
+        a       <http://schemas.ogf.org/nml/2013/03/base#BidirectionalPort> , owl:NamedIndividual ;
+        <http://schemas.ogf.org/mrs/2013/12/topology#type>
+                "internet-gateway" .
+
+<http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort>
+        rdfs:subPropertyOf      <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort> ;
+        owl:equivalentProperty  <http://schemas.ogf.org/nml/2013/03/base#hasBidirectionalPort> .

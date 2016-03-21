@@ -202,9 +202,22 @@
     <!-- http://schemas.ogf.org/mrs/2013/12/topology#DataTransfer -->
 
     <owl:Class rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#DataTransfer">
-        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/03/base#NetworkObject"/>
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/03/base#Service"/>
     </owl:Class>
 
+
+    <!-- http://schemas.ogf.org/mrs/2013/12/topology#IOPerformanceMeasurementService -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#IOPerformanceMeasurementService">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/03/base#Service"/>
+    </owl:Class>
+    
+
+    <!-- http://schemas.ogf.org/mrs/2013/12/topology#Batch -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#Batch">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/03/base#Service"/>
+    </owl:Class>
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -217,14 +230,14 @@
     <!-- http://schemas.ogf.org/mrs/2013/12/topology#type -->
 
     <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#type">
-        <rdfs:domain rdf:resource="http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress"/>
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/mrs/2013/12/topology#NetworkObject"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
 
     <!-- http://schemas.ogf.org/mrs/2013/12/topology#value -->
 
     <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#value">
-        <rdfs:domain rdf:resource="http://schemas.ogf.org/mrs/2013/12/topology#NetworkAddress"/>
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/mrs/2013/12/topology#NetworkObject"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
 
@@ -446,6 +459,28 @@
         <rdfs:range rdf:resource="http://schemas.ogf.org/mrs/2013/12/topology#DataTransfer"/>
     </owl:ObjectProperty>
     
+
+    <!-- http://schemas.ogf.org/mrs/2013/12/topology#providesTransfer -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#providesTransfer">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#DataTransferService"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#DataTransferClusterService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+     <rdfs:range rdf:resource="http://schemas.ogf.org/mrs/2013/12/topology#DataTransfer"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://schemas.ogf.org/mrs/2013/12/topology#hasBatch -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#hasBatch">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/03/base#NetwrokObject"/>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/mrs/2013/12/topology#Batch"/>
+    </owl:ObjectProperty>
     
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -717,6 +752,12 @@
     <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#maximum_object_size">
         <rdfs:domain rdf:resource="http://schemas.ogf.org/mrs/2013/12/topology#Bucket"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+
+    <!-- http://schemas.ogf.org/mrs/2013/12/topology#batch_rule -->
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#batch_rule">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/mrs/2013/12/topology#Batch"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
 
 </rdf:RDF>
