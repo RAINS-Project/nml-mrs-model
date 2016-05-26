@@ -9,7 +9,7 @@
      xmlns:mrs="http://schemas.ogf.org/mrs/2013/12/topology#">
 
     <owl:Ontology rdf:about="http://schemas.ogf.org/mrs/2013/12/topology#">
-        <rdfs:label>The Multi-Resource Service (MRS) Ontology - Extension of NML</rdfs:label>
+        <rdfs:label>The Multi-Resource Markup Langugage (MRML) Ontology - Extension of NML</rdfs:label>
     </owl:Ontology>
     
     
