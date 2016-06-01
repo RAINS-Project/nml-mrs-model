@@ -1,0 +1,1049 @@
+@prefix : <http://schemas.ogf.org/mrs/2015/storage#> .
+@prefix mrs: <http://schemas.ogf.org/mrs/2013/12/topology#> .
+@prefix nml: <http://schemas.ogf.org/nml/2013/03/base#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://schemas.ogf.org/mrs/2015/storage#> rdf:type owl:Ontology ;                                      
+	rdfs:label "NML-MRS Description of the Mira DTN Infrastructure".
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+:GridftpService rdf:type owl:Class;
+    rdfs:subClassOf nml:Service.
+
+:ShockService rdf:type owl:Class ;
+    rdfs:subClassOf nml:Service.
+
+
+
+# 3. Mira Data Transfer Nodes
+# Modeling: Abstract shared data transfer Node. 
+# 8 Data Transfer Nodes with 1x10G Port
+# 19005TB raw StorageService (BlockStorage)
+# Services:  StorageService, BlockStorageService, IOPerformanceMeasurementService, GridftpService
+
+<urn:ogf:storage:rains.anl.gov:2013:dtntopology>
+  a   nml:Topology,
+      owl:NamedIndividual;
+  nml:hasNode
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08>.
+
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01> 
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:mira-xeth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:mira-eth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:mira-ib0>;
+  :num_cores "16"^^xsd:int;
+  :memory_gb "16"^^xsd:long;
+  nml:hasService 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:gridftp-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:mira-xeth0> 
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:donald-sw:e13/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:mira-eth0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:eth-sw:e7/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e1/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:gridftp-service>
+  a   owl:NamedIndividual ,
+      :GridftpService ;
+  :port "2811";
+  :block_size_byte "1024"^^xsd:long;
+  :max_connections "20"^^xsd:long;
+  :udt_enabled "false"^^xsd:boolean;
+  :threaded "true"^^xsd:boolean;
+  :file_paths "TBF"^^xsd:string;
+  :port_range "50000,51000";
+  :permission "0644";
+  :sync_writes "false"^^xsd:boolean;
+  :home_dir "TBF";
+  :allow_from "TBF"^^xsd:string;
+  :deny_from "TBF"^^xsd:string.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:san>
+  a   nml:Topology ,
+      owl:NamedIndividual;
+  :can_reserv_bw "false"^^xsd:boolean;
+  :link_type "infiniband"^^xsd:string;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:san:mira-ib0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:san:san-ib0>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:san:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e1/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:san:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e2/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:storage_node>
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:san-ib0>;
+  nml:hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:ioperf-service>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:storage-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e2/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:storage-service> 
+  a   mrs:StorageService,
+      owl:NamedIndividual;
+  :fs_type "gpfs"^^xsd:string;
+  :num_meta_server "1"^^xsd:int;
+  :num_data_server "64"^^xsd:int;
+  :rw_pattern "TBF";
+  :layout "TBF";
+  :block_size_kb "4096"^^xsd:long;
+  :hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:storage-service:block>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:storage-service:block> 
+  a   mrs:BlockStorageService ,
+      owl:NamedIndividual ;
+  mrs:providesVolume
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:storage-service:disks>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:storage-service:disks>
+  a   mrs:Volume,
+      owl:NamedIndividual;  
+  mrs:disk_gb "19461120"^^xsd:long;
+  :disk_type "HDD"^^xsd:string;
+  :seek_time "TBF";
+  :spin_speed_rpm "7200"^^xsd:int;
+  :raid_type "6"^^xsd:int;
+  mrs:hasBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:ioperf-service>
+  a   mrs:IOPerformanceMeasurementService,
+      owl:NamedIndividual;
+  mrs:providesBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn01:ioperf-service:bench1> 
+  a   mrs:POSIX_IOBenchmark,
+      owl:NamedIndividual;
+  mrs:average_iops_4kb_write "236000"^^xsd:long ;
+  mrs:average_iops_4kb_read "236000"^^xsd:long ;
+  mrs:maximum_iops_4kb_read "265000"^^xsd:long ;
+  mrs:maximum_iops_4kb_write "265000"^^xsd:long .
+
+
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02> 
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:mira-xeth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:mira-eth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:mira-ib0>;
+  :num_cores "16"^^xsd:int;
+  :memory_gb "16"^^xsd:long;
+  nml:hasService 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:gridftp-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:mira-xeth0> 
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:donald-sw:e14/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:mira-eth0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:eth-sw:e8/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e3/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:gridftp-service>
+  a   owl:NamedIndividual ,
+      :GridftpService ;
+  :port "2811";
+  :block_size_byte "1024"^^xsd:long;
+  :max_connections "20"^^xsd:long;
+  :udt_enabled "false"^^xsd:boolean;
+  :threaded "true"^^xsd:boolean;
+  :file_paths "TBF"^^xsd:string;
+  :port_range "50000,51000";
+  :permission "0644";
+  :sync_writes "false"^^xsd:boolean;
+  :home_dir "TBF";
+  :allow_from "TBF"^^xsd:string;
+  :deny_from "TBF"^^xsd:string.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:san>
+  a   nml:Topology ,
+      owl:NamedIndividual;
+  :can_reserv_bw "false"^^xsd:boolean;
+  :link_type "infiniband"^^xsd:string;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:san:mira-ib0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:san:san-ib0>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:san:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e3/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:san:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e4/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:storage_node>
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:san-ib0>;
+  nml:hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:ioperf-service>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:storage-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e4/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:storage-service> 
+  a   mrs:StorageService,
+      owl:NamedIndividual;
+  :fs_type "gpfs"^^xsd:string;
+  :num_meta_server "1"^^xsd:int;
+  :num_data_server "64"^^xsd:int;
+  :rw_pattern "TBF";
+  :layout "TBF";
+  :block_size_kb "4096"^^xsd:long;
+  :hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:storage-service:block>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:storage-service:block> 
+  a   mrs:BlockStorageService ,
+      owl:NamedIndividual ;
+  mrs:providesVolume
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:storage-service:disks>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:storage-service:disks>
+  a   mrs:Volume,
+      owl:NamedIndividual;  
+  mrs:disk_gb "19461120"^^xsd:long;
+  :disk_type "HDD"^^xsd:string;
+  :seek_time "TBF";
+  :spin_speed_rpm "7200"^^xsd:int;
+  :raid_type "6"^^xsd:int;
+  mrs:hasBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:ioperf-service>
+  a   mrs:IOPerformanceMeasurementService,
+      owl:NamedIndividual;
+  mrs:providesBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn02:ioperf-service:bench1> 
+  a   mrs:POSIX_IOBenchmark,
+      owl:NamedIndividual;
+  mrs:average_iops_4kb_write "236000"^^xsd:long ;
+  mrs:average_iops_4kb_read "236000"^^xsd:long ;
+  mrs:maximum_iops_4kb_read "265000"^^xsd:long ;
+  mrs:maximum_iops_4kb_write "265000"^^xsd:long .
+
+
+  <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03> 
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:mira-xeth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:mira-eth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:mira-ib0>;
+  :num_cores "16"^^xsd:int;
+  :memory_gb "16"^^xsd:long;
+  nml:hasService 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:gridftp-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:mira-xeth0> 
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:donald-sw:e15/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:mira-eth0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:eth-sw:e9/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e5/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:gridftp-service>
+  a   owl:NamedIndividual ,
+      :GridftpService ;
+  :port "2811";
+  :block_size_byte "1024"^^xsd:long;
+  :max_connections "20"^^xsd:long;
+  :udt_enabled "false"^^xsd:boolean;
+  :threaded "true"^^xsd:boolean;
+  :file_paths "TBF"^^xsd:string;
+  :port_range "50000,51000";
+  :permission "0644";
+  :sync_writes "false"^^xsd:boolean;
+  :home_dir "TBF";
+  :allow_from "TBF"^^xsd:string;
+  :deny_from "TBF"^^xsd:string.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:san>
+  a   nml:Topology ,
+      owl:NamedIndividual;
+  :can_reserv_bw "false"^^xsd:boolean;
+  :link_type "infiniband"^^xsd:string;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:san:mira-ib0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:san:san-ib0>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:san:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e5/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:san:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e6/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:storage_node>
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:san-ib0>;
+  nml:hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:ioperf-service>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:storage-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e6/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:storage-service> 
+  a   mrs:StorageService,
+      owl:NamedIndividual;
+  :fs_type "gpfs"^^xsd:string;
+  :num_meta_server "1"^^xsd:int;
+  :num_data_server "64"^^xsd:int;
+  :rw_pattern "TBF";
+  :layout "TBF";
+  :block_size_kb "4096"^^xsd:long;
+  :hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:storage-service:block>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:storage-service:block> 
+  a   mrs:BlockStorageService ,
+      owl:NamedIndividual ;
+  mrs:providesVolume
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:storage-service:disks>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:storage-service:disks>
+  a   mrs:Volume,
+      owl:NamedIndividual;  
+  mrs:disk_gb "19461120"^^xsd:long;
+  :disk_type "HDD"^^xsd:string;
+  :seek_time "TBF";
+  :spin_speed_rpm "7200"^^xsd:int;
+  :raid_type "6"^^xsd:int;
+  mrs:hasBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:ioperf-service>
+  a   mrs:IOPerformanceMeasurementService,
+      owl:NamedIndividual;
+  mrs:providesBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn03:ioperf-service:bench1> 
+  a   mrs:POSIX_IOBenchmark,
+      owl:NamedIndividual;
+  mrs:average_iops_4kb_write "236000"^^xsd:long ;
+  mrs:average_iops_4kb_read "236000"^^xsd:long ;
+  mrs:maximum_iops_4kb_read "265000"^^xsd:long ;
+  mrs:maximum_iops_4kb_write "265000"^^xsd:long .
+
+
+  <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04> 
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:mira-xeth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:mira-eth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:mira-ib0>;
+  :num_cores "16"^^xsd:int;
+  :memory_gb "16"^^xsd:long;
+  nml:hasService 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:gridftp-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:mira-xeth0> 
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:donald-sw:e16/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:mira-eth0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:eth-sw:e10/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e7/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:gridftp-service>
+  a   owl:NamedIndividual ,
+      :GridftpService ;
+  :port "2811";
+  :block_size_byte "1024"^^xsd:long;
+  :max_connections "20"^^xsd:long;
+  :udt_enabled "false"^^xsd:boolean;
+  :threaded "true"^^xsd:boolean;
+  :file_paths "TBF"^^xsd:string;
+  :port_range "50000,51000";
+  :permission "0644";
+  :sync_writes "false"^^xsd:boolean;
+  :home_dir "TBF";
+  :allow_from "TBF"^^xsd:string;
+  :deny_from "TBF"^^xsd:string.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:san>
+  a   nml:Topology ,
+      owl:NamedIndividual;
+  :can_reserv_bw "false"^^xsd:boolean;
+  :link_type "infiniband"^^xsd:string;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:san:mira-ib0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:san:san-ib0>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:san:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e7/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:san:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e8/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:storage_node>
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:san-ib0>;
+  nml:hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:ioperf-service>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:storage-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e8/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:storage-service> 
+  a   mrs:StorageService,
+      owl:NamedIndividual;
+  :fs_type "gpfs"^^xsd:string;
+  :num_meta_server "1"^^xsd:int;
+  :num_data_server "64"^^xsd:int;
+  :rw_pattern "TBF";
+  :layout "TBF";
+  :block_size_kb "4096"^^xsd:long;
+  :hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:storage-service:block>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:storage-service:block> 
+  a   mrs:BlockStorageService ,
+      owl:NamedIndividual ;
+  mrs:providesVolume
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:storage-service:disks>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:storage-service:disks>
+  a   mrs:Volume,
+      owl:NamedIndividual;  
+  mrs:disk_gb "19461120"^^xsd:long;
+  :disk_type "HDD"^^xsd:string;
+  :seek_time "TBF";
+  :spin_speed_rpm "7200"^^xsd:int;
+  :raid_type "6"^^xsd:int;
+  mrs:hasBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:ioperf-service>
+  a   mrs:IOPerformanceMeasurementService,
+      owl:NamedIndividual;
+  mrs:providesBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn04:ioperf-service:bench1> 
+  a   mrs:POSIX_IOBenchmark,
+      owl:NamedIndividual;
+  mrs:average_iops_4kb_write "236000"^^xsd:long ;
+  mrs:average_iops_4kb_read "236000"^^xsd:long ;
+  mrs:maximum_iops_4kb_read "265000"^^xsd:long ;
+  mrs:maximum_iops_4kb_write "265000"^^xsd:long .
+
+
+
+  <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05> 
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:mira-xeth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:mira-eth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:mira-ib0>;
+  :num_cores "16"^^xsd:int;
+  :memory_gb "16"^^xsd:long;
+  nml:hasService 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:gridftp-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:mira-xeth0> 
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:donald-sw:e17/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:mira-eth0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:eth-sw:e11/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e9/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:gridftp-service>
+  a   owl:NamedIndividual ,
+      :GridftpService ;
+  :port "2811";
+  :block_size_byte "1024"^^xsd:long;
+  :max_connections "20"^^xsd:long;
+  :udt_enabled "false"^^xsd:boolean;
+  :threaded "true"^^xsd:boolean;
+  :file_paths "TBF"^^xsd:string;
+  :port_range "50000,51000";
+  :permission "0644";
+  :sync_writes "false"^^xsd:boolean;
+  :home_dir "TBF";
+  :allow_from "TBF"^^xsd:string;
+  :deny_from "TBF"^^xsd:string.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:san>
+  a   nml:Topology ,
+      owl:NamedIndividual;
+  :can_reserv_bw "false"^^xsd:boolean;
+  :link_type "infiniband"^^xsd:string;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:san:mira-ib0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:san:san-ib0>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:san:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e9/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:san:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e10/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:storage_node>
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:san-ib0>;
+  nml:hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:ioperf-service>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:storage-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e10/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:storage-service> 
+  a   mrs:StorageService,
+      owl:NamedIndividual;
+  :fs_type "gpfs"^^xsd:string;
+  :num_meta_server "1"^^xsd:int;
+  :num_data_server "64"^^xsd:int;
+  :rw_pattern "TBF";
+  :layout "TBF";
+  :block_size_kb "4096"^^xsd:long;
+  :hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:storage-service:block>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:storage-service:block> 
+  a   mrs:BlockStorageService ,
+      owl:NamedIndividual ;
+  mrs:providesVolume
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:storage-service:disks>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:storage-service:disks>
+  a   mrs:Volume,
+      owl:NamedIndividual;  
+  mrs:disk_gb "19461120"^^xsd:long;
+  :disk_type "HDD"^^xsd:string;
+  :seek_time "TBF";
+  :spin_speed_rpm "7200"^^xsd:int;
+  :raid_type "6"^^xsd:int;
+  mrs:hasBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:ioperf-service>
+  a   mrs:IOPerformanceMeasurementService,
+      owl:NamedIndividual;
+  mrs:providesBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn05:ioperf-service:bench1> 
+  a   mrs:POSIX_IOBenchmark,
+      owl:NamedIndividual;
+  mrs:average_iops_4kb_write "236000"^^xsd:long ;
+  mrs:average_iops_4kb_read "236000"^^xsd:long ;
+  mrs:maximum_iops_4kb_read "265000"^^xsd:long ;
+  mrs:maximum_iops_4kb_write "265000"^^xsd:long .
+
+
+
+  <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06> 
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:mira-xeth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:mira-eth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:mira-ib0>;
+  :num_cores "16"^^xsd:int;
+  :memory_gb "16"^^xsd:long;
+  nml:hasService 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:gridftp-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:mira-xeth0> 
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:donald-sw:e18/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:mira-eth0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:eth-sw:e12/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e11/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:gridftp-service>
+  a   owl:NamedIndividual ,
+      :GridftpService ;
+  :port "2811";
+  :block_size_byte "1024"^^xsd:long;
+  :max_connections "20"^^xsd:long;
+  :udt_enabled "false"^^xsd:boolean;
+  :threaded "true"^^xsd:boolean;
+  :file_paths "TBF"^^xsd:string;
+  :port_range "50000,51000";
+  :permission "0644";
+  :sync_writes "false"^^xsd:boolean;
+  :home_dir "TBF";
+  :allow_from "TBF"^^xsd:string;
+  :deny_from "TBF"^^xsd:string.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:san>
+  a   nml:Topology ,
+      owl:NamedIndividual;
+  :can_reserv_bw "false"^^xsd:boolean;
+  :link_type "infiniband"^^xsd:string;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:san:mira-ib0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:san:san-ib0>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:san:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e11/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:san:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e12/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:storage_node>
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:san-ib0>;
+  nml:hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:ioperf-service>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:storage-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e12/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:storage-service> 
+  a   mrs:StorageService,
+      owl:NamedIndividual;
+  :fs_type "gpfs"^^xsd:string;
+  :num_meta_server "1"^^xsd:int;
+  :num_data_server "64"^^xsd:int;
+  :rw_pattern "TBF";
+  :layout "TBF";
+  :block_size_kb "4096"^^xsd:long;
+  :hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:storage-service:block>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:storage-service:block> 
+  a   mrs:BlockStorageService ,
+      owl:NamedIndividual ;
+  mrs:providesVolume
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:storage-service:disks>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:storage-service:disks>
+  a   mrs:Volume,
+      owl:NamedIndividual;  
+  mrs:disk_gb "19461120"^^xsd:long;
+  :disk_type "HDD"^^xsd:string;
+  :seek_time "TBF";
+  :spin_speed_rpm "7200"^^xsd:int;
+  :raid_type "6"^^xsd:int;
+  mrs:hasBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:ioperf-service>
+  a   mrs:IOPerformanceMeasurementService,
+      owl:NamedIndividual;
+  mrs:providesBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn06:ioperf-service:bench1> 
+  a   mrs:POSIX_IOBenchmark,
+      owl:NamedIndividual;
+  mrs:average_iops_4kb_write "236000"^^xsd:long ;
+  mrs:average_iops_4kb_read "236000"^^xsd:long ;
+  mrs:maximum_iops_4kb_read "265000"^^xsd:long ;
+  mrs:maximum_iops_4kb_write "265000"^^xsd:long .
+
+
+  <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07> 
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:mira-xeth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:mira-eth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:mira-ib0>;
+  :num_cores "16"^^xsd:int;
+  :memory_gb "16"^^xsd:long;
+  nml:hasService 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:gridftp-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:mira-xeth0> 
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:donald-sw:e19/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:mira-eth0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:eth-sw:e15/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e13/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:gridftp-service>
+  a   owl:NamedIndividual ,
+      :GridftpService ;
+  :port "2811";
+  :block_size_byte "1024"^^xsd:long;
+  :max_connections "20"^^xsd:long;
+  :udt_enabled "false"^^xsd:boolean;
+  :threaded "true"^^xsd:boolean;
+  :file_paths "TBF"^^xsd:string;
+  :port_range "50000,51000";
+  :permission "0644";
+  :sync_writes "false"^^xsd:boolean;
+  :home_dir "TBF";
+  :allow_from "TBF"^^xsd:string;
+  :deny_from "TBF"^^xsd:string.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:san>
+  a   nml:Topology ,
+      owl:NamedIndividual;
+  :can_reserv_bw "false"^^xsd:boolean;
+  :link_type "infiniband"^^xsd:string;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:san:mira-ib0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:san:san-ib0>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:san:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e13/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:san:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e14/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:storage_node>
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:san-ib0>;
+  nml:hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:ioperf-service>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:storage-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e14/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:storage-service> 
+  a   mrs:StorageService,
+      owl:NamedIndividual;
+  :fs_type "gpfs"^^xsd:string;
+  :num_meta_server "1"^^xsd:int;
+  :num_data_server "64"^^xsd:int;
+  :rw_pattern "TBF";
+  :layout "TBF";
+  :block_size_kb "4096"^^xsd:long;
+  :hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:storage-service:block>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:storage-service:block> 
+  a   mrs:BlockStorageService ,
+      owl:NamedIndividual ;
+  mrs:providesVolume
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:storage-service:disks>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:storage-service:disks>
+  a   mrs:Volume,
+      owl:NamedIndividual;  
+  mrs:disk_gb "19461120"^^xsd:long;
+  :disk_type "HDD"^^xsd:string;
+  :seek_time "TBF";
+  :spin_speed_rpm "7200"^^xsd:int;
+  :raid_type "6"^^xsd:int;
+  mrs:hasBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:ioperf-service>
+  a   mrs:IOPerformanceMeasurementService,
+      owl:NamedIndividual;
+  mrs:providesBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn07:ioperf-service:bench1> 
+  a   mrs:POSIX_IOBenchmark,
+      owl:NamedIndividual;
+  mrs:average_iops_4kb_write "236000"^^xsd:long ;
+  mrs:average_iops_4kb_read "236000"^^xsd:long ;
+  mrs:maximum_iops_4kb_read "265000"^^xsd:long ;
+  mrs:maximum_iops_4kb_write "265000"^^xsd:long .
+
+
+
+  <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08> 
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:mira-xeth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:mira-eth0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:mira-ib0>;
+  :num_cores "16"^^xsd:int;
+  :memory_gb "16"^^xsd:long;
+  nml:hasService 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:gridftp-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:mira-xeth0> 
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:donald-sw:e20/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:mira-eth0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "10"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:eth-sw:e16/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e15/1>.  
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:gridftp-service>
+  a   owl:NamedIndividual ,
+      :GridftpService ;
+  :port "2811";
+  :block_size_byte "1024"^^xsd:long;
+  :max_connections "20"^^xsd:long;
+  :udt_enabled "false"^^xsd:boolean;
+  :threaded "true"^^xsd:boolean;
+  :file_paths "TBF"^^xsd:string;
+  :port_range "50000,51000";
+  :permission "0644";
+  :sync_writes "false"^^xsd:boolean;
+  :home_dir "TBF";
+  :allow_from "TBF"^^xsd:string;
+  :deny_from "TBF"^^xsd:string.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:san>
+  a   nml:Topology ,
+      owl:NamedIndividual;
+  :can_reserv_bw "false"^^xsd:boolean;
+  :link_type "infiniband"^^xsd:string;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:san:mira-ib0>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:san:san-ib0>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:san:mira-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e15/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:san:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e16/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:storage_node>
+  a   nml:Node ,
+      owl:NamedIndividual;
+  nml:hasBidirectionalPort 
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:san-ib0>;
+  nml:hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:ioperf-service>,
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:storage-service>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:san-ib0>
+  a   nml:BidirectionalPort,
+      owl:NamedIndividual;
+  :capacity_Gbps "32"^^xsd:long;
+  nml:isAlias <urn:ogf:network:rains.anl.gov:2013:san-sw:e16/1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:storage-service> 
+  a   mrs:StorageService,
+      owl:NamedIndividual;
+  :fs_type "gpfs"^^xsd:string;
+  :num_meta_server "1"^^xsd:int;
+  :num_data_server "64"^^xsd:int;
+  :rw_pattern "TBF";
+  :layout "TBF";
+  :block_size_kb "4096"^^xsd:long;
+  :hasService
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:storage-service:block>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:storage-service:block> 
+  a   mrs:BlockStorageService ,
+      owl:NamedIndividual ;
+  mrs:providesVolume
+      <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:storage-service:disks>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:storage-service:disks>
+  a   mrs:Volume,
+      owl:NamedIndividual;  
+  mrs:disk_gb "19461120"^^xsd:long;
+  :disk_type "HDD"^^xsd:string;
+  :seek_time "TBF";
+  :spin_speed_rpm "7200"^^xsd:int;
+  :raid_type "6"^^xsd:int;
+  mrs:hasBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:ioperf-service>
+  a   mrs:IOPerformanceMeasurementService,
+      owl:NamedIndividual;
+  mrs:providesBenchmark <urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:ioperf-service:bench1>.
+
+<urn:ogf:storage:rains.anl.gov:2013:mira-dtn08:ioperf-service:bench1> 
+  a   mrs:POSIX_IOBenchmark,
+      owl:NamedIndividual;
+  mrs:average_iops_4kb_write "236000"^^xsd:long ;
+  mrs:average_iops_4kb_read "236000"^^xsd:long ;
+  mrs:maximum_iops_4kb_read "265000"^^xsd:long ;
+  mrs:maximum_iops_4kb_write "265000"^^xsd:long .
+  
