@@ -1,0 +1,1809 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nml:   <http://schemas.ogf.org/nml/2013/03/base#> .
+@prefix mrs:   <http://schemas.ogf.org/mrs/2013/12/topology#> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:floatingip-inuse>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-floatingip" ;
+        mrs:value  "[10.10.252.179, 10.10.252.205, 10.10.252.156, 10.10.252.158, 10.10.252.219, 10.10.252.233, 10.10.252.164, 10.10.252.155, 10.10.252.154, 10.10.252.153, 10.10.252.189, 10.10.252.234, 10.10.252.179, 10.10.252.205, 10.10.252.156, 10.10.252.158, 10.10.252.219, 10.10.252.233, 10.10.252.163, 10.10.252.164, 10.10.252.155, 10.10.252.154, 10.10.252.153, 10.10.252.189, 10.10.252.234]" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-150>
+        a             nml:BidirectionalPort ;
+        nml:hasLabel  [ a              nml:Label ;
+                        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                        nml:value      "150"
+                      ] .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:route-local> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute3>
+        a                         nml:Node ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute3:sriov-pf> ;
+        nml:hasService            <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute3:vmfex> , <urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute3> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.205>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.205" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.156>
+        a          mrs:NetworkAddress ;
+        mrs:type   "floating-ip" ;
+        mrs:value  "10.10.252.156" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-301>
+        a             nml:BidirectionalPort ;
+        nml:hasLabel  [ a              nml:Label ;
+                        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                        nml:value      "301"
+                      ] .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:fixedip+10.0.0.3>
+        a          mrs:NetworkAddress ;
+        mrs:type   "fixed-ip" , "ipv4:private" ;
+        mrs:value  "10.0.0.3" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0:interfaceip+10.10.252.177:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.151>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.151" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute8:sriov-pf>
+        a       nml:BidirectionalPort .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:eth0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.233> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:fixedip+10.1.0.3> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private:subnetnetworkaddress> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:fixedip+10.0.0.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:vm1>
+        a                         nml:Node ;
+        mrs:type                  "flavor+ebeb9636-8675-42bb-b099-517505dd67a2" , "image+49d6ee90-9d7d-4afb-a90e-2716bb721f78" ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:vm1:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.163>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.163" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:server+uva6>
+        a                         nml:Node ;
+        mrs:type                  "flavor+ebeb9636-8675-42bb-b099-517505dd67a2" , "image+49d6ee90-9d7d-4afb-a90e-2716bb721f78" ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:port+d8f43bbb-f697-4f72-a0e8-82a51c42417b> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:route-local> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-main> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute7:vmfex>
+        a                         mrs:HypervisorBypassInterfaceService ;
+        mrs:providesVNic          <urn:ogf:network:openstack.com:openstack-cloud:port+ethb4d19000-4d00-4978-adf5-83394ae93d2f> , <urn:ogf:network:openstack.com:openstack-cloud:port+eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute7:sriov-pf> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:neighbor+10_10_0_2:bgp_authkey>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-authkey" ;
+        mrs:value  "versastack" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+f55be28a-3bd7-4357-91ed-3eaaa888ff62>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.158> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.229>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.229" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:vm1:eth0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.189> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:fixedip+10.0.0.3> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+371d9e8e-b7ef-41dc-b2f2-5c4dd725638c>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.205> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:fixedip+10.0.0.2>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.2" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:routingtable>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:route-local> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:dest_ip+0.0.0.00:subnet+public:route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.205>
+        a          mrs:NetworkAddress ;
+        mrs:type   "floating-ip" ;
+        mrs:value  "10.10.252.205" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ceph-rbd>
+        a                   mrs:BlockStorageService ;
+        mrs:providesVolume  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:volume+ceph0> ;
+        mrs:type            "ceph-rbd" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+349eba04-6af2-4064-992a-fd52aeb34bfe>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.189> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:neighbor+10_10_0_2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute2:sriov-pf>
+        a       nml:BidirectionalPort .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:fixedip+10.0.0.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:cidr> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:fixedip+10.0.0.3> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:cidr> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:gateway> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0port1> , <urn:ogf:network:openstack.com:openstack-cloud:port+75425135-a30f-4aed-84fd-ff8028a81111> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:vm1:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0:interfaceip+10.10.252.226:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0:interfaceip+10.1.0.1:router-interface-route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute2:vmfex>
+        a                         mrs:HypervisorBypassInterfaceService ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute2:sriov-pf> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:route-local> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+router1:router-interface-nexthop+10.10.252.151:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.151" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+0a7b7398-87bd-4e4b-82bb-a956b40ad092>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.226> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+router1:routingtable-router-interface>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:router+router1:interfaceip+10.10.252.151:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+router1:interfaceip+20.21.22.1:router-interface-route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+6906b825-1ec7-429d-b5b7-f34ea7ebe11c>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+private:fixedip+20.21.22.1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:gateway>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "10.1.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:route-local> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:dest_ip+0.0.0.00:subnet+public:route> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:routingtable> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+de09eada-485a-4f16-9e14-d3cc8a52a5ba>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.234> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute4>
+        a       mrs:HypervisorService .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+9e7816d2-38fe-4d87-a6ba-0e5a9c36527a>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.233> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:ethb4d19000-4d00-4978-adf5-83394ae93d2f:mac-address+aa:bb:cc:dd:01:52>
+        a         mrs:NetworkAddress ;
+        mrs:type  "mac-address" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:eth0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.234> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:fixedip+10.0.0.3> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:route-local> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:fixedip+10.1.0.3> , <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:cidr> , <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:gateway> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0port0> , <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:eth0> , <urn:ogf:network:openstack.com:openstack-cloud:port+02b9ff89-8344-4fa5-a148-e6c208385a87> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0:interfaceip+10.10.252.231:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest>
+        a               nml:Topology ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:vm1:eth0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.153> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:fixedip+10.0.0.3> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+7838e4ee-a18c-435b-8e2c-a2168c0e4568>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:fixedip+10.0.0.2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+1f2c0586-90c3-41d0-b2bf-418de57b909b>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.151> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private:subnetgateway+20.21.22.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "20.21.22.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+private:fixedip+20.21.22.2>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "20.21.22.2" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:fixedip+10.0.0.3>
+        a          mrs:NetworkAddress ;
+        mrs:type   "fixed-ip" , "ipv4:private" ;
+        mrs:value  "10.0.0.3" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:vm1:eth0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.154> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:fixedip+10.0.0.3> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute4>
+        a                         nml:Node ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute4:sriov-pf> ;
+        nml:hasService            <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute4:vmfex> , <urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute4> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:dest_ip+0.0.0.00:subnet+public:route>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:next-hop+10.10.252.11:route-nexthop> ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:dest_ip+0.0.0.00:route-dest> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+174c8db6-23b5-48db-ab04-ce41403acb62>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:fixedip+10.0.0.2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0:interfaceip+10.10.252.231:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0:router-interface-nexthop+10.10.252.231:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-302>
+        a             nml:BidirectionalPort ;
+        nml:hasLabel  [ a              nml:Label ;
+                        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                        nml:value      "302"
+                      ] .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+af7ec121-4eac-4598-9aa5-7c7fe9eeb879>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.164> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+8e476654-9550-43e3-9fae-d2befa0dc494>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.156> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:next-hop+10.10.252.11:route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.11" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+7de947d3-a424-4f36-aca9-9aa5cdd77438>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.229> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+3b50d4f3-611a-4cef-95d8-a404b8c8bf13>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.155> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0:router-interface-nexthop+10.1.0.1:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.1.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port-profile+AWS1761>
+        a                         mrs:SwitchingSubnet ;
+        mrs:type                  "Cisco_UCS_Port_Profile" , "shared" ;
+        mrs:value                 "Cisco_UCS_Port_Profile+AWS1761" ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-1761> ;
+        nml:hasLabel              [ a              nml:Label ;
+                                    nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                                    nml:value      "1761"
+                                  ] ;
+        nml:labelSwapping         false .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0:interfaceip+10.10.252.176:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:route-local> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0:interfaceip+10.10.252.195:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:fixedip+10.0.0.2>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.2" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.164>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.164" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-103>
+        a             nml:BidirectionalPort ;
+        nml:hasLabel  [ a              nml:Label ;
+                        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                        nml:value      "103"
+                      ] .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:route-local> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-main> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0:router-interface-nexthop+10.10.252.209:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.209" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:subnetnetworkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.10.252.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+router1:interfaceip+10.10.252.151:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+router1:router-interface-nexthop+10.10.252.151:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1>
+        a               nml:Topology ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0:router-interface-nexthop+10.10.252.191:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.191" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0port0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:fixedip+10.1.0.1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.176>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.176" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:fixedip+10.0.0.3> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:cidr> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:gateway> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:vm1:eth0> , <urn:ogf:network:openstack.com:openstack-cloud:port+3f7e6338-7d9d-441a-99ee-f5c8d7be9d9e> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0port1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:fixedip+10.0.0.3>
+        a          mrs:NetworkAddress ;
+        mrs:type   "fixed-ip" , "ipv4:private" ;
+        mrs:value  "10.0.0.3" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0port1>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:fixedip+10.0.0.1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:fixedip+10.0.0.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.231>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.231" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+private:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private:route-local> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc+private:routingtable-main> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.155> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.156> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.205> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.233> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.234> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.189> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.158> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.164> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:subnetgateway+10.10.252.11> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.153> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.179> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.154> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:subnetnetworkaddress> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:port+5b31d998-b4bc-41dc-8ab8-2a9d44e3ba91> , <urn:ogf:network:openstack.com:openstack-cloud:port+7de947d3-a424-4f36-aca9-9aa5cdd77438> , <urn:ogf:network:openstack.com:openstack-cloud:port+e4096c1a-214a-4610-8964-5bf5e8c71f8e> , <urn:ogf:network:openstack.com:openstack-cloud:port+0a7b7398-87bd-4e4b-82bb-a956b40ad092> , <urn:ogf:network:openstack.com:openstack-cloud:port+9e7816d2-38fe-4d87-a6ba-0e5a9c36527a> , <urn:ogf:network:openstack.com:openstack-cloud:port+349eba04-6af2-4064-992a-fd52aeb34bfe> , <urn:ogf:network:openstack.com:openstack-cloud:port+7ce88a00-f7ab-4f37-8860-7c0fb14180ee> , <urn:ogf:network:openstack.com:openstack-cloud:port+dc4ceb98-90ae-4461-b631-6fca0776eaf2> , <urn:ogf:network:openstack.com:openstack-cloud:port+ee4fa6c7-bdb5-442a-ae8d-b158d7c31832> , <urn:ogf:network:openstack.com:openstack-cloud:port+b8681f4c-2091-40e3-bee4-4ad758866eee> , <urn:ogf:network:openstack.com:openstack-cloud:port+5d3867d9-3d42-4c90-bc57-c9974965a93e> , <urn:ogf:network:openstack.com:openstack-cloud:port+8e476654-9550-43e3-9fae-d2befa0dc494> , <urn:ogf:network:openstack.com:openstack-cloud:port+594bcdd5-f7e1-4f7b-9f0a-6f0e1b4730b7> , <urn:ogf:network:openstack.com:openstack-cloud:port+4ebcd4bf-0f7b-4b4b-9239-1b7ede3c5111> , <urn:ogf:network:openstack.com:openstack-cloud:port+0c533b16-9a1a-4139-8658-adbd27f8b2e3> , <urn:ogf:network:openstack.com:openstack-cloud:port+af7ec121-4eac-4598-9aa5-7c7fe9eeb879> , <urn:ogf:network:openstack.com:openstack-cloud:port+e84f230f-c943-412c-83de-6c88c204b6ec> , <urn:ogf:network:openstack.com:openstack-cloud:port+f55be28a-3bd7-4357-91ed-3eaaa888ff62> , <urn:ogf:network:openstack.com:openstack-cloud:port+c24cfcef-87a1-4c7e-bf69-c84e4a926420> , <urn:ogf:network:openstack.com:openstack-cloud:port+1f2c0586-90c3-41d0-b2bf-418de57b909b> , <urn:ogf:network:openstack.com:openstack-cloud:port+c8312efd-bb64-49ea-b1e7-5176a28a242f> , <urn:ogf:network:openstack.com:openstack-cloud:port+de09eada-485a-4f16-9e14-d3cc8a52a5ba> , <urn:ogf:network:openstack.com:openstack-cloud:port+371d9e8e-b7ef-41dc-b2f2-5c4dd725638c> , <urn:ogf:network:openstack.com:openstack-cloud:port+3b50d4f3-611a-4cef-95d8-a404b8c8bf13> , <urn:ogf:network:openstack.com:openstack-cloud:port+d0f25a91-6f49-4257-9ace-8e48af9672db> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566:routeto+206.196.0.016>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "206.196.0.016" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0:interfaceip+10.10.252.177:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0:router-interface-nexthop+10.10.252.177:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1>
+        a               nml:Topology ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:fixedip+10.0.0.2>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.2" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+5d3867d9-3d42-4c90-bc57-c9974965a93e>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.154> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:gateway>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:vm1>
+        a                         nml:Node ;
+        mrs:type                  "flavor+5" , "image+49d6ee90-9d7d-4afb-a90e-2716bb721f78" ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:vm1:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.158>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.158" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.164>
+        a          mrs:NetworkAddress ;
+        mrs:type   "floating-ip" ;
+        mrs:value  "10.10.252.164" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute5>
+        a       mrs:HypervisorService .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:route-local> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-main> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:route-local> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute6:vmfex>
+        a                         mrs:HypervisorBypassInterfaceService ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute6:sriov-pf> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute7:sriov-pf>
+        a       nml:BidirectionalPort .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0:router-interface-nexthop+10.10.252.246:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.246" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:fixedip+10.0.0.3> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:cidr> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:gateway> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0port1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:vm1:eth0> , <urn:ogf:network:openstack.com:openstack-cloud:port+7838e4ee-a18c-435b-8e2c-a2168c0e4568> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0:interfaceip+10.10.252.229:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+20d21025-5347-4ce0-b48b-1e714f9af9ef>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.164> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+private:fixedip+20.21.22.19> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:route-local> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:vm1>
+        a                         nml:Node ;
+        mrs:type                  "flavor+5" , "image+98717011-540a-433b-952f-c4803b8051dd" ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:vm1:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:cidr> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:cidr> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+private:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:cidr> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:cidr> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute5>
+        a                         nml:Node ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute5:sriov-pf> ;
+        nml:hasService            <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute5:vmfex> , <urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute5> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0port1>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:fixedip+10.0.0.1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.158>
+        a          mrs:NetworkAddress ;
+        mrs:type   "floating-ip" ;
+        mrs:value  "10.10.252.158" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0port1>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:fixedip+10.0.0.1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:route-local> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-main> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:cinderservice>
+        a       mrs:BlockStorageService .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.153>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.153" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:vm1:eth0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.205> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:fixedip+10.0.0.3> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0:router-interface-nexthop+10.10.252.195:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.195" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port-profile+AWS1762>
+        a                         mrs:SwitchingSubnet ;
+        mrs:type                  "Cisco_UCS_Port_Profile" , "shared" ;
+        mrs:value                 "Cisco_UCS_Port_Profile+AWS1762" ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-1762> ;
+        nml:hasLabel              [ a              nml:Label ;
+                                    nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                                    nml:value      "1762"
+                                  ] ;
+        nml:labelSwapping         false .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:fixedip+10.0.0.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.219>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.219" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.195>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.195" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:fixedip+10.0.0.3>
+        a          mrs:NetworkAddress ;
+        mrs:type   "fixed-ip" , "ipv4:private" ;
+        mrs:value  "10.0.0.3" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+private:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private:route-local> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0:interfaceip+10.10.252.191:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-1761>
+        a             nml:BidirectionalPort ;
+        nml:hasLabel  [ a              nml:Label ;
+                        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                        nml:value      "1761"
+                      ] .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:gateway>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:vm1>
+        a                         nml:Node ;
+        mrs:type                  "flavor+5" , "image+49d6ee90-9d7d-4afb-a90e-2716bb721f78" ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:vm1:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:server+test16>
+        a                         nml:Node ;
+        mrs:type                  "flavor+5165623f-6f20-4fdb-8f12-9d1098162d30" , "image+49d6ee90-9d7d-4afb-a90e-2716bb721f78" ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:port+20d21025-5347-4ce0-b48b-1e714f9af9ef> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.177>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.177" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0:interfaceip+10.10.252.229:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0:router-interface-nexthop+10.10.252.229:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:gateway>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:fixedip+10.0.0.2>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.2" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:routingservice>
+        a                  mrs:RoutingService ;
+        mrs:providesRoute  <urn:ogf:network:openstack.com:openstack-cloud:port+ethb4d19000-4d00-4978-adf5-83394ae93d2f:route+to-206.196.0.016-via-206.196.179.145> , <urn:ogf:network:openstack.com:openstack-cloud:port+eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566:route+to-206.196.0.016-via-206.196.179.145> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0:interfaceip+10.10.252.176:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0:router-interface-nexthop+10.10.252.176:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:fixedip+10.0.0.3>
+        a          mrs:NetworkAddress ;
+        mrs:type   "fixed-ip" , "ipv4:private" ;
+        mrs:value  "10.0.0.3" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.153>
+        a          mrs:NetworkAddress ;
+        mrs:type   "floating-ip" ;
+        mrs:value  "10.10.252.153" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port-profile+Local-SDMZ300>
+        a                         mrs:SwitchingSubnet ;
+        mrs:type                  "Cisco_UCS_Port_Profile" , "shared" ;
+        mrs:value                 "Cisco_UCS_Port_Profile+Local-SDMZ300" ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-300> ;
+        nml:hasLabel              [ a              nml:Label ;
+                                    nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                                    nml:value      "300"
+                                  ] ;
+        nml:labelSwapping         false .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:cidr> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+7ce88a00-f7ab-4f37-8860-7c0fb14180ee>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.231> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.189>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.189" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+private:fixedip+20.21.22.17>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "20.21.22.17" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:vm1>
+        a                         nml:Node ;
+        mrs:type                  "flavor+5" , "image+6111384c-7f8a-4113-a6e7-a456fdf1c3b0" ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:vm1:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0:interfaceip+10.10.252.192:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0:router-interface-nexthop+10.10.252.192:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+private>
+        a               nml:Topology ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:vpc+private:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+private:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute4:sriov-pf>
+        a       nml:BidirectionalPort .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0:router-interface-nexthop+10.10.252.231:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.231" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+78b80d85-c58e-40d1-81d0-3a994bb5e58d>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+private:fixedip+20.21.22.2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute6>
+        a               mrs:HypervisorService ;
+        mrs:providesVM  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:vm1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:route-local> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+5a53c69e-86f8-4b1a-a954-165744478c0f>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:fixedip+10.0.0.2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0:interfaceip+10.10.252.209:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:ethb4d19000-4d00-4978-adf5-83394ae93d2f:public-ip-address+10.10.200.152/24>
+        a         mrs:NetworkAddress ;
+        mrs:type  "ipv4-address" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0port1>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:fixedip+10.0.0.1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.226>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.226" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+594bcdd5-f7e1-4f7b-9f0a-6f0e1b4730b7>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.177> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+7c9748a6-5ddd-41d6-bfbb-5c87f52cb08a>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:fixedip+10.0.0.2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:volume+ceph0>
+        a                mrs:Volume ;
+        mrs:disk_gb      "2048000" ;
+        mrs:mount_point  "/mnt/ceph_2tb" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+8df0d48b-ee7f-4b0b-8776-2c06eacb436a>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:fixedip+10.0.0.2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:vm1:eth0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.155> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:fixedip+10.0.0.3> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566:route+to-206.196.0.016-via-206.196.179.145>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:port+eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566:next+206.196.179.145> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:port+eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566:routeto+206.196.0.016> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:route-local> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-main> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+5b31d998-b4bc-41dc-8ab8-2a9d44e3ba91>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.192> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+ethb4d19000-4d00-4978-adf5-83394ae93d2f>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:port+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:ethb4d19000-4d00-4978-adf5-83394ae93d2f:mac-address+aa:bb:cc:dd:01:52> , <urn:ogf:network:openstack.com:openstack-cloud:port+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:ethb4d19000-4d00-4978-adf5-83394ae93d2f:public-ip-address+10.10.200.152/24> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.189>
+        a          mrs:NetworkAddress ;
+        mrs:type   "floating-ip" ;
+        mrs:value  "10.10.252.189" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute6>
+        a                         nml:Node ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute6:sriov-pf> ;
+        nml:hasNode               <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:vm1> ;
+        nml:hasService            <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute6:vmfex> , <urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute6> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+b8681f4c-2091-40e3-bee4-4ad758866eee>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.219> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0:interfaceip+10.1.0.1:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0:router-interface-nexthop+10.1.0.1:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port-profile+Ceph-Storage>
+        a                         mrs:SwitchingSubnet ;
+        mrs:type                  "Cisco_UCS_Port_Profile" , "shared" ;
+        mrs:value                 "Cisco_UCS_Port_Profile+Ceph-Storage" ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-103> , <urn:ogf:network:openstack.com:openstack-cloud:port+ethb4d19000-4d00-4978-adf5-83394ae93d2f> ;
+        nml:hasLabel              [ a              nml:Label ;
+                                    nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                                    nml:value      "103"
+                                  ] ;
+        nml:labelSwapping         false .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+c8312efd-bb64-49ea-b1e7-5176a28a242f>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.176> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0port1>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:fixedip+10.0.0.1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.154>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.154" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:gateway>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:vm1>
+        a         nml:Node ;
+        mrs:type  "flavor+4" , "image+49d6ee90-9d7d-4afb-a90e-2716bb721f78" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute5:vmfex>
+        a                         mrs:HypervisorBypassInterfaceService ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute5:sriov-pf> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port-profile+AWS1763>
+        a                         mrs:SwitchingSubnet ;
+        mrs:type                  "Cisco_UCS_Port_Profile" , "shared" ;
+        mrs:value                 "Cisco_UCS_Port_Profile+AWS1763" ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-1763> ;
+        nml:hasLabel              [ a              nml:Label ;
+                                    nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                                    nml:value      "1763"
+                                  ] ;
+        nml:labelSwapping         false .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:fixedip+10.0.0.2>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.2" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:fixedip+10.1.0.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.1.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:vm1>
+        a                         nml:Node ;
+        mrs:type                  "flavor+5" , "image+a1d31ce6-df15-4d4b-9970-aa645550c90e" ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:vm1:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+02b9ff89-8344-4fa5-a148-e6c208385a87>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:fixedip+10.1.0.2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute4:vmfex>
+        a                         mrs:HypervisorBypassInterfaceService ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute4:sriov-pf> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:route-local> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-main> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:route-local> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-main> .
+
+<urn:ogf:network:openstack.com:openstack-cloud>
+        a                         nml:Topology ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:floatingip-inuse> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:floatingip-pool> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc> ;
+        nml:hasNode               <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute7> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute6> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute5> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute4> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute8> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute3> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute2> ;
+        nml:hasService            <urn:ogf:network:openstack.com:openstack-cloud:ceph-rbd> , <urn:ogf:network:openstack.com:openstack-cloud:networkservice> , <urn:ogf:network:openstack.com:openstack-cloud:cinderservice> , <urn:ogf:network:openstack.com:openstack-cloud:ucs-fabric> , <urn:ogf:network:openstack.com:openstack-cloud:routingservice> ;
+        nml:hasTopology           <urn:ogf:network:openstack.com:openstack-cloud:vpc+private> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+public> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest> , <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:fixedip+10.0.0.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1>
+        a                         nml:Node ;
+        mrs:type                  "flavor+4" , "image+49d6ee90-9d7d-4afb-a90e-2716bb721f78" ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:port+ethb4d19000-4d00-4978-adf5-83394ae93d2f> , <urn:ogf:network:openstack.com:openstack-cloud:port+eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:eth0> ;
+        nml:hasService            <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:routingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0port1>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:fixedip+10.0.0.1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:neighbor+10_10_0_2:remote_asn>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-asn" ;
+        mrs:value  "7224" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:fixedip+10.0.0.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-1762>
+        a             nml:BidirectionalPort ;
+        nml:hasLabel  [ a              nml:Label ;
+                        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                        nml:value      "1762"
+                      ] .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+ethb4d19000-4d00-4978-adf5-83394ae93d2f:next+206.196.179.145>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "206.196.179.145" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1>
+        a                         nml:Node ;
+        mrs:hasVolume             <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:volume+ceph0> ;
+        mrs:type                  "flavor+5" , "image+49d6ee90-9d7d-4afb-a90e-2716bb721f78" ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:eth0> ;
+        nml:hasService            <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0:router-interface-nexthop+10.10.252.226:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.226" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0:interfaceip+10.10.252.246:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0:router-interface-nexthop+10.10.252.246:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest>
+        a               nml:Topology ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:neighbor+10_10_0_2:local_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-local" ;
+        mrs:value  "10.10.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute6:sriov-pf>
+        a       nml:BidirectionalPort .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:route-local> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-main> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+e4096c1a-214a-4610-8964-5bf5e8c71f8e>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.163> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0:interfaceip+10.10.252.192:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.233>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.233" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:fixedip+10.0.0.3>
+        a            mrs:NetworkAddress ;
+        mrs:type     "fixed-ip" , "ipv4:private" ;
+        mrs:value    "10.0.0.3" ;
+        nml:isAlias  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.234> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.153> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.179> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.156> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.189> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.158> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.155> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.205> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.154> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+ethb4d19000-4d00-4978-adf5-83394ae93d2f:routeto+206.196.0.016>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "206.196.0.016" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.154>
+        a          mrs:NetworkAddress ;
+        mrs:type   "floating-ip" ;
+        mrs:value  "10.10.252.154" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:gateway>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port-profile+Local-SDMZ301>
+        a                         mrs:SwitchingSubnet ;
+        mrs:type                  "Cisco_UCS_Port_Profile" , "shared" ;
+        mrs:value                 "Cisco_UCS_Port_Profile+Local-SDMZ301" ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-301> ;
+        nml:hasLabel              [ a              nml:Label ;
+                                    nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                                    nml:value      "301"
+                                  ] ;
+        nml:labelSwapping         false .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:fixedip+10.0.0.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:vm1:eth0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.158> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:fixedip+10.0.0.3> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0:interfaceip+10.10.252.246:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+c24cfcef-87a1-4c7e-bf69-c84e4a926420>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.153> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:gateway>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private:subnetnetworkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "20.21.22.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:route-local> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs>
+        a               nml:Topology ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute7>
+        a               mrs:HypervisorService ;
+        mrs:providesVM  <urn:ogf:network:openstack.com:openstack-cloud:server+test16> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.191>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.191" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0port1>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:fixedip+10.0.0.1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port-profile+External-Access>
+        a                         mrs:SwitchingSubnet ;
+        mrs:type                  "Cisco_UCS_Port_Profile" , "shared" ;
+        mrs:value                 "Cisco_UCS_Port_Profile+External-Access" ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-150> , <urn:ogf:network:openstack.com:openstack-cloud:port+eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566> ;
+        nml:hasLabel              [ a              nml:Label ;
+                                    nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                                    nml:value      "150"
+                                  ] ;
+        nml:labelSwapping         false .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:port+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566:mac-address+aa:bb:cc:12:34:78> , <urn:ogf:network:openstack.com:openstack-cloud:port+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566:public-ip-address+206.196.179.152/28> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.233>
+        a          mrs:NetworkAddress ;
+        mrs:type   "floating-ip" ;
+        mrs:value  "10.10.252.233" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:route-local> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:fixedip+10.0.0.3> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:cidr> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:gateway> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0port1> , <urn:ogf:network:openstack.com:openstack-cloud:port+5a53c69e-86f8-4b1a-a954-165744478c0f> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:vm1:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public>
+        a               nml:Topology ;
+        mrs:type        "external" ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+4ebcd4bf-0f7b-4b4b-9239-1b7ede3c5111>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.150> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+ee4fa6c7-bdb5-442a-ae8d-b158d7c31832>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.246> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:route-local> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-main> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+router1:interfaceip+20.21.22.1:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+router1:router-interface-nexthop+20.21.22.1:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute7>
+        a                         nml:Node ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute7:sriov-pf> ;
+        nml:hasNode               <urn:ogf:network:openstack.com:openstack-cloud:server+test16> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1> ;
+        nml:hasService            <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute7:vmfex> , <urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute7> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:vm1:eth0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.179> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:fixedip+10.0.0.3> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+94c1d23a-801b-4314-b512-c82ad39a78ec>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:fixedip+10.0.0.2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.209>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.209" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+75425135-a30f-4aed-84fd-ff8028a81111>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:fixedip+10.0.0.2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+d0f25a91-6f49-4257-9ace-8e48af9672db>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.195> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.155>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.155" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+d8f43bbb-f697-4f72-a0e8-82a51c42417b>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+private:fixedip+20.21.22.17> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566:next+206.196.179.145>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "206.196.179.145" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute2>
+        a               mrs:HypervisorService ;
+        mrs:providesVM  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:fixedip+10.0.0.3>
+        a          mrs:NetworkAddress ;
+        mrs:type   "fixed-ip" , "ipv4:private" ;
+        mrs:value  "10.0.0.3" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:fixedip+10.1.0.2>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.1.0.2" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+0c533b16-9a1a-4139-8658-adbd27f8b2e3>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.179> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:cidr> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ucs-fabric>
+        a                         nml:SwitchingService ;
+        mrs:providesSubnet        <urn:ogf:network:openstack.com:openstack-cloud:port-profile+Local-SDMZ301> , <urn:ogf:network:openstack.com:openstack-cloud:port-profile+Ceph-Storage> , <urn:ogf:network:openstack.com:openstack-cloud:port-profile+External-Access> , <urn:ogf:network:openstack.com:openstack-cloud:port-profile+AWS1762> , <urn:ogf:network:openstack.com:openstack-cloud:port-profile+Local-SDMZ300> , <urn:ogf:network:openstack.com:openstack-cloud:port-profile+Local-SDMZ302> , <urn:ogf:network:openstack.com:openstack-cloud:port-profile+AWS1761> , <urn:ogf:network:openstack.com:openstack-cloud:port-profile+AWS1763> ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute3:sriov-pf> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute7:sriov-pf> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute4:sriov-pf> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute5:sriov-pf> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute8:sriov-pf> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute6:sriov-pf> , <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute2:sriov-pf> ;
+        nml:labelSwapping         false .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+4c7fe45f-804d-4f85-bde0-d3ea5f36def7>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:fixedip+10.0.0.2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute3:sriov-pf>
+        a       nml:BidirectionalPort .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0:interfaceip+10.10.252.209:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0:router-interface-nexthop+10.10.252.209:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:fixedip+10.0.0.2>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.2" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc>
+        a                         nml:BidirectionalPort ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-1762> , <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-1761> , <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-301> , <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-103> , <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-1763> , <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-300> , <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-302> , <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-150> ;
+        nml:isAlias               <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute8:vmfex>
+        a                         mrs:HypervisorBypassInterfaceService ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute8:sriov-pf> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:fixedip+10.0.0.3> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:cidr> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:gateway> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0port1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:vm1:eth0> , <urn:ogf:network:openstack.com:openstack-cloud:port+174c8db6-23b5-48db-ab04-ce41403acb62> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:fixedip+10.0.0.2>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.2" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-1763>
+        a             nml:BidirectionalPort ;
+        nml:hasLabel  [ a              nml:Label ;
+                        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                        nml:value      "1763"
+                      ] .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:fixedip+10.0.0.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.179>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.179" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1>
+        a               nml:Topology ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.234>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.234" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:floatingip-pool>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-floatingip-pool" ;
+        mrs:value  "10.10.252.150-10.10.252.250" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute2>
+        a                         nml:Node ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute2:sriov-pf> ;
+        nml:hasNode               <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1> ;
+        nml:hasService            <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute2:vmfex> , <urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:fixedip+10.0.0.3> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:cidr> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:gateway> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:vm1:eth0> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0port0> , <urn:ogf:network:openstack.com:openstack-cloud:port+4c7fe45f-804d-4f85-bde0-d3ea5f36def7> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port-profile+Local-SDMZ302>
+        a                         mrs:SwitchingSubnet ;
+        mrs:type                  "Cisco_UCS_Port_Profile" , "shared" ;
+        mrs:value                 "Cisco_UCS_Port_Profile+Local-SDMZ302" ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-302> ;
+        nml:hasLabel              [ a              nml:Label ;
+                                    nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                                    nml:value      "302"
+                                  ] ;
+        nml:labelSwapping         false .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.155>
+        a          mrs:NetworkAddress ;
+        mrs:type   "floating-ip" ;
+        mrs:value  "10.10.252.155" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0port1>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:fixedip+10.0.0.1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:gateway>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0:router-interface-nexthop+10.10.252.176:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.176" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dc:vlan-300>
+        a             nml:BidirectionalPort ;
+        nml:hasLabel  [ a              nml:Label ;
+                        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                        nml:value      "300"
+                      ] .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:fixedip+10.0.0.2>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.2" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.150>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.150" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+private:fixedip+20.21.22.19>
+        a            mrs:NetworkAddress ;
+        mrs:type     "fixed-ip" , "ipv4:private" ;
+        mrs:value    "20.21.22.19" ;
+        nml:isAlias  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.164> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:gateway>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566:mac-address+aa:bb:cc:12:34:78>
+        a         mrs:NetworkAddress ;
+        mrs:type  "mac-address" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+3f7e6338-7d9d-441a-99ee-f5c8d7be9d9e>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1-subnet0:fixedip+10.0.0.2> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.246>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.246" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute3:vmfex>
+        a                         mrs:HypervisorBypassInterfaceService ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute3:sriov-pf> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:fixedip+10.0.0.3> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:cidr> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:gateway> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:vm1:eth0> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0port1> , <urn:ogf:network:openstack.com:openstack-cloud:port+8df0d48b-ee7f-4b0b-8776-2c06eacb436a> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:cidr> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute8>
+        a               mrs:HypervisorService ;
+        mrs:providesVM  <urn:ogf:network:openstack.com:openstack-cloud:server+uva6> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:vm1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.192>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.192" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:fixedip+10.0.0.3> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:cidr> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:gateway> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:port+94c1d23a-801b-4314-b512-c82ad39a78ec> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0port1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:fixedip+10.0.0.3> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:cidr> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:gateway> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:port+7c9748a6-5ddd-41d6-bfbb-5c87f52cb08a> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:vm1:eth0> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0port1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:route-local> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-main> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest-subnet0:gateway>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.179>
+        a          mrs:NetworkAddress ;
+        mrs:type   "floating-ip" ;
+        mrs:value  "10.10.252.179" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+e84f230f-c943-412c-83de-6c88c204b6ec>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.191> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:dest_ip+0.0.0.00:route-dest>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "0.0.0.00" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.234>
+        a          mrs:NetworkAddress ;
+        mrs:type   "floating-ip" ;
+        mrs:value  "10.10.252.234" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7>
+        a               nml:Topology ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0:interfaceip+10.10.252.191:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0:router-interface-nexthop+10.10.252.191:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0:fixedip+10.0.0.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:vm1:eth0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.156> , <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:fixedip+10.0.0.3> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+router1:router-interface-nexthop+20.21.22.1:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "20.21.22.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0:router-interface-nexthop+10.10.252.177:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.177" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:route-local> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0:interfaceip+10.10.252.195:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0:router-interface-nexthop+10.10.252.195:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0port0>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest-subnet0:fixedip+10.0.0.1> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0:interfaceip+10.10.252.226:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0:router-interface-nexthop+10.10.252.226:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:vm1>
+        a                         nml:Node ;
+        mrs:type                  "flavor+a8824564-fd33-452c-8687-457c7678bfc8" , "image+a1d31ce6-df15-4d4b-9970-aa645550c90e" ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:vm1:eth0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute8>
+        a                         nml:Node ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute8:sriov-pf> ;
+        nml:hasNode               <urn:ogf:network:openstack.com:openstack-cloud:server+uva6> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:vm1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:vm1> ;
+        nml:hasService            <urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute8:vmfex> , <urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute8> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+dc4ceb98-90ae-4461-b631-6fca0776eaf2>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.209> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:openstack.com:openstack-cloud:subnet+private:fixedip+20.21.22.19> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private:subnetnetworkaddress> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+private:subnet+private:subnetgateway+20.21.22.1> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:openstack.com:openstack-cloud:port+d8f43bbb-f697-4f72-a0e8-82a51c42417b> , <urn:ogf:network:openstack.com:openstack-cloud:port+78b80d85-c58e-40d1-81d0-3a994bb5e58d> , <urn:ogf:network:openstack.com:openstack-cloud:port+6906b825-1ec7-429d-b5b7-f34ea7ebe11c> , <urn:ogf:network:openstack.com:openstack-cloud:port+20d21025-5347-4ce0-b48b-1e714f9af9ef> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:subnetnetworkaddress> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+ethb4d19000-4d00-4978-adf5-83394ae93d2f:route+to-206.196.0.016-via-206.196.179.145>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:port+ethb4d19000-4d00-4978-adf5-83394ae93d2f:next+206.196.179.145> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:port+ethb4d19000-4d00-4978-adf5-83394ae93d2f:routeto+206.196.0.016> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0:router-interface-nexthop+10.10.252.229:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.229" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:host+rvtk-compute5:sriov-pf>
+        a       nml:BidirectionalPort .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+public:fixedip+10.10.252.156>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "10.10.252.156" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:hypervisor+rvtk-compute3>
+        a       mrs:HypervisorService .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract-subnet0:fixedip+10.1.0.3>
+        a            mrs:NetworkAddress ;
+        mrs:type     "fixed-ip" , "ipv4:private" ;
+        mrs:value    "10.1.0.3" ;
+        nml:isAlias  <urn:ogf:network:openstack.com:openstack-cloud:subnet+public:floatingip+10.10.252.233> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:port+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:vm1:eth8b5d9ca4-2ca3-4aa1-b197-b66354ece566:public-ip-address+206.196.179.152/28>
+        a         mrs:NetworkAddress ;
+        mrs:type  "ipv4-address" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0:router-interface-nexthop+10.10.252.192:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.10.252.192" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:neighbor+10_10_0_2>
+        a                      mrs:Route ;
+        mrs:hasNetworkAddress  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:neighbor+10_10_0_2:bgp_authkey> , <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:neighbor+10_10_0_2:local_ip> , <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:neighbor+10_10_0_2:remote_asn> ;
+        mrs:nextHop            <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:neighbor+10_10_0_2:remote_ip> ;
+        mrs:routeFrom          <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:local_prefix_list> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc+public:subnet+public:subnetgateway+10.10.252.11>
+        a          mrs:NetworkAddress ;
+        mrs:type   "gateway" ;
+        mrs:value  "10.10.252.11" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7-subnet0:cidr> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address" ;
+        mrs:value  "10.0.0.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2-subnet0:fixedip+10.0.0.3>
+        a          mrs:NetworkAddress ;
+        mrs:type   "fixed-ip" , "ipv4:private" ;
+        mrs:value  "10.0.0.3" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:local_prefix_list>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "10.10.0.1/32,10.10.0.0/24" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2>
+        a               nml:Topology ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:networkservice>
+        a                mrs:VirtualCloudService ;
+        mrs:providesVPC  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+public> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest> , <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract> , <urn:ogf:network:openstack.com:openstack-cloud:vpc+private> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract>
+        a               nml:Topology ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:route-local>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0:cidr> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2-subnet0:fixedip+10.0.0.3>
+        a          mrs:NetworkAddress ;
+        mrs:type   "fixed-ip" , "ipv4:private" ;
+        mrs:value  "10.0.0.3" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+private:fixedip+20.21.22.1>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "20.21.22.1" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0:router-interface-nexthop+10.0.0.1:-router-interface-route-nexthop> ;
+        mrs:routeTo  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:subnet+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1-subnet0:fixedip+10.0.0.2>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.0.2" .
+
+<urn:ogf:network:openstack.com:openstack-cloud:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0:interfaceip+10.10.252.177:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+router1:interfaceip+10.10.252.151:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0:interfaceip+10.10.252.192:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0:interfaceip+10.10.252.226:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0:interfaceip+10.10.252.231:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0:interfaceip+10.10.252.246:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0:interfaceip+10.10.252.191:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0:interfaceip+10.10.252.209:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0:interfaceip+10.10.252.176:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+router1:interfaceip+20.21.22.1:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0:interfaceip+10.10.252.195:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0:interfaceip+10.1.0.1:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0:interfaceip+10.10.252.229:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> , <urn:ogf:network:openstack.com:openstack-cloud:router+urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0:interfaceip+10.0.0.1:router-interface-route> ;
+        mrs:providesRoutingTable  <urn:ogf:network:openstack.com:openstack-cloud:vpc=globustest:routingtable-subnet0> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa1:routingtable-subnet0> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usfvs-32g-1:routingtable-subnet0> , <urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:routingtable-subnet0> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=onostest:routingtable-subnet0> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest2:routingtable-subnet0> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=anlvs:routingtable-subnet0> , <urn:ogf:network:openstack.com:openstack-cloud:router+router1:routingtable-router-interface> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingtable-subnet0> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=xitest7:routingtable-subnet0> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=usf-ps1:routingtable-subnet0> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2>
+        a               nml:Topology ;
+        nml:hasService  <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:routingservice> , <urn:ogf:network:openstack.com:openstack-cloud:vpc=versastack-qa2:switchingservice> .
+
+<urn:ogf:network:openstack.com:openstack-cloud:ops-vtn=abstract:vm1:routingservice:routingtable+quagga_bgp:neighbor+10_10_0_2:remote_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-remote" ;
+        mrs:value  "10.10.0.2" .

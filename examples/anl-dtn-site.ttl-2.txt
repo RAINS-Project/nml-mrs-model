@@ -1,0 +1,1842 @@
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix nml:   <http://schemas.ogf.org/nml/2013/03/base#> .
+@prefix mrs:   <http://schemas.ogf.org/mrs/2013/12/topology#> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/var"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/sda1>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/boot"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dist:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dist:volume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:type>
+                "InfiniBand"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:interconnection:179-146.research.maxgigapop.net-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:nic-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "9.19607925415039"^^xsd:double ;
+        <mrs:disk_gb>
+                "9.843070983886719"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:type>
+                "InfiniBand"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:datatransferservice-GridFTP:port>
+        a       <nml:Label> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:value>
+                "2811" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "32.02978515625"^^xsd:double ;
+        <mrs:disk_gb>
+                "36.14210510253906"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "0.12204742431640625"^^xsd:double ;
+        <mrs:disk_gb>
+                "0.1891489028930664"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-xeth0.2200>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "31.092201232910156"^^xsd:double ;
+        <mrs:disk_gb>
+                "36.14210510253906"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange>
+        a       <nml:LabelGroup> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:values>
+                "50000,51000" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/projects:volume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "0.124725341796875"^^xsd:double ;
+        <mrs:disk_gb>
+                "0.125"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/var"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-xeth0.2200>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "11.592926025390625"^^xsd:double ;
+        <mrs:disk_gb>
+                "14.706954956054688"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs1:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs1:volume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs0:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs0:volume> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:nic-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:interconnection:179-146.research.maxgigapop.net-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "31.101531982421875"^^xsd:double ;
+        <mrs:disk_gb>
+                "36.14210510253906"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "11.594161987304688"^^xsd:double ;
+        <mrs:disk_gb>
+                "14.706954956054688"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:datatransferservice-GridFTP:port>
+        a       <nml:Label> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:value>
+                "2811" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-xeth0.2200>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs1:volume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "5412082.6875"^^xsd:double ;
+        <mrs:disk_gb>
+                "7297920.0"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/projects>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/projects"^^xsd:string ;
+        <mrs:type>
+                "nfs"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/projects:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs0>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/gpfs/mira-fs0"^^xsd:string ;
+        <mrs:type>
+                "gpfs"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs0:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/admin_home>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/admin_home"^^xsd:string ;
+        <mrs:type>
+                "nfs"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/admin_home:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "11.59292221069336"^^xsd:double ;
+        <mrs:disk_gb>
+                "14.706954956054688"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:clusterservice-alcf#dtn_mira>
+        a       <mrs:DataTransferClusterService> , owl:NamedIndividual .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/tmp"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "31.01495361328125"^^xsd:double ;
+        <mrs:disk_gb>
+                "36.14210510253906"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange>
+        a       <nml:LabelGroup> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:values>
+                "50000,51000" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "11.59420394897461"^^xsd:double ;
+        <mrs:disk_gb>
+                "14.706954956054688"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/admin_home:volume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "317.8003692626953"^^xsd:double ;
+        <mrs:disk_gb>
+                "1672.0"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:hasFileSystem>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/sda1> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var> ;
+        <mrs:hasVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> ;
+        <mrs:measurement>
+                "cpu_usage=0.8"^^xsd:string ;
+        <mrs:memory_mb>
+                "48223.98828125"^^xsd:double ;
+        <mrs:num_core>
+                "16"^^xsd:int ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-xeth0.2200> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-xeth0.2330> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:datatransferservice-GridFTP> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange>
+        a       <nml:LabelGroup> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:values>
+                "50000,51000" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/tmp"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/sda1>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/boot"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "31.109447479248047"^^xsd:double ;
+        <mrs:disk_gb>
+                "36.14210510253906"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:storage-biport>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:storagenode:biport> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-xeth0.2200>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "0.12163162231445312"^^xsd:double ;
+        <mrs:disk_gb>
+                "0.1891489028930664"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/var"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/adm:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/adm:volume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:datatransferservice-GridFTP>
+        a       <mrs:DataTransferService> , owl:NamedIndividual ;
+        <mrs:active_transfers>
+                "1"^^xsd:long ;
+        <mrs:type>
+                "GridFTP"^^xsd:string ;
+        <nml:hasLabel>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:datatransferservice-GridFTP:port> ;
+        <nml:hasLabelGroup>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:clusterservice-alcf#dtn_mira> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:hasFileSystem>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/sda1> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root> ;
+        <mrs:hasVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> ;
+        <mrs:measurement>
+                "cpu_usage=0.4"^^xsd:string ;
+        <mrs:memory_mb>
+                "48223.984375"^^xsd:double ;
+        <mrs:num_core>
+                "16"^^xsd:int ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-xeth0.2200> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:datatransferservice-GridFTP> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange>
+        a       <nml:LabelGroup> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:values>
+                "50000,51000" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/soft>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/soft"^^xsd:string ;
+        <mrs:type>
+                "nfs"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/soft:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs0:volume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "4706709.15625"^^xsd:double ;
+        <mrs:disk_gb>
+                1.946112E7 .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "32.19257736206055"^^xsd:double ;
+        <mrs:disk_gb>
+                "36.14210510253906"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:hasFileSystem>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/sda1> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp> ;
+        <mrs:hasVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> ;
+        <mrs:measurement>
+                "cpu_usage=0.8"^^xsd:string ;
+        <mrs:memory_mb>
+                "48223.98828125"^^xsd:double ;
+        <mrs:num_core>
+                "16"^^xsd:int ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-xeth0.2200> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-ib0> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:datatransferservice-GridFTP> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:datatransferservice-GridFTP>
+        a       <mrs:DataTransferService> , owl:NamedIndividual ;
+        <mrs:active_transfers>
+                "1"^^xsd:long ;
+        <mrs:type>
+                "GridFTP"^^xsd:string ;
+        <nml:hasLabel>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:datatransferservice-GridFTP:port> ;
+        <nml:hasLabelGroup>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:clusterservice-alcf#dtn_mira> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:datatransferservice-GridFTP:port>
+        a       <nml:Label> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:value>
+                "2811" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange>
+        a       <nml:LabelGroup> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:values>
+                "50000,51000" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/var"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-xeth0.2200>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:datatransferservice-GridFTP>
+        a       <mrs:DataTransferService> , owl:NamedIndividual ;
+        <mrs:active_transfers>
+                "2"^^xsd:long ;
+        <mrs:type>
+                "GridFTP"^^xsd:string ;
+        <nml:hasLabel>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:datatransferservice-GridFTP:port> ;
+        <nml:hasLabelGroup>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:clusterservice-alcf#dtn_mira> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn>
+        a       owl:NamedIndividual , <nml:Topology> ;
+        <nml:hasNode>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:storagenode> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:clusterservice-alcf#dtn_mira> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:interconnection>
+        a       <mrs:SwitchingService> , owl:NamedIndividual ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:interconnection:179-146.research.maxgigapop.net-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:localfilesystem-/dev/vda1>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:localfilesystem-/dev/vda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:hasFileSystem>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/sda1> ;
+        <mrs:hasVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> ;
+        <mrs:measurement>
+                "cpu_usage=0.3"^^xsd:string ;
+        <mrs:memory_mb>
+                "48224.65625"^^xsd:double ;
+        <mrs:num_core>
+                "16"^^xsd:int ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-xeth0.2200> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-eth0> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:datatransferservice-GridFTP> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:storagenode:biport>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:storage-biport> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dist>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/dist"^^xsd:string ;
+        <mrs:type>
+                "nfs"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dist:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:datatransferservice-GridFTP>
+        a       <mrs:DataTransferService> , owl:NamedIndividual ;
+        <mrs:active_transfers>
+                "1"^^xsd:long ;
+        <mrs:type>
+                "GridFTP"^^xsd:string ;
+        <nml:hasLabel>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:datatransferservice-GridFTP:port> ;
+        <nml:hasLabelGroup>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:clusterservice-alcf#dtn_mira> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "0.12196063995361328"^^xsd:double ;
+        <mrs:disk_gb>
+                "0.1891489028930664"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:hasFileSystem>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/sda1> ;
+        <mrs:hasVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> ;
+        <mrs:measurement>
+                "cpu_usage=0.5"^^xsd:string ;
+        <mrs:memory_mb>
+                "48223.984375"^^xsd:double ;
+        <mrs:num_core>
+                "16"^^xsd:int ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-xeth0.2200> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-eth0> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:datatransferservice-GridFTP> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/sda1>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/boot"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:datatransferservice-GridFTP>
+        a       <mrs:DataTransferService> , owl:NamedIndividual ;
+        <mrs:active_transfers>
+                "0"^^xsd:long ;
+        <mrs:type>
+                "GridFTP"^^xsd:string ;
+        <nml:hasLabel>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:datatransferservice-GridFTP:port> ;
+        <nml:hasLabelGroup>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:datatransferservice-GridFTP:portrange> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:clusterservice-tlehman#MAX-SDMZ> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn>
+        a       <nml:Topology> , owl:NamedIndividual ;
+        <nml:hasNode>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:interconnection> , <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:clusterservice-tlehman#MAX-SDMZ> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/tmp"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-xeth0.2200>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "11.592769622802734"^^xsd:double ;
+        <mrs:disk_gb>
+                "14.706954956054688"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dtn_logs:volume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "4.532676696777344"^^xsd:double ;
+        <mrs:disk_gb>
+                "15.0"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:localfilesystem-/dev/vda1:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "17.746871948242188"^^xsd:double ;
+        <mrs:disk_gb>
+                "19.653926849365234"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dtn_logs>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/dtn_logs"^^xsd:string ;
+        <mrs:type>
+                "nfs"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dtn_logs:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:datatransferservice-GridFTP:port>
+        a       <nml:Label> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:value>
+                "2811" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-home:volume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "1022333.3461914062"^^xsd:double ;
+        <mrs:disk_gb>
+                "1050048.0"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-home:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-home:volume> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:datatransferservice-GridFTP:port>
+        a       <nml:Label> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:value>
+                "2811" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "11.592933654785156"^^xsd:double ;
+        <mrs:disk_gb>
+                "14.706954956054688"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "9.196083068847656"^^xsd:double ;
+        <mrs:disk_gb>
+                "9.843070983886719"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs1>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/gpfs/mira-fs1"^^xsd:string ;
+        <mrs:type>
+                "gpfs"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:datatransferservice-GridFTP>
+        a       <mrs:DataTransferService> , owl:NamedIndividual ;
+        <mrs:active_transfers>
+                "1"^^xsd:long ;
+        <mrs:type>
+                "GridFTP"^^xsd:string ;
+        <nml:hasLabel>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:datatransferservice-GridFTP:port> ;
+        <nml:hasLabelGroup>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:clusterservice-alcf#dtn_mira> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov>
+        a       owl:NamedIndividual , <nml:Node> ;
+        <mrs:hasFileSystem>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/sda1> ;
+        <mrs:hasVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> ;
+        <mrs:measurement>
+                "cpu_usage=0.7"^^xsd:string ;
+        <mrs:memory_mb>
+                "48223.98828125"^^xsd:double ;
+        <mrs:num_core>
+                "16"^^xsd:int ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-xeth0.2200> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-xeth0.2420> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:datatransferservice-GridFTP> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/admin_home:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/admin_home:volume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "1000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/tmp"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "11.592811584472656"^^xsd:double ;
+        <mrs:disk_gb>
+                "14.706954956054688"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/sda1>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/boot"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov>
+        a       owl:NamedIndividual , <nml:Node> ;
+        <mrs:hasFileSystem>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/sda1> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var> ;
+        <mrs:hasVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> ;
+        <mrs:measurement>
+                "cpu_usage=0.8"^^xsd:string ;
+        <mrs:memory_mb>
+                "48223.98828125"^^xsd:double ;
+        <mrs:num_core>
+                "16"^^xsd:int ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-xeth0.2200> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-ib0> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:datatransferservice-GridFTP> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/var"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "1000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:type>
+                "InfiniBand"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:datatransferservice-GridFTP>
+        a       <mrs:DataTransferService> , owl:NamedIndividual ;
+        <mrs:active_transfers>
+                "0"^^xsd:long ;
+        <mrs:type>
+                "GridFTP"^^xsd:string ;
+        <nml:hasLabel>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:datatransferservice-GridFTP:port> ;
+        <nml:hasLabelGroup>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:clusterservice-alcf#dtn_mira> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "0.12161731719970703"^^xsd:double ;
+        <mrs:disk_gb>
+                "0.1891489028930664"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "11.592941284179688"^^xsd:double ;
+        <mrs:disk_gb>
+                "14.706954956054688"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:type>
+                "InfiniBand"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "9.196083068847656"^^xsd:double ;
+        <mrs:disk_gb>
+                "9.843070983886719"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:localfilesystem-/dev/vda1:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:localfilesystem-/dev/vda1:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange>
+        a       <nml:LabelGroup> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:values>
+                "50000,51000" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:datatransferservice-GridFTP:port>
+        a       <nml:Label> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:value>
+                "2811" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-xeth0.2200>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "1000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:clusterservice-tlehman#MAX-SDMZ>
+        a       <mrs:DataTransferClusterService> , owl:NamedIndividual .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "9.19607925415039"^^xsd:double ;
+        <mrs:disk_gb>
+                "9.843070983886719"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-home>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/gpfs/mira-home"^^xsd:string ;
+        <mrs:type>
+                "gpfs"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-home:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:datatransferservice-GridFTP>
+        a       <mrs:DataTransferService> , owl:NamedIndividual ;
+        <mrs:active_transfers>
+                "1"^^xsd:long ;
+        <mrs:type>
+                "GridFTP"^^xsd:string ;
+        <nml:hasLabel>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:datatransferservice-GridFTP:port> ;
+        <nml:hasLabelGroup>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:clusterservice-alcf#dtn_mira> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/tmp"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection>
+        a       <mrs:SwitchingService> , owl:NamedIndividual ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:storage-biport> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-xeth0.2420> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "1000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/sda1>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/boot"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/var"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dist:volume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "108.97196197509766"^^xsd:double ;
+        <mrs:disk_gb>
+                "920.0"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "9.19607925415039"^^xsd:double ;
+        <mrs:disk_gb>
+                "9.843070983886719"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "1000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:datatransferservice-GridFTP>
+        a       <mrs:DataTransferService> , owl:NamedIndividual ;
+        <mrs:active_transfers>
+                "1"^^xsd:long ;
+        <mrs:type>
+                "GridFTP"^^xsd:string ;
+        <nml:hasLabel>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:datatransferservice-GridFTP:port> ;
+        <nml:hasLabelGroup>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:clusterservice-alcf#dtn_mira> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "0.12160396575927734"^^xsd:double ;
+        <mrs:disk_gb>
+                "0.1891489028930664"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dtn_logs:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dtn_logs:volume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:hasFileSystem>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/sda1> ;
+        <mrs:hasVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> ;
+        <mrs:measurement>
+                "cpu_usage=0.8"^^xsd:string ;
+        <mrs:memory_mb>
+                "48223.98828125"^^xsd:double ;
+        <mrs:num_core>
+                "16"^^xsd:int ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-xeth0.2200> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-ib0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-xeth0.2330> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-eth0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-xeth0.2420> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:datatransferservice-GridFTP> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:storagenode>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:hasFileSystem>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/admin_home> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dtn_logs> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/soft> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dist> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/projects> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/adm> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs1> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs0> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-home> ;
+        <mrs:hasVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs0:volume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs1:volume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/adm:volume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/soft:volume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dtn_logs:volume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-home:volume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dist:volume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/admin_home:volume> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/projects:volume> ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:storagenode:biport> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-home:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/projects:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/adm:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/admin_home:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/soft:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs0:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dist:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/gpfs/mira-fs1:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/dtn_logs:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:datatransferservice-GridFTP:port>
+        a       <nml:Label> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:value>
+                "2811" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-xeth0.2200>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "1000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:type>
+                "InfiniBand"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:type>
+                "InfiniBand"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "1000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/soft:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/soft:volume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:datatransferservice-GridFTP:port>
+        a       <nml:Label> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:value>
+                "2811" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/var"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "9.196083068847656"^^xsd:double ;
+        <mrs:disk_gb>
+                "9.843070983886719"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/tmp"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:datatransferservice-GridFTP:portrange>
+        a       <nml:LabelGroup> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:values>
+                "50000,51000" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn07.pub.alcf.anl.gov-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:nic-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/sda1>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/boot"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:nic-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "1000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn08.pub.alcf.anl.gov-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange>
+        a       <nml:LabelGroup> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:values>
+                "50000,51000" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "0.12208175659179688"^^xsd:double ;
+        <mrs:disk_gb>
+                "0.1891489028930664"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "9.19607925415039"^^xsd:double ;
+        <mrs:disk_gb>
+                "9.843070983886719"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:nic-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:type>
+                "InfiniBand"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn02.pub.alcf.anl.gov-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/tmp"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/sda1>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/boot"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:datatransferservice-GridFTP:port>
+        a       <nml:Label> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:value>
+                "2811" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:type>
+                "InfiniBand"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/soft:volume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "148.8994598388672"^^xsd:double ;
+        <mrs:disk_gb>
+                "237.5"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/var"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/projects:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/projects:volume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "0.12209320068359375"^^xsd:double ;
+        <mrs:disk_gb>
+                "0.1891489028930664"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-root:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn04.pub.alcf.anl.gov-ib0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:nic-ib0> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net>
+        a       owl:NamedIndividual , <nml:Node> ;
+        <mrs:hasFileSystem>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:localfilesystem-/dev/vda1> ;
+        <mrs:hasVolume>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:localfilesystem-/dev/vda1:localvolume> ;
+        <mrs:measurement>
+                "cpu_usage=0.2"^^xsd:string ;
+        <mrs:memory_mb>
+                "2002.09375"^^xsd:double ;
+        <mrs:num_core>
+                "1"^^xsd:int ;
+        <nml:hasBidirectionalPort>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:nic-eth0> , <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:nic-eth1.150> ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:localfilesystem-/dev/vda1:blockstorageservice> , <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:datatransferservice-GridFTP> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn06.pub.alcf.anl.gov-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn06.pub.alcf.anl.gov:nic-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:179-146.research.maxgigapop.net:nic-eth1.150>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "20000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:nic-xeth0.2330>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn03.pub.alcf.anl.gov-xeth0.2330> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn03.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "9.19607925415039"^^xsd:double ;
+        <mrs:disk_gb>
+                "9.843070983886719"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/adm>
+        a       <nml:Node> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/adm"^^xsd:string ;
+        <mrs:type>
+                "nfs"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/adm:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/sda1>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/boot"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/sda1:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:datatransferservice-GridFTP:portrange>
+        a       <nml:LabelGroup> , owl:NamedIndividual ;
+        <nml:labeltype>
+                <http://schemas.ogf.org/mrs/2015/08/label/layer4#tcpport> ;
+        <nml:values>
+                "50000,51000" .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn05.pub.alcf.anl.gov:nic-xeth0.2420>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <mrs:capacity>
+                "10000"^^xsd:long ;
+        <mrs:type>
+                "Ethernet"^^xsd:string ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn05.pub.alcf.anl.gov-xeth0.2420> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn08.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "32.128475189208984"^^xsd:double ;
+        <mrs:disk_gb>
+                "36.14210510253906"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice>
+        a       <mrs:BlockStorageService> , owl:NamedIndividual ;
+        <mrs:providesVolume>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn04.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:localvolume> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp>
+        a       <mrs:FileSystem> , owl:NamedIndividual ;
+        <mrs:mount_point>
+                "/tmp"^^xsd:string ;
+        <mrs:type>
+                "ext4"^^xsd:string ;
+        <nml:hasService>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn07.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-tmp:blockstorageservice> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:dtn01.pub.alcf.anl.gov-eth0>
+        a       <nml:BidirectionalPort> , owl:NamedIndividual ;
+        <nml:isAlias>
+                <urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:nic-eth0> .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn01.pub.alcf.anl.gov:localfilesystem-/dev/sda1:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "0.12165260314941406"^^xsd:double ;
+        <mrs:disk_gb>
+                "0.1891489028930664"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:parallelfilesystem-/adm:volume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "1342.7726287841797"^^xsd:double ;
+        <mrs:disk_gb>
+                "2048.0"^^xsd:double .
+
+<urn:ogf:network:rains.maxgigapop.net:mira-dtn:dtn02.pub.alcf.anl.gov:localfilesystem-/dev/mapper/vg0-var:localvolume>
+        a       <mrs:Volume> , owl:NamedIndividual ;
+        <mrs:disk_free_gb>
+                "31.048583984375"^^xsd:double ;
+        <mrs:disk_gb>
+                "36.14210510253906"^^xsd:double .

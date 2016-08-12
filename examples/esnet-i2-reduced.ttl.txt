@@ -1,0 +1,105 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix nml: <http://schemas.ogf.org/nml/2013/03/base#> .
+@prefix mrs: <http://schemas.ogf.org/mrs/2013/12/topology#> .
+
+
+<urn:ogf:network:domain=es.net>
+                a nml:Topology, owl:NamedIndividual ;
+                nml:belongsTo <urn:ogf:network:sdn.maxgigapop.net:network> ;
+                nml:hasBidirectionalPort <urn:ogf:network:domain=es.net:node=sunn-cr5:port=7/2/1:link=al2s>, <urn:ogf:network:domain=es.net:node=anl-mr2:port=xe-0/1/0:link=*>, <urn:ogf:network:domain=es.net:node=chic-cr5:port=5/1/1:link=al2s> ;
+                nml:hasService <urn:ogf:network:domain=es.net:l2switching> ;
+                nml:name "ESnet OSCARS DCN" .
+
+<urn:ogf:network:domain=al2s.net.internet2.edu>
+                a nml:Topology, owl:NamedIndividual ;
+                nml:belongsTo <urn:ogf:network:sdn.maxgigapop.net:network> ;
+                nml:hasBidirectionalPort <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.chic.net.internet2.edu:port=eth5/2:link=esnet>, <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.sunn.net.internet2.edu:port=eth3/2:link=esnet-sunn>, <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.wash.net.internet2.edu:port=eth3/2:link=max> ;
+                nml:hasService <urn:ogf:network:domain=al2s.net.internet2.edu:l2switching> ;
+                nml:name "Internet2 AL2S" .
+
+<urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.sunn.net.internet2.edu:port=eth3/2:link=esnet-sunn:vlan-range>
+                a <http://schemas.ogf.org/nml/2013/03/base#LabelGroup>, owl:NamedIndividual ;
+                nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                nml:values "2-4094" .
+
+<urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.wash.net.internet2.edu:port=eth3/2:link=max>
+                a nml:BidirectionalPort, owl:NamedIndividual ;
+                nml:belongsTo <urn:ogf:network:domain=al2s.net.internet2.edu:l2switching>, <urn:ogf:network:domain=al2s.net.internet2.edu> ;
+                nml:hasLabelGroup <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.wash.net.internet2.edu:port=eth3/2:link=max:vlan-range> ;
+                nml:isAlias <urn:ogf:network:domain=dragon.maxgigapop.net:node=MCLN:port=1-3-1:link=al2s> ;
+                nml:name "i2-al2s-1" .
+
+<urn:ogf:network:domain=es.net:node=anl-mr2:port=xe-0/1/0:link=*:vlan-range>
+                a nml:LabelGroup, owl:NamedIndividual ;
+                nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                nml:values "2-4094" .
+
+<urn:ogf:network:domain=es.net:l2switching>
+                a nml:SwitchingService, owl:NamedIndividual ;
+                nml:encoding <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                nml:hasBidirectionalPort <urn:ogf:network:domain=es.net:node=sunn-cr5:port=7/2/1:link=al2s>, <urn:ogf:network:domain=es.net:node=anl-mr2:port=xe-0/1/0:link=*>, <urn:ogf:network:domain=es.net:node=chic-cr5:port=5/1/1:link=al2s> ;
+                nml:labelSwapping "false" .
+
+<urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.chic.net.internet2.edu:port=eth5/2:link=esnet:vlan-range>
+                a nml:LabelGroup, owl:NamedIndividual ;
+                nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                nml:values "2-4094" .
+
+<urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.sunn.net.internet2.edu:port=eth3/2:link=esnet-sunn>
+                a nml:BidirectionalPort, owl:NamedIndividual ;
+                nml:belongsTo <urn:ogf:network:domain=al2s.net.internet2.edu:l2switching>, <urn:ogf:network:domain=al2s.net.internet2.edu> ;
+                nml:hasLabelGroup <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.sunn.net.internet2.edu:port=eth3/2:link=esnet-sunn:vlan-range> ;
+                nml:isAlias <urn:ogf:network:domain=es.net:node=sunn-cr5:port=7/2/1:link=al2s> ;
+                nml:name "i2-al2s-1" .
+
+<urn:ogf:network:domain=es.net:node=sunn-cr5:port=7/2/1:link=al2s>
+                a nml:BidirectionalPort, owl:NamedIndividual ;
+                nml:belongsTo <urn:ogf:network:domain=es.net:l2switching>, <urn:ogf:network:domain=es.net> ;
+                nml:hasLabelGroup <urn:ogf:network:domain=es.net:node=sunn-cr5:port=7/2/1:link=al2s:vlan-range> ;
+                nml:isAlias <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.sunn.net.internet2.edu:port=eth3/2:link=esnet-sunn> ;
+                nml:name "esnet-1" .
+
+<urn:ogf:network:domain=al2s.net.internet2.edu:l2switching>
+                a nml:SwitchingService, owl:NamedIndividual ;
+                nml:encoding <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                nml:hasBidirectionalPort <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.chic.net.internet2.edu:port=eth5/2:link=esnet>, <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.sunn.net.internet2.edu:port=eth3/2:link=esnet-sunn>, <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.wash.net.internet2.edu:port=eth3/2:link=max> ;
+                nml:labelSwapping "false" .
+
+<urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.wash.net.internet2.edu:port=eth3/2:link=max:vlan-range>
+                a nml:LabelGroup, owl:NamedIndividual ;
+                nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                nml:values "2-4094" .
+
+<urn:ogf:network:domain=es.net:node=sunn-cr5:port=7/2/1:link=al2s:vlan-range>
+                a nml:LabelGroup, owl:NamedIndividual ;
+                nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                nml:values "2-4094" .
+
+<urn:ogf:network:domain=es.net:node=chic-cr5:port=5/1/1:link=al2s:vlan-range>
+                a nml:LabelGroup, owl:NamedIndividual ;
+                nml:labeltype <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+                nml:values "2-4094" .
+
+<urn:ogf:network:domain=es.net:node=anl-mr2:port=xe-0/1/0:link=*>
+                a nml:BidirectionalPort, owl:NamedIndividual ;
+                nml:belongsTo <urn:ogf:network:domain=es.net:l2switching>, <urn:ogf:network:domain=es.net> ;
+                nml:hasLabelGroup <urn:ogf:network:domain=es.net:node=anl-mr2:port=xe-0/1/0:link=*:vlan-range> ;
+                nml:isAlias <urn:ogf:network:rains.maxgigapop.net:mira-dtn:interconnection:wan-esnet> ;
+                nml:name "esnet-3" .
+
+<urn:ogf:network:domain=es.net:node=chic-cr5:port=5/1/1:link=al2s>
+                a nml:BidirectionalPort, owl:NamedIndividual ;
+                nml:belongsTo <urn:ogf:network:domain=es.net:l2switching>, <urn:ogf:network:domain=es.net> ;
+                nml:hasLabelGroup <urn:ogf:network:domain=es.net:node=chic-cr5:port=5/1/1:link=al2s:vlan-range> ;
+                nml:isAlias <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.chic.net.internet2.edu:port=eth5/2:link=esnet> ;
+                nml:name "esnet-2" .
+
+<urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.chic.net.internet2.edu:port=eth5/2:link=esnet>
+                a nml:BidirectionalPort, owl:NamedIndividual ;
+                nml:belongsTo <urn:ogf:network:domain=al2s.net.internet2.edu:l2switching>, <urn:ogf:network:domain=al2s.net.internet2.edu> ;
+                nml:hasLabelGroup <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.chic.net.internet2.edu:port=eth5/2:link=esnet:vlan-range> ;
+                nml:isAlias <urn:ogf:network:domain=es.net:node=chic-cr5:port=5/1/1:link=al2s> ;
+                nml:name "i2-al2s-1" .

@@ -1,0 +1,254 @@
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix nml:   <http://schemas.ogf.org/nml/2013/03/base#> .
+@prefix mrs:   <http://schemas.ogf.org/mrs/2013/12/topology#> .
+
+
+<urn:ogf:network:sdn.maxgigapop.net:network>
+        a            nml:Topology , owl:NamedIndividual ;
+        nml:hasNode  <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX> , <urn:ogf:network:domain=wix.internet2.edu:node=sdx> .
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON>
+        a                         nml:Node , owl:NamedIndividual ;
+        nml:belongsTo             <urn:ogf:network:sdn.maxgigapop.net:network> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK-DYNES:port=1-1-12:link=*> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=MCLN:port=1-3-1:link=al2s> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=MAX:port=1-0-9:link=*> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=MAX:port=1-0-8:link=*> ;
+        nml:hasService            <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching> ;
+        nml:name                  "DRAGON OSCARS DCN" .
+
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX>
+        a                         nml:Node , owl:NamedIndividual ;
+        nml:belongsTo             <urn:ogf:network:sdn.maxgigapop.net:network> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:port=ge-6/0/2> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:port=ge-6/0/3> ;
+        nml:hasService            <urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:l3routing> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:l2switching> ;
+        nml:name                  "device1" .
+
+
+<urn:ogf:network:domain=wix.internet2.edu:node=sdx>
+        a                         nml:Node , owl:NamedIndividual ;
+        nml:belongsTo             <urn:ogf:network:sdn.maxgigapop.net:network> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=15/2:link=maxdragon> , <urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=13/1:link=al2s> , <urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=15/2:link=maxaws> ;
+        nml:hasService            <urn:ogf:network:domain=wix.internet2.edu:node=sdx:l2switching> ;
+        nml:name                  "WIX SDX OSCARS" .
+
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching>
+        a                         owl:NamedIndividual , nml:SwitchingService ;
+        mrs:providesSubnet        <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1926> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1763> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1761> ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK-DYNES:port=1-1-12:link=*> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=MCLN:port=1-3-1:link=al2s> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=MAX:port=1-0-8:link=*> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=MAX:port=1-0-9:link=*> ;
+        nml:labelSwapping         "false" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1761>
+        a              owl:NamedIndividual , nml:BidirectionalPort ;
+        nml:belongsTo  <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1761> ;
+        nml:hasLabel   <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1761:label+1761> .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1926:label+1926>
+        a              owl:NamedIndividual , nml:Label ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:value      "1926" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=MAX:port=1-0-9:link=*>
+        a                  nml:BidirectionalPort , owl:NamedIndividual ;
+        nml:belongsTo      <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON> ;
+        nml:hasLabelGroup  <urn:ogf:network:domain=dragon.maxgigapop.net:node=MAX:port=1-0-9:link=*:vlan-range> ;
+        nml:isAlias        <urn:ogf:network:rains.maxgigapop.net:max-sdmz-dtn:interconnection:wan-max> ;
+        nml:name           "max-dragon-2" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1763:label+1763>
+        a              owl:NamedIndividual , nml:Label ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:value      "1763" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK-DYNES:port=1-1-12:link=*>
+        a                  nml:BidirectionalPort , owl:NamedIndividual ;
+        nml:belongsTo      <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON> ;
+        nml:hasLabelGroup  <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK-DYNES:port=1-1-12:link=*:vlan-range> ;
+        nml:name           "max-dragon-3" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=MAX:port=1-0-8:link=*:vlan-range>
+        a              nml:LabelGroup , owl:NamedIndividual ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "2-4094" .
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1763>
+        a                         owl:NamedIndividual , mrs:SwitchingSubnet ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1763> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1763> ;
+        nml:labelSwapping         "false" .
+
+<urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=15/2:link=maxdragon>
+        a                  nml:BidirectionalPort , owl:NamedIndividual ;
+        nml:belongsTo      <urn:ogf:network:domain=wix.internet2.edu:node=sdx:l2switching> , <urn:ogf:network:domain=wix.internet2.edu:node=sdx> ;
+        nml:hasLabelGroup  <urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=15/2:link=maxdragon:vlan-range> ;
+        nml:isAlias        <urn:ogf:network:domain=dragon.maxgigapop.net:node=MCLN:port=1-3-1:link=wix> ;
+        nml:name           "wix-to-max-dragon" .
+
+
+<urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=13/1:link=al2s:vlan-range>
+        a              nml:LabelGroup , owl:NamedIndividual ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1700-1729,3400-3499" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1926:label+1926>
+        a              owl:NamedIndividual , nml:Label ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:value      "1926" .
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1926>
+        a                         owl:NamedIndividual , mrs:SwitchingSubnet ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1926> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1926> ;
+        nml:labelSwapping         "false" .
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:port=ge-6/0/3>
+        a              nml:BidirectionalPort , owl:NamedIndividual ;
+        nml:belongsTo  <urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:l2switching> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX> ;
+        nml:name       "interface1-2" .
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1761>
+        a                         owl:NamedIndividual , mrs:SwitchingSubnet ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1761> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1761> ;
+        nml:labelSwapping         "false" .
+
+<urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=15/2:link=maxaws>
+        a                  nml:BidirectionalPort , owl:NamedIndividual ;
+        nml:belongsTo      <urn:ogf:network:domain=wix.internet2.edu:node=sdx:l2switching> , <urn:ogf:network:domain=wix.internet2.edu:node=sdx> ;
+        nml:hasLabelGroup  <urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=15/2:link=maxaws:vlan-range> ;
+        nml:name           "wix-to-aws-dc" .
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:l2switching>
+        a                         nml:SwitchingService , owl:NamedIndividual ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:port=ge-6/0/2> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:port=ge-6/0/3> ;
+        nml:labelSwapping         "false" .
+
+<urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=15/2:link=maxaws:vlan-range>
+        a              nml:LabelGroup , owl:NamedIndividual ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1720-1729" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=MCLN:port=1-3-1:link=al2s>
+        a                  nml:BidirectionalPort , owl:NamedIndividual ;
+        nml:belongsTo      <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON> ;
+        nml:hasLabelGroup  <urn:ogf:network:domain=dragon.maxgigapop.net:node=MCLN:port=1-3-1:link=al2s:vlan-range> ;
+        nml:isAlias        <urn:ogf:network:domain=al2s.net.internet2.edu:node=sdn-sw.wash.net.internet2.edu:port=eth3/2:link=max> ;
+        nml:name           "max-dragon-6" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1761:label+1761>
+        a              owl:NamedIndividual , nml:Label ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:value      "1761" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlan-range>
+        a              nml:LabelGroup , owl:NamedIndividual ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1761-1769,1810-1829,1925-1929,3020-3029" .
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:port=ge-6/0/2>
+        a              nml:BidirectionalPort , owl:NamedIndividual ;
+        nml:belongsTo  <urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:l2switching> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX> ;
+        nml:name       "interface1-1" .
+
+<urn:ogf:network:domain=sdnx.maxgigapop.net:node=MAX:l3routing>
+        a       mrs:RoutingService , owl:NamedIndividual .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1763>
+        a              owl:NamedIndividual , nml:BidirectionalPort ;
+        nml:belongsTo  <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1763> ;
+        nml:hasLabel   <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1763:label+1763> .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=MCLN:port=1-3-1:link=al2s:vlan-range>
+        a              nml:LabelGroup , owl:NamedIndividual ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1810-1829,3020-3029" .
+
+<urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=15/2:link=maxdragon:vlan-range>
+        a              nml:LabelGroup , owl:NamedIndividual ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1165-1174,1700-1719" .
+
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1763>
+        a              owl:NamedIndividual , nml:BidirectionalPort ;
+        nml:belongsTo  <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1763> ;
+        nml:hasLabel   <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1763:label+1763> .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*>
+        a                         nml:BidirectionalPort , owl:NamedIndividual ;
+        nml:belongsTo             <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1763> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1926> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1761> ;
+        nml:hasLabelGroup         <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlan-range> ;
+        nml:isAlias               <urn:ogf:network:aws.amazon.cloud:aws-cloud:directconnect+us-east-1> ;
+        nml:name                  "max-dragon-4" .
+
+<urn:ogf:network:domain=wix.internet2.edu:node=sdx:l2switching>
+        a                         nml:SwitchingService , owl:NamedIndividual ;
+        nml:encoding              <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=15/2:link=maxdragon> , <urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=13/1:link=al2s> , <urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=15/2:link=maxaws> ;
+        nml:labelSwapping         "false" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK-DYNES:port=1-1-12:link=*:vlan-range>
+        a              nml:LabelGroup , owl:NamedIndividual ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "2-4094" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*>
+        a                         owl:NamedIndividual , nml:BidirectionalPort ;
+        nml:belongsTo             <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1926> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1763> , <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1761> ;
+        nml:hasLabelGroup         <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlan-range> ;
+        nml:isAlias               <urn:ogf:network:openstack.com:openstack-cloud:ucs-tor-sw:10g-dragon> ;
+        nml:name                  "max-dragon-5" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlan-range>
+        a              nml:LabelGroup , owl:NamedIndividual ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "2-4094" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1926>
+        a              owl:NamedIndividual , nml:BidirectionalPort ;
+        nml:belongsTo  <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1926> ;
+        nml:hasLabel   <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1926:label+1926> .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1761:label+1761>
+        a              owl:NamedIndividual , nml:Label ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:value      "1761" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1763:label+1763>
+        a              owl:NamedIndividual , nml:Label ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:value      "1763" .
+
+<urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=13/1:link=al2s>
+        a                  nml:BidirectionalPort , owl:NamedIndividual ;
+        nml:belongsTo      <urn:ogf:network:domain=wix.internet2.edu:node=sdx:l2switching> , <urn:ogf:network:domain=wix.internet2.edu:node=sdx> ;
+        nml:hasLabelGroup  <urn:ogf:network:domain=wix.internet2.edu:node=sw.net.wix.internet2.edu:port=13/1:link=al2s:vlan-range> ;
+        nml:isAlias        <urn:ogf:network:domain=al2s.internet2.edu:node=sdn-sw.wash.net.internet2.edu:port=eth1/2:link=wix> ;
+        nml:name           "wix-to-i2-al2s" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=MAX:port=1-0-8:link=*>
+        a                  nml:BidirectionalPort , owl:NamedIndividual ;
+        nml:belongsTo      <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching> , <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON> ;
+        nml:hasLabelGroup  <urn:ogf:network:domain=dragon.maxgigapop.net:node=MAX:port=1-0-8:link=*:vlan-range> ;
+        nml:name           "max-dragon-1" .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1926>
+        a              owl:NamedIndividual , nml:BidirectionalPort ;
+        nml:belongsTo  <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1926> ;
+        nml:hasLabel   <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-2-3:link=*:vlanport+1926:label+1926> .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1761>
+        a              owl:NamedIndividual , nml:BidirectionalPort ;
+        nml:belongsTo  <urn:ogf:network:domain=sdnx.maxgigapop.net:node=DRAGON:l2switching:vlan+1761> ;
+        nml:hasLabel   <urn:ogf:network:domain=dragon.maxgigapop.net:node=CLPK:port=1-1-2:link=*:vlanport+1761:label+1761> .
+
+<urn:ogf:network:domain=dragon.maxgigapop.net:node=MAX:port=1-0-9:link=*:vlan-range>
+        a              nml:LabelGroup , owl:NamedIndividual ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "2-4094" .

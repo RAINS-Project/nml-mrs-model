@@ -1,0 +1,978 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nml:   <http://schemas.ogf.org/nml/2013/03/base#> .
+@prefix mrs:   <http://schemas.ogf.org/mrs/2013/12/topology#> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeFrom  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024:routeto> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-subnet0:networkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/24" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-subnet1:networkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.1.0/24" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37:label+2002>
+        a              nml:Label ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:value      "2002" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij:asn>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-asn" ;
+        mrs:value  "10886" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh7vjh0b>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh7vjh0b:customer_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh7vjh0b:amazon_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh7vjh0b:asn> ;
+        mrs:type               "direct-connect-vif" ;
+        mrs:value              "direct-connect-vif+private" ;
+        nml:hasLabelGroup      <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh7vjh0b:labelgroup+1721> ;
+        nml:name               "dxvif-fh7vjh0b" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-igw>
+        a         nml:BidirectionalPort ;
+        mrs:type  "internet-gateway" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeFrom  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeTo    <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgewbt20:asn>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-asn" ;
+        mrs:value  "65000" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgtwe3rq>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgtwe3rq:customer_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgtwe3rq:amazon_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgtwe3rq:asn> ;
+        mrs:type               "direct-connect-vif" ;
+        mrs:value              "direct-connect-vif+private" ;
+        nml:hasLabelGroup      <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgtwe3rq:labelgroup+1722> ;
+        nml:name               "dxvif-fgtwe3rq" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgtwe3rq:amazon_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:amazon" ;
+        mrs:value  "10.10.0.2/30" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "0.0.0.0/0" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync:customer_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:customer" ;
+        mrs:value  "169.254.255.2/30" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1> .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeFrom  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgck8h7r>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgck8h7r:customer_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgck8h7r:amazon_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgck8h7r:asn> ;
+        mrs:type               "direct-connect-vif" ;
+        mrs:value              "direct-connect-vif+private" ;
+        nml:hasLabelGroup      <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgck8h7r:labelgroup+1723> ;
+        nml:name               "dxvif-fgck8h7r" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37:customer_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:customer" ;
+        mrs:value  "10.20.2.5/29" .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-igw> ;
+        mrs:routeFrom  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij:labelgroup+1925>
+        a              nml:LabelGroup ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1925" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-svn-backup>
+        a       mrs:Bucket .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeFrom  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeTo    <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij:customer_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij:amazon_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij:asn> ;
+        mrs:type               "direct-connect-vif" ;
+        mrs:value              "direct-connect-vif+public" ;
+        nml:hasLabel           <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij:label+1925> ;
+        nml:hasLabelGroup      <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij:labelgroup+1925> ;
+        nml:name               "dxvif-fgdlk3ij" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-backup>
+        a       mrs:Bucket .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016>
+        a            mrs:Route ;
+        mrs:nextHop  "local" ;
+        mrs:routeTo  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016:routeto> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "0.0.0.0/0" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgtwe3rq:labelgroup+1722>
+        a              nml:LabelGroup ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1722" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "206.196.0.0/16" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-subnet0> .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-subnet0>
+        a                      mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-subnet0:networkaddress> .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016:routeto> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-subnet0>
+        a                      mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-subnet0:networkaddress> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgck8h7r:asn>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-asn" ;
+        mrs:value  "65000" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-controller-full-backup-2>
+        a       mrs:Bucket .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "72.24.24.0/24" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024> ;
+        mrs:providesRoutingTable  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh14h1n6:amazon_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:amazon" ;
+        mrs:value  "10.10.0.2/24" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-b1ff81f6>
+        a                  mrs:Volume ;
+        mrs:disk_gb        "8" ;
+        mrs:target_device  "/dev/sda1" ;
+        mrs:value          "gp2" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "0.0.0.0/0" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync:asn>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-asn" ;
+        mrs:value  "65002" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024> ;
+        mrs:type      "local" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "0.0.0.0/0" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-ca-backup>
+        a       mrs:Bucket .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016>
+        a            mrs:Route ;
+        mrs:nextHop  "local" ;
+        mrs:routeTo  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-etc-backup>
+        a       mrs:Bucket .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1>
+        a                         mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress     <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:cidr> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:nic+eni-78334923> .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-igw>
+        a         nml:BidirectionalPort ;
+        mrs:type  "internet-gateway" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-igw>
+        a         nml:BidirectionalPort ;
+        mrs:type  "internet-gateway" .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh7vjh0b:customer_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:customer" ;
+        mrs:value  "10.10.0.1/30" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync:amazon_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync:customer_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync:asn> ;
+        mrs:type               "direct-connect-vif" ;
+        mrs:value              "direct-connect-vif+private" ;
+        nml:hasLabel           <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync:label+1928> ;
+        nml:hasLabelGroup      <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync:labelgroup+1928> ;
+        nml:isAlias            <urn:ogf:network:aws.amazon.cloud:aws-cloud:gateway+vgw-ba28cbd3> ;
+        nml:name               "dxvif-fgxadync" .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024> ;
+        mrs:type      "local" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgq55y0o:asn>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-asn" ;
+        mrs:value  "65000" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016> ;
+        mrs:type      "main" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024> ;
+        mrs:type      "local" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-99c5c050>
+        a            mrs:Volume ;
+        mrs:disk_gb  "8" ;
+        mrs:value    "gp2" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016> ;
+        mrs:type      "main" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:gateway+vgw-ba28cbd3>
+        a            nml:BidirectionalPort ;
+        mrs:type     "vpn-gateway" ;
+        nml:isAlias  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-igw> ;
+        mrs:routeTo  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00:routeto> .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-subnet0:networkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/24" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-subnet0>
+        a                      mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-subnet0:networkaddress> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37:asn> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37:amazon_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37:customer_ip> ;
+        mrs:type               "direct-connect-vif" ;
+        mrs:value              "direct-connect-vif+private" ;
+        nml:hasLabel           <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37:label+2002> ;
+        nml:hasLabelGroup      <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37:labelgroup+2002> ;
+        nml:isAlias            <urn:ogf:network:aws.amazon.cloud:aws-cloud:gateway+vgw-ba28cbd3> ;
+        nml:name               "dxvif-fh0jle37" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:instance+i-96aae36a>
+        a                         nml:Node ;
+        mrs:hasNetworkAddress     <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:instance+i-96aae36a:public-ip+52.1.201.146> ;
+        mrs:hasVolume             <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-b1ff81f6> ;
+        mrs:providedByService     <urn:ogf:network:aws.amazon.cloud:aws-cloud:ec2service+us-east-1> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:nic+eni-78334923> .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "0.0.0.0/0" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgewbt20:labelgroup+1762>
+        a              nml:LabelGroup ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1762" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-images-backup>
+        a       mrs:Bucket .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeFrom  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh7vjh0b:asn>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-asn" ;
+        mrs:value  "65000" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-9886da4d-26cf-4d21-855a-8d5f5ec19da3>
+        a            mrs:Volume ;
+        mrs:disk_gb  "12" ;
+        mrs:value    "standard" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.0.0/16" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgck8h7r:labelgroup+1723>
+        a              nml:LabelGroup ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1723" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1>
+        a                         nml:Topology ;
+        mrs:hasNetworkAddress     <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:networkaddress> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-vpngw> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-igw> ;
+        nml:hasService            <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingservice> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:switchingservice> .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016> ;
+        mrs:providesRoutingTable  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgewbt20>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgewbt20:customer_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgewbt20:amazon_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgewbt20:asn> ;
+        mrs:type               "direct-connect-vif" ;
+        mrs:value              "direct-connect-vif+private" ;
+        nml:hasLabelGroup      <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgewbt20:labelgroup+1762> ;
+        nml:name               "dxvif-fgewbt20" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281:route-0.0.0.00> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281:route-10.0.0.016> ;
+        mrs:providesRoutingTable  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-vpngw>
+        a         nml:BidirectionalPort ;
+        mrs:type  "vpn-gateway" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-igw> ;
+        mrs:routeTo  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00:routeto> .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:networkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-subnet1> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-subnet0> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "72.24.24.0/24" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync:label+1928>
+        a              nml:Label ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:value      "1928" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:instance+i-96aae36a:public-ip+52.1.201.146>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:public" ;
+        mrs:value  "52.1.201.146" .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016> ;
+        mrs:providesRoutingTable  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgck8h7r:amazon_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:amazon" ;
+        mrs:value  "10.10.0.2/30" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281:route-10.0.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.0.0/16" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-igw> ;
+        mrs:routeFrom  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij:label+1925>
+        a              nml:Label ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:value      "1925" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1>
+        a                         nml:Topology ;
+        mrs:hasNetworkAddress     <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:networkaddress> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-vpngw> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-igw> ;
+        nml:hasService            <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingservice> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:switchingservice> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:ebsservice+us-east-1>
+        a                   mrs:BlockStorageService ;
+        mrs:providesVolume  <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-709f7fc5-6fc5-4a8d-971f-334ef6731568> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-66ce8042-cbef-45d2-9eb1-373edee1125d> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-57ae4512> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-838451d8> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-f4fec3b6> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-9886da4d-26cf-4d21-855a-8d5f5ec19da3> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-b1ff81f6> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-7b4aed3e> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-98c5c051> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-99c5c050> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-c075d285> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:networkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeFrom  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeTo    <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37:asn>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-asn" ;
+        mrs:value  "65002" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgu827tp:customer_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:customer" ;
+        mrs:value  "10.10.0.1/24" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-igw> ;
+        mrs:routeTo  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00:routeto> .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-subnet1>
+        a                      mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-subnet1:networkaddress> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgu827tp>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgu827tp:customer_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgu827tp:amazon_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgu827tp:asn> ;
+        mrs:type               "direct-connect-vif" ;
+        mrs:value              "direct-connect-vif+private" ;
+        nml:hasLabelGroup      <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgu827tp:labelgroup+1763> ;
+        nml:name               "dxvif-fgu827tp" .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeFrom  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeTo    <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00:routeto> .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "0.0.0.0/0" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-vpngw>
+        a         nml:BidirectionalPort ;
+        mrs:type  "vpn-gateway" .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-subnet1>
+        a                      mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-subnet1:networkaddress> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-709f7fc5-6fc5-4a8d-971f-334ef6731568>
+        a            mrs:Volume ;
+        mrs:disk_gb  "12" ;
+        mrs:value    "standard" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-controller-full-backup-3>
+        a       mrs:Bucket .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-controller-full-backup>
+        a       mrs:Bucket .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync:labelgroup+1928>
+        a              nml:LabelGroup ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1928" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-igw> ;
+        mrs:routeFrom  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016:routeto> .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "72.24.24.0/24" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync:amazon_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:amazon" ;
+        mrs:value  "169.254.255.1/30" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgtwe3rq:asn>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-asn" ;
+        mrs:value  "65000" .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-c075d285>
+        a            mrs:Volume ;
+        mrs:disk_gb  "30" ;
+        mrs:value    "gp2" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgq55y0o>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgq55y0o:customer_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgq55y0o:amazon_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgq55y0o:asn> ;
+        mrs:type               "direct-connect-vif" ;
+        mrs:value              "direct-connect-vif+private" ;
+        nml:hasLabelGroup      <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgq55y0o:labelgroup+1926> ;
+        nml:name               "dxvif-fgq55y0o" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh7vjh0b:labelgroup+1721>
+        a              nml:LabelGroup ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1721" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-7b4aed3e>
+        a            mrs:Volume ;
+        mrs:disk_gb  "30" ;
+        mrs:value    "gp2" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:directconnect+us-east-1>
+        a                         nml:BidirectionalPort ;
+        nml:hasBidirectionalPort  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgq55y0o> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh14h1n6> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgck8h7r> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh7vjh0b> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgu827tp> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgxadync> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgtwe3rq> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgewbt20> .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-subnet0>
+        a                      mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-subnet0:networkaddress> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh7vjh0b:amazon_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:amazon" ;
+        mrs:value  "10.10.0.2/30" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh14h1n6:asn>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-asn" ;
+        mrs:value  "65000" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgtwe3rq:customer_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:customer" ;
+        mrs:value  "10.10.0.1/30" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:nic+eni-78334923:ip+10.0.1.137>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4:private" ;
+        mrs:value  "10.0.1.137" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingservice>
+        a                         mrs:RoutingService ;
+        mrs:providesRoute         <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024> ;
+        mrs:providesRoutingTable  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgu827tp:asn>
+        a          mrs:NetworkAddress ;
+        mrs:type   "bgp-asn" ;
+        mrs:value  "65000" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:gateway+igw-15891370>
+        a         nml:BidirectionalPort ;
+        mrs:type  "internet-gateway" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281:route-0.0.0.00> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281:route-10.0.0.016> ;
+        mrs:type      "main" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-subnet1:networkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.1.0/24" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "206.196.0.0/16" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:nic+eni-78334923>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:nic+eni-78334923:ip+10.0.1.137> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh14h1n6:customer_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:customer" ;
+        mrs:value  "10.10.0.1/24" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00>
+        a            mrs:Route ;
+        mrs:nextHop  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-igw> ;
+        mrs:routeTo  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh14h1n6>
+        a                      nml:BidirectionalPort ;
+        mrs:hasNetworkAddress  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh14h1n6:customer_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh14h1n6:amazon_ip> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh14h1n6:asn> ;
+        mrs:type               "direct-connect-vif" ;
+        mrs:value              "direct-connect-vif+private" ;
+        nml:hasLabelGroup      <urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh14h1n6:labelgroup+1761> ;
+        nml:name               "dxvif-fh14h1n6" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "72.24.24.0/24" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:networkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-vpngw>
+        a         nml:BidirectionalPort ;
+        mrs:type  "vpn-gateway" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        mrs:routeFrom  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024:routeto> .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:networkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-subnet1> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-subnet0> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgck8h7r:customer_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:customer" ;
+        mrs:value  "10.10.0.1/30" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-igw> ;
+        mrs:routeFrom  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016:routeto> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-subnet1:networkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.1.0/24" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-vpngw>
+        a         nml:BidirectionalPort ;
+        mrs:type  "vpn-gateway" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-838451d8>
+        a            mrs:Volume ;
+        mrs:disk_gb  "8" ;
+        mrs:value    "standard" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-subnet1>
+        a                      mrs:SwitchingSubnet ;
+        mrs:hasNetworkAddress  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-subnet1:networkaddress> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgu827tp:amazon_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:amazon" ;
+        mrs:value  "10.10.0.2/24" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-subnet0:networkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/24" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-f4fec3b6>
+        a            mrs:Volume ;
+        mrs:disk_gb  "8" ;
+        mrs:value    "standard" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016> ;
+        mrs:type      "main" .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main:route-0.0.0.00> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016> ;
+        mrs:type      "main" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgq55y0o:customer_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:customer" ;
+        mrs:value  "10.10.0.1/30" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016>
+        a            mrs:Route ;
+        mrs:nextHop  "local" ;
+        mrs:routeTo  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+elasticbeanstalk-us-east-1-873260731510>
+        a       mrs:Bucket .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-igw>
+        a         nml:BidirectionalPort ;
+        mrs:type  "internet-gateway" .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:cidr>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.0.1.0/24" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:ec2service+us-east-1>
+        a               mrs:HypervisorService ;
+        mrs:providesVM  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:instance+i-96aae36a> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgu827tp:labelgroup+1763>
+        a              nml:LabelGroup ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1763" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281:route-0.0.0.00:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" , "ipv4-prefix" ;
+        mrs:value  "0.0.0.0/0" .
+
+<urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "0.0.0.0/0" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgq55y0o:labelgroup+1926>
+        a              nml:LabelGroup ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1926" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgewbt20:customer_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:customer" ;
+        mrs:value  "10.10.0.1/24" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgewbt20:amazon_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:amazon" ;
+        mrs:value  "10.10.0.2/24" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh14h1n6:labelgroup+1761>
+        a              nml:LabelGroup ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "1761" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37:labelgroup+2002>
+        a              nml:LabelGroup ;
+        nml:labeltype  <http://schemas.ogf.org/nml/2012/10/ethernet#vlan> ;
+        nml:values     "2002" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020>
+        a                         nml:Topology ;
+        mrs:hasNetworkAddress     <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:cidr> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:aws.amazon.cloud:aws-cloud:gateway+vgw-ba28cbd3> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:gateway+igw-15891370> ;
+        nml:hasNode               <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1:instance+i-96aae36a> ;
+        nml:hasService            <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingservice> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:switchingservice> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:switchingservice>
+        a                   mrs:SwitchingService ;
+        mrs:providesSubnet  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-subnet0> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-subnet1> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "0.0.0.0/0" .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "206.196.0.0/16" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij:amazon_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:amazon" ;
+        mrs:value  "206.196.180.31/31" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/16" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpcservice+us-east-1>
+        a                mrs:VirtualCloudService ;
+        mrs:providesVPC  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1> .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1>
+        a                         nml:Topology ;
+        mrs:hasNetworkAddress     <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:networkaddress> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-vpngw> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-igw> ;
+        nml:hasService            <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingservice> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:switchingservice> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgq55y0o:amazon_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:amazon" ;
+        mrs:value  "10.10.0.2/30" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-66ce8042-cbef-45d2-9eb1-373edee1125d>
+        a            mrs:Volume ;
+        mrs:disk_gb  "12" ;
+        mrs:value    "standard" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fgdlk3ij:customer_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:customer" ;
+        mrs:value  "206.196.180.30/31" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281:route-10.0.0.016>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1> ;
+        mrs:routeTo    <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281:route-10.0.0.016:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vif+dxvif-fh0jle37:amazon_ip>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-address:amazon" ;
+        mrs:value  "10.20.2.6/29" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-57ae4512>
+        a            mrs:Volume ;
+        mrs:disk_gb  "2" ;
+        mrs:value    "standard" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016>
+        a            mrs:Route ;
+        mrs:nextHop  "local" ;
+        mrs:routeTo  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-main:route-10.1.0.016:routeto> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:volume+vol-98c5c051>
+        a            mrs:Volume ;
+        mrs:disk_gb  "10" ;
+        mrs:value    "standard" .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016:routeto>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix-list" ;
+        mrs:value  "206.196.0.0/16" .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-subnet0:networkaddress>
+        a          mrs:NetworkAddress ;
+        mrs:type   "ipv4-prefix" ;
+        mrs:value  "10.1.0.0/24" .
+
+<urn:ogf:network:aws.amazon.com:aws-cloud>
+        a                         nml:Topology ;
+        mrs:hasBucket             <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-controller-full-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-etc-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-twiki-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-controller-full-backup-3> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-svn-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+elasticbeanstalk-us-east-1-873260731510> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-controller-full-backup-2> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-images-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-ca-backup> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:aws.amazon.cloud:aws-cloud:directconnect+us-east-1> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-vpngw> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1-vpngw> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1-vpngw> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:gateway+vgw-ba28cbd3> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-vpngw> ;
+        nml:hasService            <urn:ogf:network:aws.amazon.cloud:aws-cloud:ec2service+us-east-1> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:s3service+us-east-1> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:ebsservice+us-east-1> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpcservice+us-east-1> ;
+        nml:hasTopology           <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1> , <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020> , <urn:ogf:network:service+e3760cef-66f9-4494-a826-7fe0a6f765a9:resource+virtual_clouds:tag+vpc1> .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-twiki-backup>
+        a       mrs:Bucket .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:s3service+us-east-1>
+        a                   mrs:ObjectStorageService ;
+        mrs:providesBucket  <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-controller-full-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-ca-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-controller-full-backup-2> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-controller-full-backup-3> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-svn-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-twiki-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+elasticbeanstalk-us-east-1-873260731510> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-etc-backup> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:bucket+max-sdnx-images-backup> .
+
+<urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1>
+        a                         nml:Topology ;
+        mrs:hasNetworkAddress     <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:networkaddress> ;
+        nml:hasBidirectionalPort  <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-vpngw> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1-igw> ;
+        nml:hasService            <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:routingservice> , <urn:ogf:network:service+733aef24-f716-45d9-b0a1-095185e46158:resource+virtual_clouds:tag+vpc1:switchingservice> .
+
+<urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0>
+        a             mrs:RoutingTable ;
+        mrs:hasRoute  <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-206.196.0.016> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-0.0.0.00> , <urn:ogf:network:service+7490f2f6-bed9-47e6-ab88-cd53b53e5988:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-72.24.24.024> ;
+        mrs:type      "local" .
+
+<urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281:route-0.0.0.00>
+        a              mrs:Route ;
+        mrs:nextHop    <urn:ogf:network:aws.amazon.cloud:aws-cloud:gateway+igw-15891370> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:gateway+vgw-ba28cbd3> ;
+        mrs:routeFrom  <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:subnet+subnet-a8a632f1> , <urn:ogf:network:aws.amazon.cloud:aws-cloud:gateway+vgw-ba28cbd3> ;
+        mrs:routeTo    <urn:ogf:network:aws.amazon.cloud:aws-cloud:vpc+vpc-45143020:routingtable+rtb-e4fec281:route-0.0.0.00:routeto> .
+
+<urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016>
+        a              mrs:Route ;
+        mrs:nextHop    "local" ;
+        mrs:routeFrom  <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1-subnet0> ;
+        mrs:routeTo    <urn:ogf:network:service+437be066-2183-4d03-adf5-f70ae539ed90:resource+virtual_clouds:tag+vpc1:routingtable-subnet0:route-10.1.0.016:routeto> .
