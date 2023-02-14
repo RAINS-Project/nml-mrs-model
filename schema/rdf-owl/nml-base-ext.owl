@@ -71,13 +71,9 @@
     <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/03/base#canProvidePort">
         <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/03/base#Service"/>
         <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Port"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#PortGroup"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#BidirectionalPort"/>
-                </owl:unionOf>
-            </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
     
@@ -87,16 +83,12 @@
 
     <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/03/base#encoding">
         <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Link"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#LinkGroup"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Port"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#PortGroup"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#BidirectionalPort"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#SwitchingService"/>
-                </owl:unionOf>
-            </owl:Class>
         </rdfs:domain>
     </owl:ObjectProperty>
     
@@ -116,12 +108,8 @@
     <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/03/base#hasInboundPort">
         <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/03/base#NetworkObject"/>
         <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Port"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#PortGroup"/>
-                </owl:unionOf>
-            </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
     
@@ -176,12 +164,8 @@
     <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/03/base#hasLink">
         <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/03/base#Group"/>
         <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Link"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#LinkGroup"/>
-                </owl:unionOf>
-            </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
 
@@ -210,12 +194,8 @@
     <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/03/base#hasOutboundPort">
         <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/03/base#NetworkObject"/>
         <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Port"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#PortGroup"/>
-                </owl:unionOf>
-            </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
     
@@ -226,12 +206,8 @@
     <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/03/base#hasPort">
         <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/03/base#Group"/>
         <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Port"/>
-                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#PortGroup"/>
-                </owl:unionOf>
-            </owl:Class>
+            <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Port"/>
+            <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#PortGroup"/>
         </rdfs:range>
     </owl:ObjectProperty>
     
@@ -308,12 +284,8 @@
     <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/03/base#isSink">
         <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/03/base#NetworkObject"/>
         <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Link"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#LinkGroup"/>
-                </owl:unionOf>
-            </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
     
@@ -324,12 +296,8 @@
     <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/03/base#isSource">
         <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/03/base#NetworkObject"/>
         <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Link"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#LinkGroup"/>
-                </owl:unionOf>
-            </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
     
@@ -381,13 +349,9 @@
     <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/03/base#providesLink">
         <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/03/base#Service"/>
         <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Link"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#LinkGroup"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#BidirectionalLink"/>
-                </owl:unionOf>
-            </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
     
@@ -398,12 +362,8 @@
     <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/03/base#providesPort">
         <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/03/base#Service"/>
         <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#Port"/>
                     <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/03/base#PortGroup"/>
-                </owl:unionOf>
-            </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
     
